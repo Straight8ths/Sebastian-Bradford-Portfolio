@@ -1,5 +1,3 @@
-**Graphic Design**
+# **App Icons**
 
-I've been studying and creating with visual media for some time now. 
-
-Projects in *graphic_design/* showcase my analytical instincts and artistic abilities. Enjoy!
+I'm fascinated in the design constraints of app icons, and how they act as small canvases that must still contain motion and intent. This is a collection of icons I've designed, along with names I would give to their corresponding software programs.
