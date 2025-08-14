@@ -14,3 +14,6 @@ Images and source files both included.
 
 - Fictional event posters
     - Stylistic variety, using design choices to advertise to radically different population groups. 
+
+- Government logo reworks
+    - A collection of government agency logos all designed according to a common (and harsh) constraint: _Convey to the user what the given agency does, using only circles and rounded rectangles._
