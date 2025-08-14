@@ -1,4 +1,4 @@
-# **Lambda Payment Processing**
+# Lambda Payment Processing
 
 <img width="400" height="200" alt="Image" src="https://github.com/user-attachments/assets/78479288-0b11-4342-ba9c-f8322375e48c" />
 
