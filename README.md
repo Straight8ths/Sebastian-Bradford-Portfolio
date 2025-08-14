@@ -11,5 +11,6 @@ Welcome! This repo is a curation of my skills, interests, and domains of experti
 
 Categories may be redefined and rescoped as projects are added.
 
-*Thank you,*
-***Sebastian***
+
+### Thank you,
+Sebastian
