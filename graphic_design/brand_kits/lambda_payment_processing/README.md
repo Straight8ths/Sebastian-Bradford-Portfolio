@@ -11,6 +11,6 @@
 
 **Design Tactics**
 - Flat sheets of color which are sculpted at hard angles.
-- Name and logo drawn from higher mathematics to make users feel like they are intelligent hands.
+- Name and logo drawn from higher mathematics to make users feel like they are in intelligent hands.
 - Monospaced font to rope in the _coder_ demographic.
 - Reductive, minimalist advertising focusing on single-sentence pitches.
