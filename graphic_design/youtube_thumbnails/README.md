@@ -4,8 +4,6 @@ A collection of thumbnails I designed for fictional videos, exploring the moods 
 
 As an additional challenge, I recreated all the standard YouTube "chrome" you see here (timestamps, layout, typography) by studying the real YouTube UI.
 
-_Video titles and channel names are intended to be wholly fictional. Any resemblance to existing content is accidental and not intended._
-
 <img width="570" height="180" alt="Image" src="https://github.com/user-attachments/assets/534b1bda-1876-4f73-a079-6267672d245b" />
 
 <img width="570" height="180" alt="Image" src="https://github.com/user-attachments/assets/6c978bdf-97f5-4991-82de-99311ca624ad" />
