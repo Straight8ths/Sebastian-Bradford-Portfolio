@@ -20,3 +20,6 @@ Images and source files both included.
 
 - Government logo reworks
     - A collection of government agency logos all designed according to a common (and harsh) constraint: _Convey to the user what the given agency does, using only circles and rounded rectangles._
+
+- YouTube Thumbnails
+    - A collection of thumbnails for fictional videos, aiming to capture and emulate the wide variety of **presentation styles** and **target emotions** within modern social media.
