@@ -13,3 +13,5 @@ _Video titles and channel names are intended to be wholly fictional. Any resembl
 <img width="570" height="180" alt="Image" src="https://github.com/user-attachments/assets/d4e81928-a8d4-4b40-a65e-3e155ce32b72" />
 
 <img width="570" height="180" alt="Image" src="https://github.com/user-attachments/assets/5630c313-88cb-4788-81cc-b5f2a55949cf" />
+
+<img width="570" height="180" alt="Image" src="https://github.com/user-attachments/assets/ca36daba-0899-44af-b89c-b44f7ff3c754" />
