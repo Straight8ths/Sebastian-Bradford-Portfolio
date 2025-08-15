@@ -1,6 +1,6 @@
 # **YouTube Thumbnails**
 
-A collection of thumbnails for fictional videos, exploring the moods and visual subgenres present in modern social media. Spans technical essays, casual uploads, and those in between.
+A collection of thumbnails I designed for fictional videos, exploring the moods and visual subgenres present in modern social media. Spans technical essays, casual uploads, and those in between.
 
 As an additional challenge, I recreated all the standard YouTube "chrome" (timestamps, layout, typography) by studying the real YouTube UI.
 
