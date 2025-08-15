@@ -10,6 +10,7 @@ Welcome! This repo is a curation of my skills, interests, and domains of experti
     - Component studies
     - Event posters
     - Government logo reworks
+    - YouTube thumbnails
 
 Categories may be redefined and rescoped as projects are added.
 
