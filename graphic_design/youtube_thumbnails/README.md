@@ -12,6 +12,8 @@ As an additional challenge, I recreated all the standard YouTube "chrome" you se
 
 <img width="570" height="180" alt="Image" src="https://github.com/user-attachments/assets/d4e81928-a8d4-4b40-a65e-3e155ce32b72" />
 
+<img width="570" height="180" alt="Image" src="https://github.com/user-attachments/assets/98339ac3-55dc-443b-b28f-9413383e7b3b" />
+
 <img width="570" height="180" alt="Image" src="https://github.com/user-attachments/assets/a3e2f3cb-82fa-4ac3-a68b-afae9b192a2c" />
 
 <img width="570" height="180" alt="Image" src="https://github.com/user-attachments/assets/5630c313-88cb-4788-81cc-b5f2a55949cf" />
@@ -25,5 +27,3 @@ As an additional challenge, I recreated all the standard YouTube "chrome" you se
 <img width="570" height="180" alt="Image" src="https://github.com/user-attachments/assets/d0e10922-c928-4644-b8a9-3e7fdf202ec0" />
 
 <img width="570" height="180" alt="Image" src="https://github.com/user-attachments/assets/6a8110ea-222b-419b-9677-6808d437a43d" />
-
-<img width="570" height="180" alt="Image" src="https://github.com/user-attachments/assets/98339ac3-55dc-443b-b28f-9413383e7b3b" />
