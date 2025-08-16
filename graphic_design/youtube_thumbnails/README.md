@@ -17,3 +17,5 @@ As an additional challenge, I recreated all the standard YouTube "chrome" you se
 <img width="570" height="180" alt="Image" src="https://github.com/user-attachments/assets/ca36daba-0899-44af-b89c-b44f7ff3c754" />
 
 <img width="570" height="180" alt="Image" src="https://github.com/user-attachments/assets/d3f93274-fc6e-4803-8f37-1de447e2af1e" />
+
+<img width="570" height="180" alt="Image" src="https://github.com/user-attachments/assets/d0e10922-c928-4644-b8a9-3e7fdf202ec0" />
