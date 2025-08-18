@@ -2,7 +2,7 @@
 
 An ongoing collection of icons, designed to embody the various categories of apps that exist in our world.
 
-<img width="6250" height="4750" alt="Image" src="https://github.com/user-attachments/assets/3e3a3f6d-d50b-4280-8652-c88afa7f730e" />
+<img width="6250" height="4750" alt="Image" src="https://github.com/user-attachments/assets/e4dd7eae-d283-41b0-9459-0ed94ad9cb79" />
 
 Given that an app's icon is the first thing seen by a new user, there is tremendous psychological and experiential weight placed on the role of the icon. Icons not only demonstrate to users how the given app will "treat them", but also displays the _mindset_ that the user should be in when interacting with the app. For instance, the icons for meditation apps prepare us for a mindset of calmness, and the icons for fitness apps prepare us for a mindset of exertion.
 
