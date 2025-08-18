@@ -14,7 +14,7 @@ _**One-liner:** A hip beverage company specializing in clean, feelgood drinks ac
 **Design Tactics**
 - All main surfaces are smooth and easy to trace with the eye.
 - Company name drawn from the practice of meditation, in order to focus on inquisitive, health-conscious customers.
-- Gentle gradients across colors which are non-confrontational, liked to the sensation of smooth, deep breaths.
+- Gentle gradients across colors which are non-confrontational, likened to the sensation of smooth, deep breaths.
 - All flavor logos are kept as circles to maintain an image of unity.
 
 ## Billboard
