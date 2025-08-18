@@ -10,7 +10,7 @@ Images and source files both included.
     - Designed to explore the temperaments and personalities of various app genres (e.g. Fitness, productivity, etc.)
 
 - Branding kits
-    - Business cards, billboard ads, web templates, app tiles, etc.
+    - Various marketing materials created for fictional businesses, with explanations of the interplay between company personalities and design choices.
 
 - Component studies
     - Exploring the functions and limits of core design elements.
