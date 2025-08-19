@@ -4,7 +4,6 @@ Welcome! This repo is a curation of my skills, interests, and domains of experti
 
 ## **Broad Categories**
 
-- Graphic Design
 	- App icons
     - Branding kits
     - Component studies
@@ -13,7 +12,6 @@ Welcome! This repo is a curation of my skills, interests, and domains of experti
     - YouTube thumbnails
 
 Categories may be redefined and rescoped as projects are added.
-
 
 ### Thank you,
 Sebastian
