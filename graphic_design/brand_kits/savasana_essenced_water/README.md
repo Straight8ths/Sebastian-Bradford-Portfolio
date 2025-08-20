@@ -4,7 +4,7 @@
 
 ## Overview
 
-_**One-liner:** A hip beverage company specializing in clean, feelgood drinks across a standard flavor palate._
+_**One-liner:** A hip beverage company specializing in clean, feelgood drinks across a standard flavor palette._
 
 **Business Personality**
 - Full focus on a smooth customer experience, and the sustaining of "good vibes" all the way from purchase to consumption.
