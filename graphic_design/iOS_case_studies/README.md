@@ -1,4 +1,4 @@
-## iOS Case Studies
+# iOS Case Studies
 
 A collection of observations, questions, and thought-starters with respect to the design elements present in my trusty old iPhone X (iOS 16.7.11).
 
