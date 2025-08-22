@@ -19,7 +19,7 @@ I went looking for a flat-terminal battery icon in the SF Symbols library, but c
 
 <img width="1000" height="152" alt="Image" src="https://github.com/user-attachments/assets/ec2b844e-b695-4ac4-bbd7-d79723cd378c" />
 
-This makes me curious where the old icon went. Given the resolution of the iPhone X's screen, I doubt that this discrepancy is related to the scaling of icons. To double-check, I zoomed in even farther on the flat-topped battery on the Low Power tile, and checked the individual color values on the pixels directly adjacent to the right edge of the terminal, but they were identical to the background color of the tile (minor RGB differences accounting for the tile's blur). This means that my own eyesight is likely not the issue. I believe the rounded edge is simply not there.
+This makes me curious where the old icon went. Given the resolution of the iPhone X's screen, I doubt that this discrepancy is related to the scaling of icons. To double-check, I zoomed in even farther on the flat-topped battery on the Low Power tile, and checked the individual color values on the pixels directly adjacent to the right edge of the terminal, but they were identical to the background color of the tile (minor RGB differences accounting for the tile's blur).
 
 <img width="675" height="806" alt="Image" src="https://github.com/user-attachments/assets/bcb7ceba-ccd9-4191-96b0-853c3a92bf55" />
  
