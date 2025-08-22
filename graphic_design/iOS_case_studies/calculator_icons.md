@@ -19,6 +19,6 @@
 <img width="750" height="482" alt="Image" src="https://github.com/user-attachments/assets/56ec55d0-badd-4c4d-90b2-7062d40bf794" />
 
 ## Geometry Differences:
-In this image, the two red regions are identical in size, yet the right-hand region does not fully cover the Calculator icon. The height difference is illustrated by the dotted rectangle at the top-left.
+In this image, the two pale-red regions are identical in size, yet the right-hand region does not fully cover the Calculator icon. The height difference is illustrated by the dotted dark-red rectangle at the top-left.
 
 <img width="750" height="555" alt="Image" src="https://github.com/user-attachments/assets/7aecece2-7553-478e-8c38-1a30bbc1c001" />
