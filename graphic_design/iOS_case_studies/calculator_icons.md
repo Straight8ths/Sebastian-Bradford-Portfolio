@@ -2,7 +2,7 @@
 
 **Observation:** The calculator app's icon is not identical to the icon used in the Calculator tile in Control Center.
 - The Control Center calculator has a shorter screen
-- Across the two instances, the calculator's body is shown with two different geometries. The Control Center calculator is shorter than the calculator on the app icon.
+- Across the two instances, the calculator's body is shown with two different geometries. The Control Center calculator is shorter than the Calculator app icon.
 
 ## References:
 
@@ -14,7 +14,7 @@
 
 <img width="400" height="400" alt="Image" src="https://github.com/user-attachments/assets/ad9c4983-4adb-46a7-b343-e88659ee989d" />
 
-## Comparison:
+## Screen Height Comparison:
 
 <img width="750" height="482" alt="Image" src="https://github.com/user-attachments/assets/56ec55d0-badd-4c4d-90b2-7062d40bf794" />
 
