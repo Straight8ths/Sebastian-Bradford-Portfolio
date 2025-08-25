@@ -1,7 +1,7 @@
 # Learning Jazz with Excel
 
 ## Overview:
-Using Excel to apply rules to a genre known for its expressivity.
+Using Excel to apply rules to a genre known for its rulebreaking.
 
 _This write-up contains concepts drawing from advanced music theory and jazz composition. Efforts have been made to distill the language and make it accessible for all audiences regardless of experience level._
 
