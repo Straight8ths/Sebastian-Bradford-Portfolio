@@ -22,4 +22,4 @@ A similar phenomenon is observed on the bottom set of ticks, although the spacin
 
 Interestingly, the central dotted line of the icon _does_ happen to maintain perfect spacing across its elements.
 
-<img width="1300" height="274" alt="Image" src="https://github.com/user-attachments/assets/63464a46-5d51-4f84-a5a8-63ba993d4b61" />
+<img width="1300" height="271" alt="Image" src="https://github.com/user-attachments/assets/a1d75593-953f-4e7a-9972-3d435bdf62b5" />
