@@ -2,7 +2,7 @@
 
 ## Observation
 
-The top set of ticks on the icon are not evenly spaced with respect to each other.
+The sets of ticks on the Measure icon are not evenly spaced with respect to the other members of each set.
 
 ## Reference
 
