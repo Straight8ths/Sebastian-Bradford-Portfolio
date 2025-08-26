@@ -31,6 +31,8 @@ After that came conditional formatting such that whenever the _r_ variable becom
 
 Finally, I wired the first row of the table to accept input from two cells representing _m_ and _n_. The result is a fully-functional visualization of the algorithm.
 
+In the attached workbook, extra space has been added to test large inputs.
+
 <img width="500" height="288" alt="Image" src="https://github.com/user-attachments/assets/d975fca5-d611-46eb-84d7-7f85b4f45528" />
 
 <img width="500" height="288" alt="Image" src="https://github.com/user-attachments/assets/f2a9315b-695a-4356-89e5-9ab49ef0579b" />
