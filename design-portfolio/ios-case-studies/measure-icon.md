@@ -10,4 +10,4 @@ The top set of ticks on the icon are not evenly spaced with respect to each othe
 
 ## Close-Up
 
-<img width="1441" height="811" alt="Image" src="https://github.com/user-attachments/assets/d25217d2-7494-4c0f-b02e-d903d4fba6ba" />
+<img width="1400" height="789" alt="Image" src="https://github.com/user-attachments/assets/3e53aa4a-174c-46b0-b00a-70093fc521c3" />
