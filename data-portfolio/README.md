@@ -6,7 +6,7 @@ Source files included.
 
 ## **Index**
 
-- **Conditional Formatting as a Art Engine**
+- **Conditional Formatting as an Art Engine**
     - Using Excel's surprisingly powerful conditional formatting engine to make algorithmic art.
 
 - **Euclid in Excel feat. Don Knuth**
