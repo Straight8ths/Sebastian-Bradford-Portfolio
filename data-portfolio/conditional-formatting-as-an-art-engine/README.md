@@ -4,7 +4,7 @@ A quirky take on algorithmic art.
 
 ## Overview
 
-_"Conditional Formatting" hereafter referred to as "CF"_
+### _"Conditional Formatting" hereafter referred to as "CF"_
 
 After years of using Excel as my daily driver, I am continually impressed by the strength of the program's conditional formatting engine. This capability allows the user to change the appearance of cells in their workbook only if the cells in question meet certain criteria. Often, we might hardcode a certain number value as a formatting rule, and change the fill color of cells that are above or below that value.
 
