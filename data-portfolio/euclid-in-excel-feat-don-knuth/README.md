@@ -15,4 +15,9 @@ In section 1.2.1, Knuth outlines an extended version of Euclid's famous GDC algo
 
 Knuth goes on to describe each step in this algorithm, with the inclusion of other variables _c_, _q_, _r_, _t_, _a'_, and _b'_.
 
-- "E1. [Initialize] Set _a'_ <- _b_ <- 1, _a_ <- _b'_ <- 0, _c_ <- _m_, _d_ <- _n_
+>
+"E1. [Initialize] Set _a'_ <- _b_ <- 1, _a_ <- _b'_ <- 0, _c_ <- _m_, _d_ <- _n_." (Knuth 14)
+"E2. [Divide] Let _q_ and _r_ be the quotient and remainder, respectively, of _c_ divided by _d_. (We have _c_ = _qd_ + _r_ and 0 ≤ _r_ < _d_.)"
+"E3. [Remainder zero?] If r = 0, the algorithm terminates; we have in this case am + bn = d as desired.
+"E4. [Recycle] Set c <- d, d <- r, t <- a', a' <- a, a <- t - qa, t <- b', b' <- b, b <- t - qb, and go back to E2."
+- (Knuth 14)
