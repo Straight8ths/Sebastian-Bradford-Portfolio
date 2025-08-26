@@ -21,7 +21,7 @@ Following are my chosen steps to making art with CF. This not any kind of "optim
     - Section off a block of blank cells by adding an "outside" border to that range.
 
 - **Implement randomness**
-    - I highly recommend using Excel's randomness capabilities in conjunction with CF, because random-based formulas will recalculate every time the sheet is refreshed. This means that the user can motion and animation to their art to make it dynamically responsive.
+    - I highly recommend using Excel's randomness capabilities in conjunction with CF, because random-based formulas will recalculate every time the sheet is refreshed. This means that the user can add motion and animation to their art to make it dynamically responsive.
     - Apply the RANDBETWEEN function over any desired ranges of cells we want, so that these cells will consistently produce new values in our chosen range every time the sheet is refreshed.
 
 - **Prevent the numbers from appearing inside the cells**
