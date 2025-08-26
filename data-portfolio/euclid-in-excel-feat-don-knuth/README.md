@@ -8,4 +8,5 @@ I am continually humbled whenever I read anything written by Donald Knuth. His t
 
 _Material from the text is displayed here for educational and non-commercial use only._
 
-In section 1.2.1, Knuth 
+In section 1.2.1, Knuth outlines an extended version of Euclid's famous GDC algorithm. He writes the following:
+- "Given two positive integers m and n, we compute their greatest common divisor d, and we also compute two not-necessarily-positive integers and b such that am + bn = d." (Knuth 13)
