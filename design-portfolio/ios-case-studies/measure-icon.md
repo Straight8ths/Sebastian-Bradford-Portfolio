@@ -8,7 +8,7 @@ The sets of ticks on the Measure icon are not evenly spaced with respect to the 
 
 <img width="400" height="400" alt="Image" src="https://github.com/user-attachments/assets/983323c9-cb78-4ff0-b730-8522d003f337" />
 
-## Close-Up (Top Ticks)
+## Close-Up (Top Ticks
 
 <img width="1300" height="733" alt="Image" src="https://github.com/user-attachments/assets/3e53aa4a-174c-46b0-b00a-70093fc521c3" />
 
