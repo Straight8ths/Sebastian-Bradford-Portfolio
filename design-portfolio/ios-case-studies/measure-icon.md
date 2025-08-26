@@ -17,3 +17,9 @@ The sets of ticks on the Measure icon are not evenly spaced with respect to the 
 A similar phenomenon is observed on the bottom set of ticks, although the spacing differences are not distributed in the same relative locations, which leads me to believe this is not an artifact of icon size scaling.
 
 <img width="1300" height="741" alt="Image" src="https://github.com/user-attachments/assets/d7cdd896-99bb-4cce-b0d5-3fdf2853d25d" />
+
+## Center Line
+
+Interestingly, the central dotted line of the icon _does_ happen to maintain perfect spacing across its elements.
+
+<img width="1300" height="274" alt="Image" src="https://github.com/user-attachments/assets/63464a46-5d51-4f84-a5a8-63ba993d4b61" />
