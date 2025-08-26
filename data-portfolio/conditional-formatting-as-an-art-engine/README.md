@@ -43,4 +43,10 @@ The following beach scene was made by yours truly, using various blocks of cells
 - A block of cells to represent the _sun_, with their colors randomly cycling across a _yellow gradient._
 - A block of cells to represent the _birds_, with CF rules applied such that their top corners would either be highlighted or not, giving the illusion of bird wings appearing and disappearing from sight.
 
+<img width="400" height="250" alt="Image" src="https://github.com/user-attachments/assets/e96fb603-cc6b-41aa-8b72-773ce140fa53" />
 
+<img width="400" height="250" alt="Image" src="https://github.com/user-attachments/assets/ba3fbfe2-441a-49be-a07f-c9843d5d6b2a" />
+
+<img width="400" height="250" alt="Image" src="https://github.com/user-attachments/assets/cb615946-a351-4076-9feb-922b01ef5d0b" />
+
+<img width="400" height="250" alt="Image" src="https://github.com/user-attachments/assets/c04882f3-c086-4245-9602-e35ff68cb523" />
