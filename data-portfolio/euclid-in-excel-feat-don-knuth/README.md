@@ -25,3 +25,9 @@ Knuth goes on to describe each step in this algorithm, with the inclusion of oth
 
 He concludes with an example calculation of the GCD of two integers, and a short table showing the progression of each variable's value as the algorithm continues. Upon seeing this, I wanted to take Knuth's concept farther and make a dynamic calculation tool where the user can see this progression across any GCD calculation.
 
+After reading and rereading the above passage, I made an Excel workbook in the style of Knuth's table, where each variable occupies its own column, and the table progresses downward with reference to the prior row. From there came the tedious portion of writing formulas governing each variable's column, taken from subsection E4.
+
+After that came conditional formatting such that whenever the _r_ variable becomes zero, the surrounding row is highlighted in green, and the cell for variable _d_ is emphasized. I also added IFERROR clauses to each column of formulas to reduce the visual clutter that would otherwise happen as the algorithm peters out.
+
+Finally, I wired the first row of the table to accept input from two cells representing _m_ and _n_. The result is a fully-functional visualization of the algorithm.
+
