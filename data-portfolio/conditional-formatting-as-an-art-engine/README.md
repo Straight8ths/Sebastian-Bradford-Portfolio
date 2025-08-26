@@ -38,7 +38,7 @@ Following are my chosen steps to making art with CF. This not any kind of "optim
 
 ## Proof of concept
 
-The following beach scene was made by yours truly, using various blocks of cells containing RANDBETWEEN functions.
+The following multi-frame beach scene was made by yours truly, using various blocks of cells containing RANDBETWEEN functions.
 - A block of cells to represent the _water_, with their colors randomly cycling across a _blue gradient_ based on the (invisible) values of their cells.
 - A block of cells to represent the _sun_, applying a _yellow gradient_ the same as above.
 - A block of cells to represent _seagulls_, with CF rules applied such that the cells' top corners would either be bordered or not, giving the illusion of bird wings appearing and disappearing from sight.
