@@ -10,7 +10,7 @@ Source files included.
     - Using Excel's surprisingly powerful conditional formatting engine to make algorithmic art.
 
 - **Euclid in Excel feat. Don Knuth**
-    - My port of Euclid's GDC algorithm into a spreadsheet, with a view into each step of the algorithm.
+    - My port of Euclid's GCD algorithm into a spreadsheet, with a view into each step of the algorithm.
     - Includes an algorithmic derivation taken from Don Knuth's _Art of Computer Programming Vol. 1_, used here for **educational and non-commercial purposes.**
 
 - **Learning Jazz with Excel**

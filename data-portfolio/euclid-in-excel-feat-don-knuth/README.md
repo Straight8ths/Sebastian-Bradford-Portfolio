@@ -23,4 +23,5 @@ Knuth goes on to describe each step in this algorithm, with the inclusion of oth
 
 > "E4. [Recycle] Set c <- d, d <- r, t <- a', a' <- a, a <- t - qa, t <- b', b' <- b, b <- t - qb, and go back to E2." (Knuth 14)
 
-He concludes with an example calculation of the GCD of two integers, and a short table showing the progression of each variable's value as the algorithm continues. Upon seeing this, I wanted to take Knuth's concept farther and make a dynamic calculation tool where the user can see this progression across any GCD calculation
+He concludes with an example calculation of the GCD of two integers, and a short table showing the progression of each variable's value as the algorithm continues. Upon seeing this, I wanted to take Knuth's concept farther and make a dynamic calculation tool where the user can see this progression across any GCD calculation.
+
