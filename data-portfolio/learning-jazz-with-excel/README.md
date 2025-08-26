@@ -13,6 +13,6 @@ of intervals present within it. If we imagine a chord as if it's a building, eac
 
 Intervals are given names according to the size of the gap they represent. In western music, an interval's name traditionally has two parts. The first part is an adjective such as "major", "minor", "diminished", "augmented" etc. The second part is a number explaining the interval's size. When we put these two parts together, we form names such as "major third" or "minor sixth".
 
-Because of the way the human brain is wired, certain intervals between notes sound more harmonious than others. Moreover, across the various musical traditions of the world, the same interval could be perceived in multiple ways, either as consonant or not. Therefore, we need to clarify that this exploration is intentionally focused on the tradition of jazz, and the widely-accepted frameworks present within that genre.
+Because of the way the human brain is wired, certain intervals between notes sound more harmonious than others. Moreover, across the various musical traditions of the world, the same interval could be perceived in multiple ways, either as consonant or not. Therefore, we need to clarify that this exploration is intentionally focused on the tradition of jazz, and the widely-accepted frameworks present within that genre specifically.
 
 Jazz is often talked about in terms of its "expressivity" and broad emotional palette.
