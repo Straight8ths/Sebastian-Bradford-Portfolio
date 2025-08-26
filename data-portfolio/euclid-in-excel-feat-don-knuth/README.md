@@ -10,7 +10,7 @@ I am continually humbled whenever I read anything written by Donald Knuth. His t
 
 ### _Material from the text is displayed here for educational and non-commercial use only._
 
-In section 1.2.1, Knuth outlines an extended version of Euclid's famous GDC algorithm. He writes the following:
+In section 1.2.1, Knuth outlines an extended version of Euclid's famous GCD algorithm. He writes the following:
 - "Given two positive integers _m_ and _n_, we compute their greatest common divisor _d_, and we also compute two not-necessarily-positive integers _a_ and _b_ such that _am_ + _bn_ = _d_." (Knuth 13)
 
 Knuth goes on to describe each step in this algorithm, with the inclusion of other variables _c_, _q_, _r_, _t_, _a'_, and _b'_.
@@ -22,3 +22,5 @@ Knuth goes on to describe each step in this algorithm, with the inclusion of oth
 > "E3. [Remainder zero?] If r = 0, the algorithm terminates; we have in this case am + bn = d as desired. (Knuth 14)
 
 > "E4. [Recycle] Set c <- d, d <- r, t <- a', a' <- a, a <- t - qa, t <- b', b' <- b, b <- t - qb, and go back to E2." (Knuth 14)
+
+He concludes with an example calculation of the GCD of two integers, and a short table showing the progression of each variable's value as the algorithm continues. Upon seeing this, I wanted to take Knuth's concept farther and make a dynamic calculation tool where the user can see this progression across any GCD calculation
