@@ -14,6 +14,15 @@ Therefore, because we simultaneously have a palette of rule styles to choose fro
 
 Following are my chosen steps to making art with CF. This not any kind of "optimal" method, and the user can follow any steps they wish. The steps below are merely here for inspiration.
 
+- Disable gridlines to create blank space
+    - "View" ribbon -> Toggle "Gridlines" off.
+
 - Create the "canvas"
-    - subitem
+    - Section off a block of blank cells by adding an "outside" border to that range.
+
+- Implement randomness
+    - I highly recommend using Excel's randomness capabilities in conjunction with CF, because random-based formulas will recalculate every time the sheet is refreshed. This means that the user can motion and animation to their art to make it dynamically responsive.
+    - 
+
+
 
