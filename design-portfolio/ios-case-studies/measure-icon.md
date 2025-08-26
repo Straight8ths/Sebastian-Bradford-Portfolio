@@ -12,7 +12,7 @@ The top set of ticks on the icon are not evenly spaced with respect to each othe
 
 <img width="1300" height="733" alt="Image" src="https://github.com/user-attachments/assets/3e53aa4a-174c-46b0-b00a-70093fc521c3" />
 
-## Close-UP (Bottom Ticks)
+## Close-Up (Bottom Ticks)
 
 A similar phenomenon is observed on the bottom set of ticks, although the spacing differences are not distributed in the same relative locations, which leads me to believe this is not an artifact of icon size scaling.
 
