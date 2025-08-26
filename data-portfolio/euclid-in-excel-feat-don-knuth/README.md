@@ -30,3 +30,12 @@ After reading and rereading the above passage, I made an Excel workbook in the s
 After that came conditional formatting such that whenever the _r_ variable becomes zero, the surrounding row is highlighted in green, and the cell for variable _d_ is emphasized. I also added =IFERROR clauses to each column of formulas to reduce the visual clutter that would otherwise happen as the algorithm peters out and certain cells start to throw errors.
 
 Finally, I wired the first row of the table to accept input from two cells representing _m_ and _n_. The result is a fully-functional visualization of the algorithm.
+
+<img width="500" height="288" alt="Image" src="https://github.com/user-attachments/assets/d975fca5-d611-46eb-84d7-7f85b4f45528" />
+
+<img width="500" height="288" alt="Image" src="https://github.com/user-attachments/assets/f2a9315b-695a-4356-89e5-9ab49ef0579b" />
+
+<img width="500" height="288" alt="Image" src="https://github.com/user-attachments/assets/1800e8aa-10cb-45f2-9784-697b1d8360b7" />
+
+<img width="500" height="288" alt="Image" src="https://github.com/user-attachments/assets/75cd64df-c950-4d84-bcdd-bafcec02e47f" />
+
