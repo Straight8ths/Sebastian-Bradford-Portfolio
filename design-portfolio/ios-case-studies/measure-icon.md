@@ -4,7 +4,9 @@
 
 The top set of ticks on the icon are not evenly spaced with respect to each other.
 
-<img width="760" height="760" alt="Image" src="https://github.com/user-attachments/assets/983323c9-cb78-4ff0-b730-8522d003f337" />
+## Reference
+
+<img width="400" height="400" alt="Image" src="https://github.com/user-attachments/assets/983323c9-cb78-4ff0-b730-8522d003f337" />
 
 ## Close-Up
 
