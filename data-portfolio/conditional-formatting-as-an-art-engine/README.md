@@ -15,4 +15,5 @@ Therefore, because we simultaneously have a palette of rule styles to choose fro
 Following are my chosen steps to making art with CF. This not any kind of "optimal" method, and the user can follow any steps they wish. The steps below are merely here for inspiration.
 
 - Create the "canvas"
-    - 
+    - subitem
+
