@@ -12,7 +12,7 @@ I've nicknamed the two versions I've come across as "sparse" and "dense" based o
 
 ## Icon Locations
 
-After looking everywhere I could find, I found the AQI icon represented in five locations:
+After looking everywhere I could think to look, I found the AQI icon represented in five locations:
 - A customization option for the lock screen
 - The main "Air Quality" pane inside the Weather app
 - The top of the window which opens when the "Air Quality" pane is clicked
