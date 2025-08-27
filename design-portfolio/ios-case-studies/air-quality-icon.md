@@ -8,7 +8,7 @@ The icon used to represent the Air Quality Index (AQI) appears in multiple state
 
 I've nicknamed the two versions I've come across as "sparse" and "dense" based on how the icon's circles are sized.
 
-<img width="700" height="370" alt="Image" src="https://github.com/user-attachments/assets/cec16b5f-8f74-4b3a-bb04-f7874deb674c" />
+<img width="700" height="369" alt="Image" src="https://github.com/user-attachments/assets/8e932068-4cfc-4a69-8a5e-9144c6335f4c" />
 
 ## Icon Locations
 
