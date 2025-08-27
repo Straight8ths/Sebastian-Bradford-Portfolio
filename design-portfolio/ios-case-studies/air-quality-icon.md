@@ -2,7 +2,7 @@
 
 ## Observation
 
-The icon used to represent the Air Quality Index (AQI) appears in multiple states across iOS, and one of these states is only used once.
+The icon used to represent the Air Quality Index (AQI) appears in two different states across iOS, and for one of these states, I could only find one instance of use.
 
 ## Icon Versions
 
