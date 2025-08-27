@@ -19,6 +19,6 @@ After looking everywhere I could think to look, I found the AQI icon represented
 - The location pointer within the "map" view of the Weather app
 - The multi-way menu for how to customize the "map" mode mentioned above
 
-Of these four, _only the final location features the "dense" configuration of the icon_. This is interesting because in all cases, the AQI icon appears at _the same very-small size_. If there were any windows featuring a larger-sized icon, that would certainly merit the inclusion of the additional icon in its "dense" configuration with its extra visual flare. But given these examples, I am curious as to why two icons were chosen for similar circumstances with similar size requirements.
+Of these five, _only the final location features the "dense" configuration of the icon_. This is interesting because in all cases, the AQI icon appears at _the same very-small size_. If there were any windows featuring a larger-sized icon, that would certainly merit the inclusion of the additional icon in its "dense" configuration with its extra visual flare. But given these examples, I am curious as to why two icons were chosen for similar circumstances with similar size requirements.
 
 <img width="1300" height="548" alt="Image" src="https://github.com/user-attachments/assets/2b25e39f-196b-4b2a-a969-947f97ca3ed2" />
