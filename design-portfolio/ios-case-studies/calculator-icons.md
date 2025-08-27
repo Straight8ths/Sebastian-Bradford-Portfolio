@@ -1,6 +1,6 @@
 # Calculator Icons
 
-**Observation:** The calculator app's icon is not identical to the icon used in the Calculator tile in Control Center.
+**Observation:** The Calculator app's icon is not identical to the icon used in the Calculator tile in Control Center.
 - The Control Center calculator has a shorter screen
 - Across the two instances, the calculator's body is shown with two different geometries. The Control Center calculator is shorter than the Calculator app icon.
 
