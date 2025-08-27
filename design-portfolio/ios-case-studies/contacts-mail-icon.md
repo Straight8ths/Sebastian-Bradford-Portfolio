@@ -2,7 +2,7 @@
 
 ## Observations
 
-When selecting an individual contact, the envelope shown on the "mail" option is not of the same aspect ratio as the envelope on the Mail app itself.
+When selecting an individual contact in the Contacts app, the envelope shown on the "mail" option is not of the same aspect ratio as the envelope on the Mail app itself.
 
 ## References
 
