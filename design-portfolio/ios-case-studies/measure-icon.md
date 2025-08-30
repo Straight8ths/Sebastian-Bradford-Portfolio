@@ -14,7 +14,7 @@ For the two sets of white tick marks on the Measure app icon, neither set mainta
 
 ## Close-Up (Bottom Ticks)
 
-A similar phenomenon is observed on the bottom set of ticks, although the spacing differences are not distributed in the same relative locations, which leads me to believe this is not an artifact of icon size scaling.
+A similar phenomenon is observed on the bottom set of ticks, although the spacing differences are not distributed in the same relative locations, which leads me to believe this is not an artifact of icon size scaling or rasterization.
 
 <img width="1300" height="741" alt="Image" src="https://github.com/user-attachments/assets/9c44c8b2-3b3a-45a3-9d31-f1d6f82dec50" />
 
