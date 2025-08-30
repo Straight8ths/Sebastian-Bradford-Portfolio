@@ -2,7 +2,7 @@
 
 ## Observation
 
-The sets of ticks on the Measure icon are not evenly spaced with respect to the other members of each set.
+For the two sets of white tick marks on the Measure app icon, neither set maintains perfect tick spacing.
 
 ## Reference
 
