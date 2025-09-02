@@ -12,11 +12,14 @@ Some time ago, I was looking for ways to sharpen my Excel skills outside of work
 and my personal favorite...
 - **SFMTA Parking Meter Detailed Revenue Transactions**
 
-This dataset is a continuously updated feed of *every transaction* logged across the parking meter network of San Francisco. At last count, the dataset contains 198 million rows which can be queried and exported as the user desires.
+This dataset is a continuously updated feed of *every transaction* logged across the parking meter network of San Francisco. At last count, the dataset contains 198 million rows which can be queried and exported as the user desires. One week's worth of transaction data ends up occupying about 300,000 rows, so I have chosen to analyze this data in one-week blocks.
 
-*After exploring this universe of data, following are some of my most notable observations:*
+#### Following is a collection of my observations and conclusions drawn from this data. I selected a random week of this year to analyze, which ended up being May 11th to May 17th, 2025.
 
-# A Typical Week
+# General Statistics
+
+
+
 
 # Big Winners and Big Losers
 
