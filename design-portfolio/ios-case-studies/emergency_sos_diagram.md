@@ -2,7 +2,7 @@
 
 ## Observation
 
-In Settings, under Emergency SOS, the iPhone X diagram presented to the user is not symmetric in certain locations.
+In Settings, under Emergency SOS, the iPhone X diagram shown is not symmetric in certain locations.
 
 ## Reference
 
