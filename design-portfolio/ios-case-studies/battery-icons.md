@@ -1,6 +1,6 @@
 # Battery Icons
 
-**Observation:** The battery icon as shown in the status bar is not exactly identical to the icon used in the Low Power Mode tile in Control Center. _Specifically, the battery's terminal has a rounded edge in one instance, and a flat edge in another._
+**Observation:** The battery icon as shown in the status bar is not identical to the icon used in the Low Power Mode tile in Control Center. Specifically, the battery's terminal has a rounded edge in one instance, and a flat edge in the other.
 
 ## References:
 ### Status Bar
