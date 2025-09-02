@@ -16,6 +16,8 @@ This dataset is a continuously updated feed of *every transaction* logged across
 
 *After exploring this universe of data, following are some of my most notable observations:*
 
+# A Typical Week
+
 # Big Winners and Big Losers
 
 # The 9AM Surge
