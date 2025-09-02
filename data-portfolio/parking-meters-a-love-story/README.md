@@ -15,3 +15,11 @@ and my personal favorite...
 This dataset is a continuously updated feed of *every transaction* logged across the parking meter network of San Francisco. At last count, the dataset contains 198 million rows which can be queried and exported as the user desires.
 
 *After exploring this universe of data, following are some of my most notable observations:*
+
+# Big Winners and Big Losers
+
+# The 9AM Surge
+
+# Geographic Distribution
+
+# A Look at Neighborhoods
