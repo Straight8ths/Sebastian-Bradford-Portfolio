@@ -2,6 +2,8 @@
 
 An idle curiosity turned passion project.
 
+<img width="500" height="500" alt="SF Parking Meter" src="https://github.com/user-attachments/assets/e986b573-5777-4eff-8646-cc6272e983be" />
+
 ## Overview
 
 Some time ago, I was looking for ways to sharpen my Excel skills outside of work, with a focus on the manipulation of large and irregular datasets. Eventually, I found SF Open Data, the central repository of city-wide data managed by the City of San Francisco. This database is filled with intriguing datasets, including:
