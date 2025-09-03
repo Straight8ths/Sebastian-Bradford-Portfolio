@@ -27,6 +27,9 @@ There are a few coventions to cover before diving into the data.
 
 2. A Companion Dataset
    - We will need to pull in a **second** data source from the database in order to analyze parking meters more deeply. The reason is that the Revenue Transactions dataset focuses only on transactions that occured, but does not tell us much about the individual meters themselves. This is where the above point about Post IDs comes in handy. There is a second dataset published by the City, simply called "Parking Meters", which lists the full inventory of meters managed by the City, along with their coordinates, neighborhood codes, and most importantly **their Post IDs**. Using this as a common vector between the two sets, we can merge them and greatly augment our analysis.
+  
+> <img width="400" height="409" alt="Meter data merge" src="https://github.com/user-attachments/assets/96d15a68-f57f-40dc-9a05-c82dff64f9bb" />
+
 
 # General Statistics
 
