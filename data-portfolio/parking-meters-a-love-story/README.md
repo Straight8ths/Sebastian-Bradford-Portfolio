@@ -30,11 +30,14 @@ There are a few coventions to cover before diving into the data.
   
 > <img width="400" height="409" alt="Meter data merge" src="https://github.com/user-attachments/assets/96d15a68-f57f-40dc-9a05-c82dff64f9bb" />
 
-
 # General Statistics
 
 - Number of transactions: 322,260
-- Gross amount paid: $955,500.74
+- Gross transaction revenue: $955,500.74
+
+> <img width="600" height="322" alt="Screenshot 2025-09-03 at 4 32 32 PM" src="https://github.com/user-attachments/assets/333a26d5-2fb6-4fcf-bdb6-028b6d317a3a" />
+
+> <img width="600" height="318" alt="Screenshot 2025-09-03 at 4 32 44 PM" src="https://github.com/user-attachments/assets/cf6db847-c434-4f0d-8224-6f110c3151ab" />
 
 
 # Big Winners and Big Losers
