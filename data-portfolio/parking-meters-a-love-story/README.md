@@ -1,4 +1,4 @@
-# Parking Meters: A Love Story (feat. Tableau)
+# Parking Meters: A Love Story
 
 An idle curiosity turned passion project.
 
