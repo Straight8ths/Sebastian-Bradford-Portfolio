@@ -85,6 +85,27 @@ Herein lies a prime example of how enormous datasets can rise above being mere n
 
 # Geographic Distribution
 
+Let's push the humble PivotTable closer to its limits in order to get the most out of this data. We're going to use the PivotTable engine, as well as some formatting tricks, to build a revenue heatmap from scratch. Each row in the final PivotTable will correspond to a given latitude value, and the columns will similarly display longitude. At the intersection of each set of values, we will create a color-coded display of the revenue gathered at that location, from all meters within the bounds of that intersection.
+
+## Step 1: Latitude and Longitude
+
+Thanks to our earlier work of bringing over the identification data for each individual meter, we can tag each transaction in our set with the coordinates of the meter that received it. However, the coordinate data provided to us by the City of San Francisco is *too precise*. In our source data, we are given coordinates at *10 digits of precision.*
+
+<img width="500" height="254" alt="Screenshot 2025-09-03 at 9 14 10 PM" src="https://github.com/user-attachments/assets/f6336598-ad7f-4623-bfaa-274ceecde3d7" />
+
+Because we will be making our map in a PivotTable, we need to obey the corresponding row limits, and including a row for each latitude or longitude value at 10 digits of precision would exceed the rows available to us. Plus, a map made at that level of precision would be little different from a table of the values themselves due to the geographic uniqueness of each individual meter's coordinates. If we want to design a heatmap, and study how the data behaves when it is grouped and displayed in space, we will need to reduce our precision.
+
+To make this happen in our source data, we need to use the uncommon but useful =TRUNC. This allows us to simply clip off certain digits of precision without worrying about the implications of rounding the coordinate values.
+
+
+
+
+## Step 2: Size Constraints
+
+## Step 3: The Three-Semicolon Trick
+
+## Step 4: Conditional Formatting (with intention)
+
 # A Look at Neighborhoods
 
 ## By Revenue Contribution
