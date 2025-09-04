@@ -95,7 +95,7 @@ Thanks to our earlier work of bringing over the identification data for each ind
 
 <img width="500" height="254" alt="Screenshot 2025-09-03 at 9 14 10 PM" src="https://github.com/user-attachments/assets/f6336598-ad7f-4623-bfaa-274ceecde3d7" />
 
-Because we will be making our map in a PivotTable, we need to obey the corresponding row limits, and including a row for each latitude or longitude value at 10 digits of precision would exceed the rows available to us. Plus, a map made at that level of precision would be barely different from a table of the values themselves, due to the geographic uniqueness of each individual meter's coordinates. If we want to design a heatmap, and study how the data behaves when it is grouped and displayed in space, we will need to reduce our precision.
+Because we will be making our map in a PivotTable, we need to obey the corresponding row limits, and including a row for each latitude or longitude value at 10 digits of precision would exceed the rows available to us. Plus, a map made at that level of precision would barely be different from a table of the values themselves, due to the geographic uniqueness of each individual meter's coordinates. If we want to design a heatmap, and study how the data behaves when it is grouped and displayed in space, we will need to reduce our precision.
 
 To make this happen in our source data, we need to use the uncommon but useful =TRUNC. This allows us to simply clip off certain digits of precision without worrying about the implications of rounding the coordinate values with =ROUNDDOWN or =ROUNDUP.
 
