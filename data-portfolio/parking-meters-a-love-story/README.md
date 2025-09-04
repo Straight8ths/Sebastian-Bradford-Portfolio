@@ -45,7 +45,7 @@ A list of this magnitude, featuring thousands of individual parking meters, begs
 
 Let's use a PivotTable to investigate the most lucrative meters over the course of our entire week...
 
-<img width="900" height="428" alt="Screenshot 2025-09-03 at 8 15 39 PM" src="https://github.com/user-attachments/assets/81125c4b-a9c8-45f9-8120-95904b539a25" />
+> <img width="900" height="428" alt="Screenshot 2025-09-03 at 8 15 39 PM" src="https://github.com/user-attachments/assets/81125c4b-a9c8-45f9-8120-95904b539a25" />
 
 For starters, meter #916-00001 deserves a standing ovation. Of the 13,366 unique meters which were present in this week's dataset, this single meter brought in over 1% of the entire system's revenue *by itself*.
 
@@ -53,11 +53,11 @@ However, there is more to the story than that. If we view the Pierce Street Gara
 
 Let's investigate the meters that drew the least revenue...
 
-<img width="900" height="367" alt="Screenshot 2025-09-03 at 8 36 54 PM" src="https://github.com/user-attachments/assets/2498b9bd-e382-4fa0-a2e3-bf7c84a719c4" />
+> <img width="900" height="367" alt="Screenshot 2025-09-03 at 8 36 54 PM" src="https://github.com/user-attachments/assets/2498b9bd-e382-4fa0-a2e3-bf7c84a719c4" />
 
 This list hurts to look at. Some of the meters on this list were outright neglected over the course of the week. But how many meters in total are in this camp? Let's use =COUNTIFS to see how many meters made $1 or less over the course of the full week.
 
-<img width="400" height="38" alt="Screenshot 2025-09-03 at 8 42 10 PM" src="https://github.com/user-attachments/assets/7e4727eb-9b99-4778-9438-0dbb16f0a438" />
+> <img width="400" height="38" alt="Screenshot 2025-09-03 at 8 42 10 PM" src="https://github.com/user-attachments/assets/7e4727eb-9b99-4778-9438-0dbb16f0a438" />
 
 The final answer: 372. If we consider the full fleet of 13,366 meters that were used this week, this means that 2.8% of meters made *a single dollar or less over **seven days***. This prompts questions about the prioritization of the City's resources, and if the fleet of meters should be trimmed when the City sees substantial long-term underperformance of their assets.
 
@@ -67,19 +67,19 @@ Because each transaction is provided with its timestamp, we can examine how park
 
 The following graph depicts this spike, where each small bar represents a given minute's worth of collected revenue.
 
-<img width="1100" height="497" alt="Screenshot 2025-09-03 at 8 56 46 PM" src="https://github.com/user-attachments/assets/4b6a94e5-b67e-492f-a94e-9c457aa809e9" />
+> <img width="1100" height="497" alt="Screenshot 2025-09-03 at 8 56 46 PM" src="https://github.com/user-attachments/assets/4b6a94e5-b67e-492f-a94e-9c457aa809e9" />
 
 To put this spike into perspective, we can consult the data to find out that on Monday May 12th, the day's total revenue was $166,199.10. Therefore, this spike of approximately $8,000 at exactly corresponds to 4.82% of the entire day's revenue, all captured within **one minute.**
 
 Why might this be? To look for answers, we can dive even deeper into the level of individual seconds. If we investigate our PivotTable farther, and explore the various layers of hours, minutes, and seconds, we see a fascinating result.
 
-<img width="400" height="200" alt="Screenshot 2025-09-03 at 7 46 50 PM" src="https://github.com/user-attachments/assets/8d4b3824-fdb8-47c2-9956-1d7e614910b8" />
+> <img width="400" height="200" alt="Screenshot 2025-09-03 at 7 46 50 PM" src="https://github.com/user-attachments/assets/8d4b3824-fdb8-47c2-9956-1d7e614910b8" />
 
 While the City makes 4.8% of the day's revenue in the minute of 9:00AM, it turns out that nearly all of that revenue is actually captured in the **single second** of 9:00:00 exactly. The fact that this much transaction volume is occuring within one second suggests that we are seeing the effects of some kind of automated system. And sure enough, further research taught me that parking meters in San Francisco can be reserved and prepaid by way of the PayByPhone parking app. In the data, this spike represents the large number of prepaid meters which become active at 9AM when enforcement begins.
 
 The SFMTA includes a write-up on prepaid parking at [this page](https://www.sfmta.com/getting-around/drive-park/parking-meters/pay-browser).
 
-<img width="400" height="176" alt="Screenshot 2025-09-03 at 7 52 40 PM" src="https://github.com/user-attachments/assets/01ffb815-2248-4e10-930c-0c9412c04139" />
+> <img width="400" height="176" alt="Screenshot 2025-09-03 at 7 52 40 PM" src="https://github.com/user-attachments/assets/01ffb815-2248-4e10-930c-0c9412c04139" />
 
 Herein lies a prime example of how enormous datasets can rise above being mere numbers and instead paint a picture for us users as to how a given system behaves and "breathes" as it operates. By using this dataset, I was able to learn a completely new fact about the City's civic architecture using only spreadsheet and some intuition.
 
@@ -89,11 +89,11 @@ Herein lies a prime example of how enormous datasets can rise above being mere n
 
 ## By Revenue Contribution
 
-<img width="400" height="683" alt="Screenshot 2025-09-03 at 6 25 31 PM" src="https://github.com/user-attachments/assets/8ae887e2-2481-4c40-bb93-72f71ba18af1" />
+> <img width="400" height="683" alt="Screenshot 2025-09-03 at 6 25 31 PM" src="https://github.com/user-attachments/assets/8ae887e2-2481-4c40-bb93-72f71ba18af1" />
 
 ## By Transaction Volume
 
-<img width="400" height="649" alt="Screenshot 2025-09-03 at 6 29 27 PM" src="https://github.com/user-attachments/assets/42633a90-ff50-4bd5-9d76-b249d73e5d3b" />
+> <img width="400" height="649" alt="Screenshot 2025-09-03 at 6 29 27 PM" src="https://github.com/user-attachments/assets/42633a90-ff50-4bd5-9d76-b249d73e5d3b" />
 
 ## Notes
 As one would expect, the more upscale neighborhoods of SF closer to downtown see greater transaction volumes and revenues. However, this brings up an interesting fact about the other end of the spectrum; There are a decent number of neighborhoods which simultaneously contribute less than 1% of the City's transaction count, as well as less than 1% of the City's parking revenue. This raises a question of financial strategy, due to the fact that the parking meters in these low-performing neighborhoods must be serviced and maintained like any others in the fleet. Would the City see greater success trying to divert more pedestrian activity into these areas, or to phase out these low-performing meters due to their negligible impact on the City's bottom line.
@@ -102,5 +102,5 @@ As one would expect, the more upscale neighborhoods of SF closer to downtown see
 
 In this figure, all neighborhoods below the thick dividing line contribute both less than 1% of revenues as well as transaction volumes.
 
-<img width="700" height="661" alt="Screenshot 2025-09-03 at 6 50 11 PM" src="https://github.com/user-attachments/assets/699569c4-84d1-4fda-b8fd-0f048077f5d1" />
+> <img width="700" height="661" alt="Screenshot 2025-09-03 at 6 50 11 PM" src="https://github.com/user-attachments/assets/699569c4-84d1-4fda-b8fd-0f048077f5d1" />
 
