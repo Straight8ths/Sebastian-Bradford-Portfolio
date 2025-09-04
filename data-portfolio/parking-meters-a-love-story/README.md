@@ -39,8 +39,16 @@ There are a few coventions to cover before diving into the data.
 
 > <img width="600" height="318" alt="Screenshot 2025-09-03 at 4 32 44 PM" src="https://github.com/user-attachments/assets/cf6db847-c434-4f0d-8224-6f110c3151ab" />
 
-
 # Big Winners and Big Losers
+
+A list of this magnitude, featuring thousands of individual parking meters, begs the question; Which meters did the best or the worst, and how shapely is the distribution?
+
+Let's use a PivotTable to investigate the most productive meters over the course of our entire week...
+
+<img width="900" height="428" alt="Screenshot 2025-09-03 at 8 15 39 PM" src="https://github.com/user-attachments/assets/81125c4b-a9c8-45f9-8120-95904b539a25" />
+
+For starters, meter #916-00001 deserves a standing ovation. Of the 13,366 unique meters which were present in this week's dataset, this single meter brought in over 1% of the entire system's revenue *by itself*. 
+
 
 # The 9AM Surge
 
