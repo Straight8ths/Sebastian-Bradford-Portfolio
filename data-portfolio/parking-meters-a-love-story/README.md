@@ -56,7 +56,7 @@ Why might this be? To look for answers, we can dive even deeper into the level o
 
 <img width="400" height="200" alt="Screenshot 2025-09-03 at 7 46 50 PM" src="https://github.com/user-attachments/assets/8d4b3824-fdb8-47c2-9956-1d7e614910b8" />
 
-While the City makes 4.8% of the day's revenue in the minute of 9:00AM, it turns out that nearly all of that revenue is actually captured in the **single second** of 9:00:00 exactly. The fact that this much transaction volume is occuring within one second suggests that we are seeing the effects of some kind of automated system. And sure enough, further research taught me that parking meters in San Francisco can be reserved and pre-paid by way of the PayByPhone parking app. In the data, this spike represents the large number of prepaid meters which become active at 9AM when enforcement begins.
+While the City makes 4.8% of the day's revenue in the minute of 9:00AM, it turns out that nearly all of that revenue is actually captured in the **single second** of 9:00:00 exactly. The fact that this much transaction volume is occuring within one second suggests that we are seeing the effects of some kind of automated system. And sure enough, further research taught me that parking meters in San Francisco can be reserved and prepaid by way of the PayByPhone parking app. In the data, this spike represents the large number of prepaid meters which become active at 9AM when enforcement begins.
 
 The SFMTA includes a write-up on prepaid parking at [this page](https://www.sfmta.com/getting-around/drive-park/parking-meters/pay-browser).
 
