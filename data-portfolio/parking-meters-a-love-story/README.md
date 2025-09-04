@@ -69,7 +69,7 @@ The following graph depicts this spike, where each small bar represents a given 
 
 > <img width="1100" height="497" alt="Screenshot 2025-09-03 at 8 56 46 PM" src="https://github.com/user-attachments/assets/4b6a94e5-b67e-492f-a94e-9c457aa809e9" />
 
-To put this spike into perspective, we can consult the data to find out that on Monday May 12th, the day's total revenue was $166,199.10. Therefore, this spike of approximately $8,000 at exactly corresponds to 4.82% of the entire day's revenue, all captured within **one minute.**
+To put this spike into perspective, we can consult the data to find out that on Monday May 12th, the day's total revenue was $166,199.10. Therefore, this spike of approximately $8,000 at 9AM corresponds to 4.82% of the entire day's revenue, all captured within **one minute.**
 
 Why might this be? To look for answers, we can dive even deeper into the level of individual seconds. If we investigate our PivotTable farther, and explore the various layers of hours, minutes, and seconds, we see a fascinating result.
 
