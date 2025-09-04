@@ -103,7 +103,7 @@ To make this happen in our source data, we need to use the uncommon but useful =
 
 ## Step 2: Size Constraints
 
-In order to figure out how much to trim our coordinate values by, we need to understand how many data points will be present in the final map depending on what level of precision we choose. To do this, I created columns next to the raw latitude and longitude values, and used =TRUNC to create copies of the values at different precision levels (for example, the column titled LONG-4 contains longitude values at 4 digits of precision).
+In order to figure out how much to trim our coordinate values by, we need to understand how many data points will be present in the final map depending on what level of precision we choose. To do this, I created columns next to the raw latitude and longitude values, and used =TRUNC to create copies of the values at different precision levels (for example, the column titled LAT-4 contains latitude values at 4 digits of precision).
 
 <img width="1100" height="341" alt="Screenshot 2025-09-03 at 9 36 12 PM" src="https://github.com/user-attachments/assets/40cf37ae-6858-4769-85fa-131da032cc93" />
 
