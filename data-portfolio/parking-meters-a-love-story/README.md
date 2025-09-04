@@ -81,7 +81,7 @@ The SFMTA includes a write-up on prepaid parking at [this page](https://www.sfmt
 
 > <img width="400" height="176" alt="Screenshot 2025-09-03 at 7 52 40 PM" src="https://github.com/user-attachments/assets/01ffb815-2248-4e10-930c-0c9412c04139" />
 
-Herein lies a prime example of how enormous datasets can rise above being mere numbers and instead paint a picture for us users as to how a given system behaves and "breathes" as it operates. By using this dataset, I was able to learn a completely new fact about the City's civic architecture using only spreadsheet and some intuition.
+Herein lies a prime example of how enormous datasets can rise above being mere numbers and instead paint a picture for us users as to how a given system behaves and "breathes" as it operates. By using this dataset, I was able to learn a completely new fact about the City's civic architecture using only a spreadsheet and some intuition.
 
 # Geographic Distribution
 
