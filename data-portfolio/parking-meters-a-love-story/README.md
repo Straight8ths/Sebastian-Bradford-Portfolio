@@ -85,7 +85,9 @@ Herein lies a prime example of how enormous datasets can rise above being mere n
 
 # Geographic Distribution
 
-Let's push the humble PivotTable closer to its limits in order to get the most out of this data. We're going to use the PivotTable engine, as well as some formatting tricks, to build a revenue heatmap from scratch. Each row in the final PivotTable will correspond to a given latitude value, and the columns will similarly display longitude. At the intersection of each set of values, we will create a color-coded display of the revenue gathered at that location, from all meters within the bounds of that intersection.
+Let's push the humble PivotTable closer to its limits in order to get the most out of this data. We're going to use the PivotTable engine, as well as some formatting tricks, to build **a revenue heatmap from scratch.**
+
+Each row in our final table will correspond to a given latitude value, and the columns will similarly display longitudes. At the intersection of each set of values, we will display the revenue gathered at that location, from all meters within the bounds of that intersection. When repeated over the course of all latitudes and longitudes in our dataset, we will come out with a low-resolution heatmap of parking revenue, powered by conditional formatting.
 
 ## Step 1: Latitude and Longitude
 
@@ -95,12 +97,19 @@ Thanks to our earlier work of bringing over the identification data for each ind
 
 Because we will be making our map in a PivotTable, we need to obey the corresponding row limits, and including a row for each latitude or longitude value at 10 digits of precision would exceed the rows available to us. Plus, a map made at that level of precision would be little different from a table of the values themselves due to the geographic uniqueness of each individual meter's coordinates. If we want to design a heatmap, and study how the data behaves when it is grouped and displayed in space, we will need to reduce our precision.
 
-To make this happen in our source data, we need to use the uncommon but useful =TRUNC. This allows us to simply clip off certain digits of precision without worrying about the implications of rounding the coordinate values.
-
-
-
+To make this happen in our source data, we need to use the uncommon but useful =TRUNC. This allows us to simply clip off certain digits of precision without worrying about the implications of rounding the coordinate values with =ROUNDDOWN or =ROUNDUP.
 
 ## Step 2: Size Constraints
+
+In order to figure out how much to trim our coordinate values by, we need to understand how many data points will be present in the final map depending on what level of precision we choose. To do this, I created columns next to the raw latitude and longitude values, and used =TRUNC to create copies of the values at different precision levels (for example, the column titled LONG-4 contains longitude values at 4 digits of precision).
+
+<img width="1100" height="341" alt="Screenshot 2025-09-03 at 9 36 12 PM" src="https://github.com/user-attachments/assets/40cf37ae-6858-4769-85fa-131da032cc93" />
+
+My instincts told me that around four to five digits would yield enough resolution without breaking the PivotTable. To validate this, we can create a PivotTable from our dataset, and put our adjustable-length columns into it, which will strip out duplicates and allow us to make a final count.
+
+**4** digits of precision - **893** unique lat. and long. values
+
+**5** digits of precision - **6,733** unique lat. and long. values
 
 ## Step 3: The Three-Semicolon Trick
 
