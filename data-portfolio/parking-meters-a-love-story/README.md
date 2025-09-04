@@ -18,7 +18,7 @@ This dataset is a continuously updated feed of *every transaction* logged across
 
 ### Following is a collection of my observations and conclusions drawn from this data. I selected a random week of this year to analyze, which ended up being **May 11th to May 17th, 2025.**
 
-# Nomenclature
+# Groundwork
 
 There are a few coventions to cover before diving into the data.
 
