@@ -44,6 +44,44 @@ There are a few coventions to cover before diving into the data.
 
 # The 9AM Surge
 
+Because each transaction is provided with its timestamp, we can examine how parking revenue evolves over the course of a day. I created a very tall PivotTable from the data, where each row represented individual minutes, as well as the revenue collected in that minute. If we choose to isolate a random weekday from this dataset, say Monday May 12th, we see that there is an unusual spike of revenue **at exactly 9:00 AM**.
+
+The following graph depicts this spike, where each small bar represents a given minute's worth of collected revenue.
+
+<img width="900" height="440" alt="Screenshot 2025-09-03 at 7 33 49 PM" src="https://github.com/user-attachments/assets/ae3b3038-bc2e-4eed-a302-48d4ac3ee32f" />
+
+To put this spike into perspective, we can consult the data to find out that on Monday May 12th, the day's total revenue was $166,199.10. Therefore, this spike of approximately $8,000 at exactly corresponds to 4.82% of the entire day's revenue, all captured within **one minute.**
+
+Why might this be? To look for answers, we can dive even deeper into the level of individual seconds. If we investigate our PivotTable farther, and explore the various layers of hours, minutes, and seconds, we see a fascinating result.
+
+<img width="400" height="200" alt="Screenshot 2025-09-03 at 7 46 50 PM" src="https://github.com/user-attachments/assets/8d4b3824-fdb8-47c2-9956-1d7e614910b8" />
+
+While the City makes 4.8% of the day's revenue in the minute of 9:00AM, it turns out that nearly all of that revenue is actually captured in the **single second** of 9:00:00 exactly. The fact that this much transaction volume is occuring within one second suggests that we are seeing the effects of some kind of automated system. And sure enough, further research taught me that parking meters in San Francisco can be reserved and pre-paid by way of the PayByPhone parking app. In the data, this spike represents the large number of prepaid meters which become active at 9AM when enforcement begins.
+
+The SFMTA includes a write-up on prepaid parking at [this page](https://www.sfmta.com/getting-around/drive-park/parking-meters/pay-browser).
+
+<img width="400" height="176" alt="Screenshot 2025-09-03 at 7 52 40 PM" src="https://github.com/user-attachments/assets/01ffb815-2248-4e10-930c-0c9412c04139" />
+
+Herein lies a prime example of how enormous datasets can rise above being mere numbers and instead paint a picture for us users as to how a given system behaves and "breathes" as it operates. By using this dataset, I was able to learn a completely new fact about the City's civic architecture using only spreadsheet and some intuition.
+
 # Geographic Distribution
 
 # A Look at Neighborhoods
+
+## By Revenue Contribution
+
+<img width="400" height="683" alt="Screenshot 2025-09-03 at 6 25 31 PM" src="https://github.com/user-attachments/assets/8ae887e2-2481-4c40-bb93-72f71ba18af1" />
+
+## By Transaction Volume
+
+<img width="400" height="649" alt="Screenshot 2025-09-03 at 6 29 27 PM" src="https://github.com/user-attachments/assets/42633a90-ff50-4bd5-9d76-b249d73e5d3b" />
+
+## Notes
+As one would expect, the more upscale neighborhoods of SF closer to downtown see greater transaction volumes and revenues. However, this brings up an interesting fact about the other end of the spectrum; There are a decent number of neighborhoods which simultaneously contribute less than 1% of the City's transaction count, as well as less than 1% of the City's parking revenue. This raises a question of financial strategy, due to the fact that the parking meters in these low-performing neighborhoods must be serviced and maintained like any others in the fleet. Would the City see greater success trying to divert more pedestrian activity into these areas, or to phase out these low-performing meters due to their negligible impact on the City's bottom line.
+
+## Visualizing the Low-Performing Neighborhoods
+
+In this figure, all neighborhoods below the thick dividing line contribute both less than 1% of revenues as well as transaction volumes.
+
+<img width="700" height="661" alt="Screenshot 2025-09-03 at 6 50 11 PM" src="https://github.com/user-attachments/assets/699569c4-84d1-4fda-b8fd-0f048077f5d1" />
+
