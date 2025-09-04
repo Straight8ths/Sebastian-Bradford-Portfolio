@@ -41,9 +41,9 @@ There are a few coventions to cover before diving into the data.
 
 # Big Winners and Big Losers
 
-A list of this magnitude, featuring thousands of individual parking meters, begs the question; Which meters did the best or the worst, and how shapely is the distribution?
+A list of this magnitude, featuring thousands of individual parking meters, begs the question; Which meters brought in the most and least revenue, and how shapely is the distribution?
 
-Let's use a PivotTable to investigate the most productive meters over the course of our entire week...
+Let's use a PivotTable to investigate the most lucrative meters over the course of our entire week...
 
 <img width="900" height="428" alt="Screenshot 2025-09-03 at 8 15 39 PM" src="https://github.com/user-attachments/assets/81125c4b-a9c8-45f9-8120-95904b539a25" />
 
@@ -55,6 +55,11 @@ Let's investigate the meters that drew the least revenue...
 
 <img width="900" height="367" alt="Screenshot 2025-09-03 at 8 36 54 PM" src="https://github.com/user-attachments/assets/2498b9bd-e382-4fa0-a2e3-bf7c84a719c4" />
 
+This list hurts to look at. Some of the meters on this list were outright neglected over the course of the week. But how many meters in total are in this camp? Let's use =COUNTIFS to see how many meters made $1 or less over the course of the full week.
+
+<img width="400" height="38" alt="Screenshot 2025-09-03 at 8 42 10 PM" src="https://github.com/user-attachments/assets/7e4727eb-9b99-4778-9438-0dbb16f0a438" />
+
+The final answer: 372. If we consider the full fleet of 13,366 meters that were used this week, this means that 2.8% of meters made *a single dollar or less over **seven days***. This prompts questions about the prioritization of the City's resources, and if the fleet of meters should be trimmed when the City sees substantial long-term underperformance of their assets.
 
 # The 9AM Surge
 
