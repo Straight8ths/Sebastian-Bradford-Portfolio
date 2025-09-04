@@ -47,7 +47,13 @@ Let's use a PivotTable to investigate the most productive meters over the course
 
 <img width="900" height="428" alt="Screenshot 2025-09-03 at 8 15 39 PM" src="https://github.com/user-attachments/assets/81125c4b-a9c8-45f9-8120-95904b539a25" />
 
-For starters, meter #916-00001 deserves a standing ovation. Of the 13,366 unique meters which were present in this week's dataset, this single meter brought in over 1% of the entire system's revenue *by itself*. 
+For starters, meter #916-00001 deserves a standing ovation. Of the 13,366 unique meters which were present in this week's dataset, this single meter brought in over 1% of the entire system's revenue *by itself*.
+
+However, there is more to the story than that. If we view the Pierce Street Garage on Google Street View, we actually see a set of *three separate meters* positioned in front of the garage, all labeled with the same Post ID of 916-00001. So, even though it is not the case that we have a single absurdly productive meter at the top of the heap, if we divide the revenue from this Post ID into its three constituent parts, *we still see three meters that are performing at the top of the revenue distribution anyway.*
+
+Let's investigate the meters that drew the least revenue...
+
+<img width="900" height="367" alt="Screenshot 2025-09-03 at 8 36 54 PM" src="https://github.com/user-attachments/assets/2498b9bd-e382-4fa0-a2e3-bf7c84a719c4" />
 
 
 # The 9AM Surge
