@@ -144,7 +144,9 @@ To check that our map is online, let's apply the standard red-yellow-green condi
 
 > <img width="1100" height="822" alt="Screenshot 2025-09-05 at 1 30 29 AM" src="https://github.com/user-attachments/assets/6736964b-ba5a-4e96-8a62-1b43cb12df7d" />
 
-We've done it! Our data has behaved perfectly, and outlined the shape of San Francisco for us (in surprising detail). Our final step is to choose a conditional formatting style that works best with this data. We know from our earlier research that the revenue distribution among meters is *highly* skewed, which means that a simple conditional formatting gradient will be biased towards the lower end of the scale. Sure enough, the screenshot above shows only red and yellow as the visible pixels.
+### We've done it!
+
+Our heatmap has behaved perfectly, and has outlined the shape of San Francisco for us (in surprising detail). Our final step is to choose a conditional formatting style that works best with this data. We know from our earlier research that the revenue distribution among meters is *highly* skewed, which means that a simple conditional formatting gradient will be biased towards the lower end of the scale. Sure enough, the screenshot above shows only red and yellow as the visible pixels.
 
 Where are the green regions? They are there, but they are very rare because of the skew of this distribution. Let's zoom in on the following circled region of our map:
 
