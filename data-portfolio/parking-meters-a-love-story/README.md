@@ -95,7 +95,7 @@ Each row in our final table will correspond to a given latitude value, and the c
 
 Thanks to our earlier work of bringing over the identification data for each individual meter, we can tag each transaction in our set with the coordinates of the meter that received it. However, the coordinate data provided to us by the City of San Francisco is *too precise*. In our source data, we are given coordinates at *10 digits of precision.*
 
-<img width="500" height="254" alt="Screenshot 2025-09-03 at 9 14 10 PM" src="https://github.com/user-attachments/assets/f6336598-ad7f-4623-bfaa-274ceecde3d7" />
+> <img width="500" height="254" alt="Screenshot 2025-09-03 at 9 14 10 PM" src="https://github.com/user-attachments/assets/f6336598-ad7f-4623-bfaa-274ceecde3d7" />
 
 Because we will be making our map in a PivotTable, we need to obey the corresponding row limits, and including a row for each latitude or longitude value at 10 digits of precision would exceed the rows available to us. Plus, a map made at that level of precision would barely be different from a table of the values themselves, due to the geographic uniqueness of each individual meter's coordinates. If we want to design a heatmap, and study how the data behaves when it is grouped and displayed in space, we will need to reduce our precision.
 
@@ -168,7 +168,8 @@ This region is a portion of the Marina District, and if we zoom in farther, we c
 > <img width="400" height="649" alt="Screenshot 2025-09-03 at 6 29 27 PM" src="https://github.com/user-attachments/assets/42633a90-ff50-4bd5-9d76-b249d73e5d3b" />
 
 ## Notes
-As one would expect, the more upscale neighborhoods of SF closer to downtown see greater transaction volumes and revenues. However, this brings up an interesting fact about the other end of the spectrum; There are a decent number of neighborhoods which simultaneously contribute less than 1% of the City's transaction count, as well as less than 1% of the City's parking revenue. This raises a question of financial strategy, due to the fact that the parking meters in these low-performing neighborhoods must be serviced and maintained like any others in the fleet. Would the City see greater success trying to divert more pedestrian activity into these areas, or to phase out these low-performing meters due to their negligible impact on the City's bottom line.
+
+As one would expect, the more upscale neighborhoods of SF closer to downtown see greater transaction volumes and revenues. However, this brings up an interesting fact about the other end of the spectrum; There are a decent number of neighborhoods which simultaneously contribute less than 1% of the City's transaction count, as well as less than 1% of the City's parking revenue. This raises a question of financial strategy, due to the fact that the parking meters in these low-performing neighborhoods must be serviced and maintained like any others in the fleet. Would the City see greater success trying to divert more pedestrian activity into these areas, or phasing out these low-performing meters due to their negligible impact on the City's bottom line?
 
 ## Visualizing the Low-Performing Neighborhoods
 
