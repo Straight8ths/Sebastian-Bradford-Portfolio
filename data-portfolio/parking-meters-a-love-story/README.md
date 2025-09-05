@@ -105,7 +105,7 @@ To make this happen in our source data, we need to use the uncommon but useful =
 
 In order to figure out how much to trim our coordinate values by, we need to understand how many data points will be present in the final map depending on what level of precision we choose. To do this, I created columns next to the raw latitude and longitude values, and used =TRUNC to create copies of the values at different precision levels (for example, the column titled LAT-4 contains latitude values at 4 digits of precision).
 
-<img width="1100" height="341" alt="Screenshot 2025-09-03 at 9 36 12 PM" src="https://github.com/user-attachments/assets/40cf37ae-6858-4769-85fa-131da032cc93" />
+> <img width="1100" height="341" alt="Screenshot 2025-09-03 at 9 36 12 PM" src="https://github.com/user-attachments/assets/40cf37ae-6858-4769-85fa-131da032cc93" />
 
 My instincts told me that around four to five digits would yield enough resolution without breaking the PivotTable. To validate this, we can create a PivotTable from our dataset, and put our adjustable-length columns into it, which will strip out duplicates and allow us to make a final count.
 
@@ -113,9 +113,47 @@ My instincts told me that around four to five digits would yield enough resoluti
 
 **5** digits of precision - **6,733** unique lat. and long. values
 
+For the sake of this analysis, let's pick four digits of precision. Our next step is to construct a PivotTable with the following parameters:
+- Rows = LAT-4 column in the original dataset, sorted in descending order.
+- Columns = LONG-4 column from the original dataset, sorted in ascending order.
+- Values = The sum of the revenue column from the original data.
+- Make sure Grand Totals are turned **off** for rows and columns.
+
+> <img width="300" height="516" alt="Screenshot 2025-09-05 at 1 12 36 AM" src="https://github.com/user-attachments/assets/8ab09de1-1f3a-48aa-ba07-3ca787d24fb5" />
+
+Let's resize our columns so they are the same width as the height of our rows, giving us square cells in our table. To accomodate the map's full size, pick a size value in the neighborhood of **two pixels**.
+
+This process will likely obscure the text of the PivotTable, but because we know our rows and columns are properly arranged, we can afford to let that go.
+
+> <img width="300" height="262" alt="Screenshot 2025-09-05 at 1 15 14 AM" src="https://github.com/user-attachments/assets/b7b82684-88c8-4f6b-9e67-5184239daedd" />
+
 ## Step 3: The Three-Semicolon Trick
 
+Let's recap where we are at this point:
+- Our data is now rendered inside a PivotTable as a series of revenues collected at the intersections of latitude and longitude pairs.
+- The cells in the table are still displaying as visible numbers, formatted as currency.
+- When we zoom out on our table, all we see is splotches of black from our cell values, and we cannot yet see the revenue data as a heatmap.
+
+To move on from this point, we will select all cells in the body of our table, and apply a custom format to them. In the "Format Cells" menu, we will select "More Number Formats", and then "Custom", and enter three semicolons (;;;) as the formatting code. This code will prevent the text of our cells from being visible, yet will still store the number values under the surface, which is exactly what we want.
+
 ## Step 4: Conditional Formatting (with intention)
+
+Our final step is to apply conditional formatting to the entire body of cells in our table. Because we just formatted the cells to hide their text values, our color-based formatting will have extra "pop", and allow us to treat the PivotTable as a grid of colored pixels rather than a series of containers of text.
+
+To check that our map is online, let's apply the standard red-yellow-green conditional formatting to the cells of the table, and zoom out our window all the way.
+
+> <img width="1100" height="822" alt="Screenshot 2025-09-05 at 1 30 29 AM" src="https://github.com/user-attachments/assets/6736964b-ba5a-4e96-8a62-1b43cb12df7d" />
+
+We've done it! Our data has behaved perfectly, and outlined the shape of San Francisco for us (in surprising detail). Our final step is to choose a conditional formatting style that works best with this data. We know from our earlier research that the revenue distribution among meters is *highly* skewed, which means that a simple conditional formatting gradient will be biased towards the lower end of the scale. Sure enough, the screenshot above shows only red and yellow as the visible pixels.
+
+Where are the green regions? They are there, but they are very rare because of the skew of this distribution. Let's zoom in on the following circled region of our map:
+
+> <img width="1100" height="584" alt="Screenshot 2025-09-05 at 1 48 10 AM" src="https://github.com/user-attachments/assets/4afa303f-5488-41af-8a79-1b3e86cce9c5" />
+
+This region is a portion of the Marina District, and if we zoom in farther, we can see a single green pixel corresponding to the highly lucrative Pierce Street Garage from earlier.
+
+> <img width="1100" height="588" alt="Screenshot 2025-09-05 at 1 44 15 AM" src="https://github.com/user-attachments/assets/ef46f894-8a1d-47aa-960e-c685ffbc0b54" />
+
 
 # A Look at Neighborhoods
 
