@@ -2,7 +2,7 @@
 
 Welcome! This repo is a curation of my skills, interests, and domains of expertise.
 
-### My Value Prop:
+### My Value Proposition
 Dual-subject expertise in design and data manipulation. I work to create aesthetically beautiful data, and mathematically rigorous art.
 
 ### Table of Contents
