@@ -15,6 +15,3 @@ Source files included.
 
 - **Parking Meters: A Love Story**
     - A passion project diving **deep** into the San Francisco parking meter ecosystem. 
-
-- **The Meta-Shape of Stock Market Downturns**
-    - A time-series analysis of various market catastrophes, with hopes of extracting a common return profile that downturns follow. Not intended to be predictive, but more so to analyze the routine patterns of buying and selling when investors get frightened.
