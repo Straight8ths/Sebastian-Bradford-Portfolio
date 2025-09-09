@@ -4,7 +4,7 @@ Using pandas and related libraries to explore a different parking meter dataset,
 
 ## Overview
 
-After having so much fun with my first round of parking meter analysis in Excel, I wanted to attack the problem with more robust tooling. I've been fascinated with Python for some time, and *pandas* seemed like a good entry point for this task.
+After having so much fun with my first round of parking meter analysis in Excel, I wanted to attack the problem with more robust tooling. I've been fascinated with Python for some time, and pandas seemed like a good entry point for this task.
 
 Last time, I used a large spreadsheet of parking meter transaction data from the City of San Francisco. For this iteration, I wanted to switch it up and analyze the meters of a different city (I chose NYC). Rather than analying revenue trends, this dataset is a regular inventory of all the city's meters and their locations.
 
@@ -13,11 +13,11 @@ Last time, I used a large spreadsheet of parking meter transaction data from the
 In my Excel analysis, I used PivotTables as an unorthordox way of constructing a heatmap based around coordinate-centric data. The map used conditional formatting to visually display the dispersion of parking meter income across San Francisco.
 
 While neat, this approach suffered drawbacks
-- Performance: The map was difficult to navigate on account of its size, and could only be viewed when fully zoomed out in the workbook.
-- Customizability: While Excel does offer great customization for its conditional formatting color schemes, reapllying a new scheme to this map took far to much labor.
-- Purity: At the bottom of it, this was a rather impure use of what the PivotTable was designed for, and in my view the above two drawbacks were fully deserved.
+- **Performance:** The map was difficult to navigate on account of its size, and could only be viewed when fully zoomed out in the workbook.
+- **Customizability:** While Excel does offer great customization for its conditional formatting color schemes, reapllying a new scheme to this map took far to much labor.
+- **Purity:** At the bottom of it, this was a rather impure use of what the PivotTable was designed for, and in my view the above two drawbacks were fully deserved.
 
-In *pandas*, heatmaps of this nature are far easier to construct and customize.
+In pandas, heatmaps of this nature are far easier to construct and customize.
 
 ## Getting Acquainted
 
@@ -25,7 +25,7 @@ I chose standard naming conventions for imports:
 ```python
 import seaborn as sns
 import matplotlib.pyplot as plt
-import pandas as pd
+import *pandas* as pd
 ```
 
 To get acquainted with our new dataset, let's run some lines to see our columns, as well as the head of the table.
@@ -55,7 +55,7 @@ df["lon_bin"] = pd.cut(df["Longitude"], bins=500).apply(lambda x: x.left)
 
 Next, we create our pivot table. Just as before, we will want the latitudes of our meters as the rows of our table, and longitudes as the columns. Our original dataframe, *df*, is now a pivot table named *pv*.
 
-In *pandas* the aggfunc parameter functions just like Excel's "values" parameter when constructing a pivot table.
+In pandas, the aggfunc parameter functions just like Excel's "values" parameter when constructing a pivot table.
 
 ```python
 pv = df.pivot_table(
