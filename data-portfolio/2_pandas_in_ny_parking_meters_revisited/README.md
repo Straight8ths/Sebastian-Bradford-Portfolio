@@ -25,7 +25,7 @@ I chose standard naming conventions for imports:
 ```python
 import seaborn as sns
 import matplotlib.pyplot as plt
-import *pandas* as pd
+import pandas as pd
 ```
 
 To get acquainted with our new dataset, let's run some lines to see our columns, as well as the head of the table.
