@@ -1,6 +1,6 @@
 # **Data Portfolio**
 
-Content is made 100% by yours truly, drawing from multiple data sources, and using Excel as the common analysis vector.
+Content is made 100% by yours truly, drawing from multiple data sources, and using Python and Excel for tooling.
 
 Source files included.
 
