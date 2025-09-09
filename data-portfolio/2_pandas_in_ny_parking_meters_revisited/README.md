@@ -19,10 +19,24 @@ While neat, this approach suffered drawbacks
 
 In *pandas*, heatmaps of this nature are far easier to construct and customize. The dataset we will use today is not based around meter revenue, and instead just a coordinate-based inventory of the city's meters and their locations.
 
-To get acquainted with our new dataset, let's run a line to see the head of the table.
+## Getting Acquainted
 
-'''
+I chose standard naming conventions for imports:
+```python
+import seaborn as sns
+import matplotlib.pyplot as plt
+import pandas as pd
+```
 
+To get acquainted with our new dataset, let's run some lines to see our columns, as well as the head of the table.
+
+```python
 print([column for column in df.columns])
+```
+> ['ObjectID', 'Meter Number', 'Status', 'Pay By Cell Number', 'Meter_Hours', 'Parking_Facility_Name', 'Facility', 'Borough', 'On_Street', 'Side_of_Street', 'From_Street', 'To_Street', 'Latitude', 'Longitude', 'X', 'Y', 'Location']
 
-'''
+```python
+print(df.head(5))
+```
+> <img width="1346" height="65" alt="Image" src="https://github.com/user-attachments/assets/2e114885-7beb-484c-a71f-08f516046797" />
+
