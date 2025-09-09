@@ -6,7 +6,7 @@ Using pandas and related libraries to explore a different parking meter dataset,
 
 After having so much fun with my first round of parking meter analysis in Excel, I wanted to attack the problem with more robust tooling. I've been fascinated with Python for some time, and pandas seemed like a good entry point for this task.
 
-Last time, I used a large spreadsheet of parking meter transaction data from the City of San Francisco. For this iteration, I wanted to switch it up and analyze the meters of a different city (I chose NYC). Rather than analying revenue trends, this dataset is a regular inventory of all the city's meters and their locations.
+Last time, I used a large spreadsheet of parking meter transaction data from the City of San Francisco. For this iteration, I wanted to switch it up and analyze the meters of a different city (I chose New York City). Rather than analying revenue trends, this dataset is a regular inventory of all the city's meters and their locations.
 
 ## The Right Tool for the Job
 
