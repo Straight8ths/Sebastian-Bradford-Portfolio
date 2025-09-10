@@ -2,8 +2,6 @@
 
 Exploring data manipulation, interpretation, and storytelling. Work done in Python and Excel.
 
-Source files included.
-
 ## **Index**
 
 - **Parking Meters: A Love Story**
