@@ -44,14 +44,14 @@ print(df.head(5))
 
 Let's watch pandas make short work of our heatmap issues from earlier.
 
-To give our heatmap an acceptable resolution, let's take the values from the *Latitude* and *Longitude* columns and put them into bins via the *cut* method. I opted for 500 bins, so that the meters are grouped into geographic regions of moderate size, in order to get the full range of conditional formatting colors later on. If we had made too many bins, each bin would have contained fewer meters.
-
-The *apply* lambda method tacked onto each line makes it so that each latitude is displayed by the **start** of its respective bin, which will allow for more sensible heatmap axes later on.
+To give our heatmap an acceptable resolution, let's take the values from the *Latitude* and *Longitude* columns and put them into bins via the *cut* method. I opted for 500 bins, so that the meters are grouped into geographic regions of moderate size, in order to get the full range of conditional formatting colors later on. If we had made too many bins, each bin would have contained fewer meters, and we would see a narrower range of color in the heatmap.
 
 ```python
 df["lat_bin"] = pd.cut(df["Latitude"], bins=500).apply(lambda x: x.left)
 df["lon_bin"] = pd.cut(df["Longitude"], bins=500).apply(lambda x: x.left)
 ```
+
+The *apply* lambda method tacked onto each line makes it so that each latitude is displayed by the **start** of its respective bin, which will allow for more sensible heatmap axes later on.
 
 Next, we create our pivot table. Just as before, we will want the latitudes of our meters as the rows of our table, and longitudes as the columns. Our original dataframe, *df*, is now a pivot table named *pv*.
 
