@@ -1,6 +1,6 @@
 # **Data Portfolio**
 
-Content is made 100% by yours truly, drawing from multiple data sources, and using Python and Excel for tooling.
+Exploring data manipulation, interpretation, and storytelling. Work done in Python and Excel.
 
 Source files included.
 
