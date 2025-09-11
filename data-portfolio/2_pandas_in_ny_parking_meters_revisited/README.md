@@ -12,9 +12,9 @@ Last time, I used a large spreadsheet of parking meter transaction data from the
 
 In my Excel analysis, I used PivotTables as an unorthordox way of constructing a heatmap based around coordinate-centric data. The map used conditional formatting to visually display the dispersion of parking meter income across San Francisco.
 
-While neat, this approach suffered drawbacks
+While neat, this approach suffered drawbacks:
 - **Performance:** The map was difficult to navigate on account of its size, and could only be viewed when fully zoomed out in the workbook.
-- **Customizability:** While Excel does offer great customization for its conditional formatting color schemes, reapllying a new scheme to this map took far to much labor.
+- **Customizability:** While Excel does offer great customization for its conditional formatting color schemes, reapplying a new scheme to this map took far too much labor.
 - **Purity:** At the bottom of it, this was a rather impure use of what the PivotTable was designed for, and in my view the above two drawbacks were fully deserved.
 
 In pandas, heatmaps of this nature are far easier to construct and customize.
