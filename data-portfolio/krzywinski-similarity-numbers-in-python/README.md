@@ -2,11 +2,11 @@
 
 Using Python to explore the quirks of irrational numbers.
 
-Please visit (and support) Martin Krzywinski's blog. I'm not an affiliate, just a supporter who loves his work.
+**Please visit (and support) Martin Krzywinski's blog. I'm not an affiliate, just a supporter who loves his work.**
 
 ## Concept
 
-I first saw Martin outline this concept on [this blog page](https://mk.bcgsc.ca/pi/art/accidental-similarity/method.mhtml#l2home). He puts forth an interesting process by which to examine multiple irrational numbers next to each other, and compare the positions where the given digit is the same, for all numbers being compared.
+I first saw Martin outline this concept on [this blog page](https://mk.bcgsc.ca/pi/art/accidental-similarity/method.mhtml#l2home). He puts forth an interesting process by which to examine the decimal components from multiple irrational numbers simultaneously, and look for places where all the irrationals share the *same digit* at the *same position*.
 
 I wanted to put forward my personal process for achieving this in Python.
 
