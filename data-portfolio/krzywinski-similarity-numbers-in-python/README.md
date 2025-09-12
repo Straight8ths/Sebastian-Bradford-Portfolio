@@ -71,7 +71,7 @@ df.to_csv('similar_digits.csv', index=False)
 
 ## Interesting Findings
 
-Let's check the amount of similar digits we end up with, as a function of how many source numbers we choose to compare. We'll begin 1,000,000 digits from each of our first two irrationals (pi and e) and then add more.
+Let's check the amount of similar digits we end up with, as a function of how many source numbers we choose to compare. We'll use 1,000,000 digits from each of our first two irrationals (pi and e) and then add more irrationals to examine.
 
 ### Two Irrationals (pi, e)
 
@@ -98,9 +98,9 @@ These 5 numbers have 109 same digits at identical indices.
 ```
 
 ### Scaling Phenomenon
-We can observe a scaling down by a factor of 10 each time a new number is added, which effectively represents a new probabilistic hurdle that must be passed for the similarity to continue to hold (drawing the "correct" next digit out of the possible 10).
+We can observe a scaling down by a factor of 10 each time a new number is added, which effectively represents a new probabilistic hurdle that must be passed for the similarity to continue to hold (i.e. drawing the "correct" next digit out of the possible 10).
 
-Let's add a function to check the frequency distribution for the digits of each of our irrationals, to ensure that these numbers satisfy the definition of *normal numbers* at least enough for our purposes.
+Let's add a function to check the frequency distribution for the digits of each of our irrationals, to ensure that these numbers satisfy the definition of *normal numbers*, at least enough for our purposes.
 
 Given that our input files contain (almost exactly) 1,000,000 digits each, we should be seeing close to 100,000 of each digit.
 
