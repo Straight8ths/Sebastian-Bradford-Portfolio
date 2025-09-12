@@ -56,9 +56,13 @@ for ix, (a, b) in enumerate(zip(*var_stack)):
 
 I wrote the equality checking line the way I did so that as more variables are added, the test is allowed to fail (and the code to continue) as early as possible when all digits are not the same.
 
-Now we can print our results as a clean sentence, and optionally save our work to a CSV with the same columns of "Index" and "Digit".
+Now we can print our results as a clean sentence
 
+```python
 print(f"These {len(var_stack)} numbers have {len(similar)} same digits at identical indices.")
+```
+
+... and save our work to a CSV with the same columns of "Index" and "Digit".
 
 ```python
 df = pd.DataFrame(similar.items(), columns=['Index', 'Digit'])
