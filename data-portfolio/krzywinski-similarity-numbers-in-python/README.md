@@ -38,13 +38,13 @@ e = clean_text_file('/Users/me/my_file_path/e_million.rtf')
 pi = clean_text_file('/Users/me/my_file_path/pi_million.rtf')
 ```
 
-The variables of choice are put into an array for easy unpacking later on.
+The variables of choice are put into a list for easy unpacking later on.
 
 ```python
 var_stack = [e, pi]
 ```
 
-Now the real work starts. We make a dictionary that will hold digit positions, and the digit itself which is similar across all numbers. Our list of variables is unpacked element-wise, zipped, and checked for memberwide equality. If so, the dictionary is updated.
+Now the real work starts. We make a dictionary that will hold digit positions, and the digit itself which is identical across all numbers. Our list of variables is unpacked element-wise, zipped, and checked for member-wide equality. If so, the dictionary is updated.
 
 ```python
 similar = {}
