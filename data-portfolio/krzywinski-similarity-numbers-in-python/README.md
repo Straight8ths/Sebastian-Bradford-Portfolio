@@ -102,7 +102,7 @@ We can observe a scaling down by a factor of 10 each time a new number is added,
 
 Let's add a function to check the frequency distribution for the digits of each of our irrationals, to ensure that these numbers satisfy the definition of *normal numbers* at least enough for our purposes.
 
-Given that our input files contain (almost exactly) 1,000,000 digits each, we should be seeing 100,000 of each digit.
+Given that our input files contain (almost exactly) 1,000,000 digits each, we should be seeing close to 100,000 of each digit.
 
 ```python
 def value_table(v):
