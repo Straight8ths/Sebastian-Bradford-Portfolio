@@ -48,41 +48,60 @@ For the key feature of our table, we'll place an X in each integer's row whereve
     return factor_table
 ```
 
-Let's see this for all integers up to 50, for instance.
-```python
-print(prime_factor_table(30))
+Let's see this for all integers up to 20, for instance.
 
-    Number  2  3  5  7 11 13 17 19 23 29 31 37 41 43 47
-0        1  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -
-1        2  X  -  -  -  -  -  -  -  -  -  -  -  -  -  -
-2        3  -  X  -  -  -  -  -  -  -  -  -  -  -  -  -
-3        4  X  -  -  -  -  -  -  -  -  -  -  -  -  -  -
-4        5  -  -  X  -  -  -  -  -  -  -  -  -  -  -  -
-5        6  X  X  -  -  -  -  -  -  -  -  -  -  -  -  -
-6        7  -  -  -  X  -  -  -  -  -  -  -  -  -  -  -
-7        8  X  -  -  -  -  -  -  -  -  -  -  -  -  -  -
-8        9  -  X  -  -  -  -  -  -  -  -  -  -  -  -  -
-9       10  X  -  X  -  -  -  -  -  -  -  -  -  -  -  -
-10      11  -  -  -  -  X  -  -  -  -  -  -  -  -  -  -
-11      12  X  X  -  -  -  -  -  -  -  -  -  -  -  -  -
-12      13  -  -  -  -  -  X  -  -  -  -  -  -  -  -  -
-13      14  X  -  -  X  -  -  -  -  -  -  -  -  -  -  -
-14      15  -  X  X  -  -  -  -  -  -  -  -  -  -  -  -
-15      16  X  -  -  -  -  -  -  -  -  -  -  -  -  -  -
-16      17  -  -  -  -  -  -  X  -  -  -  -  -  -  -  -
-17      18  X  X  -  -  -  -  -  -  -  -  -  -  -  -  -
-18      19  -  -  -  -  -  -  -  X  -  -  -  -  -  -  -
-19      20  X  -  X  -  -  -  -  -  -  -  -  -  -  -  -
-20      21  -  X  -  X  -  -  -  -  -  -  -  -  -  -  -
-21      22  X  -  -  -  X  -  -  -  -  -  -  -  -  -  -
-22      23  -  -  -  -  -  -  -  -  X  -  -  -  -  -  -
-23      24  X  X  -  -  -  -  -  -  -  -  -  -  -  -  -
-24      25  -  -  X  -  -  -  -  -  -  -  -  -  -  -  -
-25      26  X  -  -  -  -  X  -  -  -  -  -  -  -  -  -
-26      27  -  X  -  -  -  -  -  -  -  -  -  -  -  -  -
-27      28  X  -  -  X  -  -  -  -  -  -  -  -  -  -  -
-28      29  -  -  -  -  -  -  -  -  -  X  -  -  -  -  -
-29      30  X  X  X  -  -  -  -  -  -  -  -  -  -  -  -
+```python
+print(prime_factor_table(20))
+
+    Number  2  3  5  7 11 13 17 19
+0        1  -  -  -  -  -  -  -  -
+1        2  X  -  -  -  -  -  -  -
+2        3  -  X  -  -  -  -  -  -
+3        4  X  -  -  -  -  -  -  -
+4        5  -  -  X  -  -  -  -  -
+5        6  X  X  -  -  -  -  -  -
+6        7  -  -  -  X  -  -  -  -
+7        8  X  -  -  -  -  -  -  -
+8        9  -  X  -  -  -  -  -  -
+9       10  X  -  X  -  -  -  -  -
+10      11  -  -  -  -  X  -  -  -
+11      12  X  X  -  -  -  -  -  -
+12      13  -  -  -  -  -  X  -  -
+13      14  X  -  -  X  -  -  -  -
+14      15  -  X  X  -  -  -  -  -
+15      16  X  -  -  -  -  -  -  -
+16      17  -  -  -  -  -  -  X  -
+17      18  X  X  -  -  -  -  -  -
+18      19  -  -  -  -  -  -  -  X
+19      20  X  -  X  -  -  -  -  -
 ```
 
-Now, let's do this table more justice with a visualization
+Nice! Now, let's do this more justice with a proper visualization.
+
+The function to make the graph begins by creating the underlying dataframe specified by the call. We then do some tidying and value-replacing to make the data more graphable.
+
+```python
+def plot_prime_factor_heatmap(upper_bound):
+    factor_table = prime_factor_table(upper_bound)
+    heatmap_data = factor_table.set_index('Number').replace("-", 0).replace("X", 1)
+```
+
+Next, we make the heatmap in Seaborn and fiddle with layout, spacing, and typography.
+```python
+    plt.figure(figsize=(12, 8))
+    sns.heatmap(heatmap_data, cmap="binary", cbar=False)
+    plt.title(f'Prime Factor Heatmap up to {upper_bound}', fontsize=16, color='black', fontweight='bold', pad=20)
+    plt.xlabel('Prime Factors', fontsize=12, color='grey')
+    plt.ylabel('Numbers', fontsize=12, color='grey')
+    plt.fontfamily = 'monospace'
+    plt.xticks(color='grey')
+    plt.yticks(color='grey')
+    plt.show()
+```
+
+Now, let's take a gander at a larger range of integers, say up to 1,000.
+
+```python
+print(plot_prime_factor_heatmap(1000))
+```
+
