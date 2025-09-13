@@ -76,25 +76,25 @@ Let's check the amount of similar digits we end up with, as a function of how ma
 ### Two Irrationals (pi, e)
 
 ```python
-These 2 numbers have 99984 same digits at identical indices.
+These 2 numbers have 99984 matching digits at identical indices.
 ```
 
 ### Three Irrationals (pi, e, sqrt_2)
 
 ```python
-These 3 numbers have 10111 same digits at identical indices.
+These 3 numbers have 10111 matching digits at identical indices.
 ```
 
 ### Four Irrationals (pi, e, sqrt_2, sqrt_3)
 
 ```python
-These 4 numbers have 1030 same digits at identical indices.
+These 4 numbers have 1030 matching digits at identical indices.
 ```
 
 ### Five Irrationals (pi, e, sqrt_2, sqrt_3, sqrt_5)
 
 ```python
-These 5 numbers have 109 same digits at identical indices.
+These 5 numbers have 109 matching digits at identical indices.
 ```
 
 ### Scaling Phenomenon
