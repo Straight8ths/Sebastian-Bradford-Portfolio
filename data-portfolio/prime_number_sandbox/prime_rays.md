@@ -107,3 +107,4 @@ print(plot_prime_factor_heatmap(1000))
 
 <img width="1000" height="559" alt="Screenshot 2025-09-13 at 11 37 50 AM" src="https://github.com/user-attachments/assets/3357831c-ecf5-47a8-bde4-adec2ded2bfb" />
 
+The various diagonal lines seen here are the basis for why I named this exercise *Prime Rays*. Just as we'd expect, the diagonal line which is the farthest out to the right represents the primes themselves, given that (besides 1), they are their own largest divisor.
