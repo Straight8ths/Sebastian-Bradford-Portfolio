@@ -52,7 +52,9 @@ Let's see this for all integers up to 20, for instance.
 
 ```python
 print(prime_factor_table(20))
+```
 
+```python
 Number  2  3  5  7 11 13 17 19
      1  -  -  -  -  -  -  -  -
      2  X  -  -  -  -  -  -  -
