@@ -105,3 +105,5 @@ Now, let's take a gander at a larger range of integers, say up to 1,000.
 print(plot_prime_factor_heatmap(1000))
 ```
 
+<img width="1000" height="559" alt="Screenshot 2025-09-13 at 11 37 50 AM" src="https://github.com/user-attachments/assets/3357831c-ecf5-47a8-bde4-adec2ded2bfb" />
+
