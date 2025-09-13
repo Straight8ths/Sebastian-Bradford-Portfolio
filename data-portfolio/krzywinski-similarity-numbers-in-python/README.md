@@ -54,7 +54,7 @@ for ix, values in enumerate(zip(*var_stack)):
         similar[ix] = values[0]
 ```
 
-When the enumeration takes place, we treat the group of digits from each position within our irrationals a tuple called *values*. In order to check that these digits are all the same, we collapse them into a set, which removes duplicates, and check if we're left with only one unique value.
+When the enumeration takes place, we treat the group of digits from each position within our irrationals as a tuple called *values*. In order to check that these digits are all the same, we collapse them into a set, which removes duplicates, and check whether we're left with only one unique value.
 
 Now we can print our results as a clean sentence...
 
