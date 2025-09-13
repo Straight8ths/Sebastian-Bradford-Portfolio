@@ -4,7 +4,7 @@ Using Python and Pandas for a visualization that I couldn't get out of my head.
 
 ## Overview
 
-Prime numbers and their properties are my favorite mental chew toy. In this case, I was having thoughts about a very particular table I wanted to make, showing a large range of integers and their prime factors. This table wouldn't be concerned with the *frequency* of an integer's factors (e.g. How many *3's* and *5's* it takes to get to *75*), but merely showing which prime factors were present in a number or not?
+Prime numbers and their properties are my favorite mental chew toy. In this case, I was having thoughts about a very particular table I wanted to make, showing a large range of integers and their prime factors. This table wouldn't be concerned with the *frequency* of an integer's factors (e.g. How many *3's* and *5's* it takes to get to *75*), but merely showing which prime factors were present in a number or not.
 
 ## Process
 
@@ -28,7 +28,7 @@ def prime_factor_table(upper_bound):
     factor_table['Number'] = range(1, upper_bound + 1)
 ```
 
-Next, we want to add one column to our dataframe for each prime that there is within our range of integers. Along with that, we initialize all columns to an unobtrusive placeholder character, like a hyphen.
+Next, we want to add a column for *each prime* that exists within our range of integers. Along with that, we initialize all columns to an unobtrusive placeholder character, like a hyphen.
 
 ```python
     prime_factors = primes.upto(upper_bound)
@@ -76,7 +76,7 @@ print(prime_factor_table(20))
 19      20  X  -  X  -  -  -  -  -
 ```
 
-Nice! Now, let's do this more justice with a proper visualization.
+Now, let's do this more justice with a proper visualization.
 
 The function to make the graph begins by creating the underlying dataframe specified by the call. We then do some tidying and value-replacing to make the data more graphable.
 
@@ -106,5 +106,7 @@ print(plot_prime_factor_heatmap(1000))
 ```
 
 <img width="1000" height="559" alt="Screenshot 2025-09-13 at 11 37 50 AM" src="https://github.com/user-attachments/assets/3357831c-ecf5-47a8-bde4-adec2ded2bfb" />
+
+Neat!
 
 The various diagonal lines seen here are the basis for why I named this exercise *Prime Rays*. Just as we'd expect, the diagonal line which is the farthest out to the right represents the primes themselves, given that they are their own largest divisor.
