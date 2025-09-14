@@ -85,6 +85,7 @@ print(primes_in_powers(7, 8))
 
 Interesting. Let's graph it.
 
+# Visualization
 Our plotting function takes the same inputs, and immediately creates a dataframe as before.
 
 ```python
