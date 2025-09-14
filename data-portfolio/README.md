@@ -10,15 +10,15 @@ Exploring data manipulation, interpretation, and storytelling. Work done in Pyth
 - **Pandas in New York: Parking Meters Revisited**
     - Using Python data libraries to explore parking meters elsewhere.
 
-- **Euclid in Excel feat. Don Knuth**
-    - My port of Euclid's GCD algorithm into a spreadsheet, with a view into each step of the algorithm.
-    - Includes an algorithmic derivation taken from Don Knuth's _Art of Computer Programming Vol. 1_, used here for **educational and non-commercial purposes.**
+- **Krzywinski Similarity Numbers**
+    - Exploring a concept from one of my data scientist idols, and porting it to Python with extended flexibility.
 
 - **Prime Number Sandbox**
     - A growing collection of studies with Python and Pandas, examining primes and their behavior.
 
-- **Krzywinski Similarity Numbers**
-    - Exploring a concept from one of my data scientist idols, and porting it to Python with extended flexibility.
+- **Euclid in Excel feat. Don Knuth**
+    - My port of Euclid's GCD algorithm into a spreadsheet, with a view into each step of the algorithm.
+    - Includes an algorithmic derivation taken from Don Knuth's _Art of Computer Programming Vol. 1_, used here for **educational and non-commercial purposes.**
 
 - **Conditional Formatting as an Art Engine**
     - Using Excel's surprisingly powerful conditional formatting engine to make algorithmic art.
