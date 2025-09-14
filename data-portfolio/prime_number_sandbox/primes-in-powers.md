@@ -113,3 +113,9 @@ Let's run this and graph our two tables from earlier.
 print(plot_primes_in_powers(10,6))
 ```
 
+
+
+```python
+print(plot_primes_in_powers(7,8))
+```
+
