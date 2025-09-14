@@ -14,6 +14,9 @@ Exploring data manipulation, interpretation, and storytelling. Work done in Pyth
     - My port of Euclid's GCD algorithm into a spreadsheet, with a view into each step of the algorithm.
     - Includes an algorithmic derivation taken from Don Knuth's _Art of Computer Programming Vol. 1_, used here for **educational and non-commercial purposes.**
 
+- **Prime Number Sandbox**
+    - A growing collection of studies with Python and Pandas, examining primes and their behavior.
+
 - **Conditional Formatting as an Art Engine**
     - Using Excel's surprisingly powerful conditional formatting engine to make algorithmic art.
 
