@@ -20,7 +20,7 @@ In order to get maximum flexibility for analysis, we'll construct a function tha
 
 ```python
 def primes_in_powers(base, max_exponent):
-    powers = pd.DataFrame(columns=['Lower (inc.)', 'Upper (exc.)', '# of primes'])
+    powers = pd.DataFrame(columns=['Lower (inc.)', 'Upper (exc.)', 'Prime Count'])
 ```
 
 Now we use the primePy module to count primes between each floor and ceiling as we ascend through the exponents. We set our floor and ceiling, run the primes.between() method on the range, and store our values in a single-row dataframe which is then appended onto the initial one we created. This repeats for ascending exponents up to the *max_exponent* we provided.
@@ -30,7 +30,7 @@ Now we use the primePy module to count primes between each floor and ceiling as 
         lower = base ** (exponent - 1)
         upper = base ** exponent
         prime_count = len(primes.between(lower, upper))
-        powers = pd.concat([powers, pd.DataFrame({'Lower (inc.)': [lower], 'Upper (exc.)': [upper], '# of primes': [prime_count]})], ignore_index=True)
+        powers = pd.concat([powers, pd.DataFrame({'Lower (inc.)': [lower], 'Upper (exc.)': [upper], 'Prime Count': [prime_count]})], ignore_index=True)
 ```
 
 **A note on the primePy module**: The primes.between() method seems to behave *inclusively* for its given lower bound, but *exclusively* for its given upper bound. For example, when I run this:
