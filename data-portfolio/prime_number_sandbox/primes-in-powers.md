@@ -63,3 +63,53 @@ print(primes_in_powers(10, 6))
          10000       100000        8363
         100000      1000000       68906
 ```
+
+How about a base of 7 and a max power of 8?
+
+```python
+print(primes_in_powers(7, 8))
+```
+
+```python
+  Lower (inc.) Upper (exc.) Prime Count
+             1            7           3
+             7           49          12
+            49          343          53
+           343         2401         289
+          2401        16807        1582
+         16807       117649        9159
+        117649       823543       54587
+        823543      5764801      332079
+```
+
+Interesting. Let's graph it.
+
+Our plotting function takes the same inputs, and immediately creates a dataframe as before.
+
+```python
+def plot_primes_in_powers(base, max_exponent):
+    df = primes_in_powers(base, max_exponent)
+```
+
+Once we establish our labels and layout, we also need to make sure to change our plt.yscale attribute to "log".
+
+```python
+    plt.figure(figsize=(8, 8))
+    plt.bar(df.index, df['Prime Count'], color='skyblue')
+    plt.yscale('log')
+    plt.xticks(df.index, [f"{base}^{i}" for i in range(1, max_exponent + 1)], color='grey')
+    plt.xlabel(f'Range (Powers of {base})', color='grey')
+    plt.yticks(color='grey')
+    plt.ylabel('Number of Primes (Log Scale)', color='grey')
+    plt.title(f'Number of Primes in Powers of {base} up to {base}^{max_exponent}', fontsize=14, color='black', fontweight='bold', pad=20)
+    plt.grid(axis='y', linestyle='--', alpha=0.7)
+    plt.fontfamily = 'monospace'
+    plt.show()
+```
+
+Let's run this and graph our two tables from earlier.
+
+```python
+print(plot_primes_in_powers(10,6))
+```
+
