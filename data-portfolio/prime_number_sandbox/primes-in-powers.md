@@ -33,7 +33,8 @@ Now we use the primePy module to count primes between each floor and ceiling as 
         powers = pd.concat([powers, pd.DataFrame({'Lower (inc.)': [lower], 'Upper (exc.)': [upper], 'Prime Count': [prime_count]})], ignore_index=True)
 ```
 
-**A note on the primePy module**: The primes.between() method seems to behave *inclusively* for its given lower bound, but *exclusively* for its given upper bound. For example, when I run this:
+### A side note on the primePy module
+The primes.between() method seems to behave *inclusively* for its given lower bound, but *exclusively* for its given upper bound. For example, when I run this:
 ```python
 print(primes.between(5,17))
 ```
@@ -41,7 +42,7 @@ I get this:
 ```python
 [5, 7, 11, 13]
 ```
-
+## Back to work
 Our function concludes by returning our table now that all concatenations are finished.
 
 ```python
