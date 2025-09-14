@@ -17,6 +17,9 @@ Exploring data manipulation, interpretation, and storytelling. Work done in Pyth
 - **Prime Number Sandbox**
     - A growing collection of studies with Python and Pandas, examining primes and their behavior.
 
+- **Krzywinski Similarity Numbers**
+    - Exploring a concept from one of my data scientist idols, and porting it to Python with extended flexibility.
+
 - **Conditional Formatting as an Art Engine**
     - Using Excel's surprisingly powerful conditional formatting engine to make algorithmic art.
 
