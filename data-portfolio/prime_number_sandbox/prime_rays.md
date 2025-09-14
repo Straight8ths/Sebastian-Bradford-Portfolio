@@ -80,7 +80,8 @@ Number  2  3  5  7 11 13 17 19
 
 Now, let's do this more justice with a proper visualization.
 
-The function to make the graph begins by creating the underlying dataframe specified by the call. We then do some tidying and value-replacing to make the data more graphable.
+# Making a Graph
+The function to make our graph begins by creating the underlying dataframe specified by the call. We then do some tidying and value-replacing to make the data more graphable.
 
 ```python
 def plot_prime_factor_heatmap(upper_bound):
