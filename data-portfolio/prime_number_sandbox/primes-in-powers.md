@@ -96,7 +96,7 @@ Once we establish our labels and layout, we also need to make sure to change our
 ```python
     plt.figure(figsize=(8, 8))
     plt.bar(df.index, df['Prime Count'], color='skyblue')
-    plt.yscale('log')
+    plt.yscale('log') # Be sure to include this
     plt.xticks(df.index, [f"{base}^{i}" for i in range(1, max_exponent + 1)], color='grey')
     plt.xlabel(f'Range (Powers of {base})', color='grey')
     plt.yticks(color='grey')
@@ -112,10 +112,12 @@ Let's run this and graph our two tables from earlier.
 ```python
 print(plot_primes_in_powers(10,6))
 ```
-
-
+> <img width="400" height="414" alt="Screenshot 2025-09-14 at 10 59 27 AM" src="https://github.com/user-attachments/assets/11b2fd77-0028-4539-999d-3d0951906cbe" />
 
 ```python
 print(plot_primes_in_powers(7,8))
 ```
 
+> <img width="400" height="416" alt="Screenshot 2025-09-14 at 11 00 25 AM" src="https://github.com/user-attachments/assets/62021122-d44e-464d-b3b0-f38fac9d3712" />
+
+As a parting thought, remember that these bars show the number of primes ***between*** each power of the base and the next smallest power, not the entire quantity of primes up to that value. For example, in our second graph, the column of 7^4 shows the amount of primes *between 7^3 and 7^4*. Effectively, the bars show the ceiling of each range.
