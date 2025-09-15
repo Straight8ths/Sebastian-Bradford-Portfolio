@@ -55,7 +55,7 @@ Let's write a function to display this. We begin with...
 def plot_div_table(value):
     table = div_table(value)
 ```
-... which lays the groundwork. Next, take each element in the table, split it by its decimal value, and take only the right-hand result of the split (that is, the decimal digits).
+... which lays the groundwork. Next, take each element in the table, split it at its decimal point, and take only the right-hand result of the split (that is, the decimal digits).
 
 ```python
     stripped = table.applymap(lambda x: str(x).split('.')[1] if '.' in str(x) else '0')
