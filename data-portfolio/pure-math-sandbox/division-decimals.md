@@ -72,7 +72,7 @@ Now we give proper column names to our new table. Also, because of the nature of
     freqs = freqs.sort_values(by='Decimal Component').reset_index(drop=True)
 ```
 
-Finally, we draw up our plot in Seaborn. Hint: A log scale will be our friend here.
+Finally, we draw up our plot in Seaborn. *Hint: A log scale will be our friend here.*
 
 ```python
     plt.figure(figsize=(18, 6))
@@ -104,4 +104,6 @@ print(plot_div_table(100))
 
 <img width="1100" height="568" alt="Screenshot 2025-09-14 at 5 12 19 PM" src="https://github.com/user-attachments/assets/6cf8be9b-b7c8-49cc-ad22-b320d81a2404" />
 
-Now we're talking. What I find the most interesting are the *sinkholes* that form around certain high-frequency values like 0.5. Given that our dataframe for n=100 contains **10,000 separate division results**, why is it that a decimal like 0.5 has no close neighbors? 
+Now we're talking. Even though the x axis labels are a jumbled mess, it's still easy to intuit one's way around the graph, given that the axis only spans from 0 to 1. The decimal value of **.5** is the undisputed winner of this distribution *(Technically, decimal value of **.0** is the most common, but that's not relevant here. The only reason for that is due to the fact that our distribution contains a column of 1's, which produce a decimal value of .0 when used as divisors.)*
+
+What I find the most interesting are the *sinkholes* that form around certain high-frequency values like 0.5. Given that our dataframe for n=100 contains **10,000 separate division results**, why is it that a decimal like 0.5 has no close neighbors? 
