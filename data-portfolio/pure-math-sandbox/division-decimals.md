@@ -102,7 +102,7 @@ Hm... alright. What about values up to 100?
 print(plot_div_table(100))
 ```
 
-<img width="1100" height="568" alt="Screenshot 2025-09-14 at 5 12 19 PM" src="https://github.com/user-attachments/assets/6cf8be9b-b7c8-49cc-ad22-b320d81a2404" />
+> <img width="1100" height="568" alt="Screenshot 2025-09-14 at 5 12 19 PM" src="https://github.com/user-attachments/assets/6cf8be9b-b7c8-49cc-ad22-b320d81a2404" />
 
 Now we're talking. Even though the x axis labels are a jumbled mess, it's still easy to intuit one's way around the graph, given that the axis only spans from 0 to 1. The decimal value of **.5** is the undisputed winner of this distribution *(Technically, decimal value of **.0** is the most common, but that's not relevant here. The only reason for that is due to the fact that our distribution contains a column of 1's, which produce a decimal value of .0 when used as divisors.)*
 
@@ -166,4 +166,32 @@ After the customary layout steps, we're ready to go.
 ```
 
 Let's see this for divisions for all integers up to 30.
+
+```python
+print(plot_stripped_table(30))
+```
+
+> <img width="700" height="616" alt="Screenshot 2025-09-15 at 12 24 56 PM" src="https://github.com/user-attachments/assets/2d4f6e1f-960a-4df2-aaeb-3cec7b6a21af" />
+
+Dang! That's pretty. How about up to 100?
+
+```python
+print(plot_stripped_table(100))
+```
+
+> <img width="700" height="636" alt="Screenshot 2025-09-15 at 12 27 51 PM" src="https://github.com/user-attachments/assets/f39e65a0-2c9a-4053-a8e5-663b92096004" />
+
+As we increase the size of our range, the pattern takes on higher definition.
+
+```python
+print(plot_stripped_table(2000))
+```
+
+> <img width="700" height="615" alt="Screenshot 2025-09-15 at 12 29 31 PM" src="https://github.com/user-attachments/assets/4e1f1ae3-5d0e-4cd9-b390-8a7bdb9b6a01" />
+
+There are other fascinating emergent shapes in the heatmap. As a parting thought, let's zoom in on the very top-left region of the map, where we can see a beautiful series of cascading waves for the instances where the largest integers in the set are divided by the smallest.
+
+> <img width="600" height="411" alt="Screenshot 2025-09-15 at 12 33 06 PM" src="https://github.com/user-attachments/assets/78dc6862-3c9a-41e1-9b53-5e4e05adb6bd" />
+
+> <img width="600" height="529" alt="Screenshot 2025-09-15 at 12 34 51 PM" src="https://github.com/user-attachments/assets/ba2b7d72-bc46-46c6-8e41-97b0edfa523a" />
 
