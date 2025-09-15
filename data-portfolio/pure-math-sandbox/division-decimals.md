@@ -60,12 +60,12 @@ def plot_div_table(value):
 ```python
     stripped = table.applymap(lambda x: str(x).split('.')[1] if '.' in str(x) else '0')
 ```
-Now that our data is named *stripped*, we need to wrangle it into a frequency table. We can use the *stack()* method on our dataframe in order to collapse it into a single column, and then run the *value_counts()* method to extract the frequencies of each decimal value. When the data is in this state, it's now referred to by *freqs*.
+Now that our data is named *stripped*, we need to wrangle it into a frequency table. We can use the *stack()* method on our dataframe in order to collapse it into a single column of values, and then run the *value_counts()* method to extract the frequencies of each decimal value. When the data is in this state, it's now referred to by the name *freqs*.
 
 ```python
     freqs = pd.DataFrame(stripped.stack().value_counts()).reset_index()
 ```
-Because of the nature of our dataframe from earlier, our decimals are not sorted numerically, so we run the *sort_values()* method to fix it. We also ensure the columns are given new proper names.
+Now we give proper column names to our new table. Also, because of the nature of our dataframe from earlier, our decimals are not sorted numerically, so we run the *sort_values()* method to fix it.
 
 ```python
     freqs.columns = ['Decimal Component', 'Frequency']
