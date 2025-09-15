@@ -1,6 +1,6 @@
 # Division Decimals
 
-A catalogue of decimal values arrived at through division.
+An exploration of the absurd beauty of decimals.
 
 ## Overview
 
