@@ -106,4 +106,4 @@ print(plot_div_table(100))
 
 Now we're talking. Even though the x axis labels are a jumbled mess, it's still easy to intuit one's way around the graph, given that the axis only spans from 0 to 1. The decimal value of **.5** is the undisputed winner of this distribution *(Technically, decimal value of **.0** is the most common, but that's not relevant here. The only reason for that is due to the fact that our distribution contains a column of 1's, which produce a decimal value of .0 when used as divisors.)*
 
-What I find the most interesting are the *sinkholes* that form around certain high-frequency values like 0.5. Given that our dataframe for n=100 contains **10,000 separate division results**, why is it that a decimal like 0.5 has no close neighbors? 
+What I find the most interesting are the *sinkholes* that form around certain high-frequency values like .5. Given that our dataframe for n=100 contains **10,000 separate division results**, why is it that a decimal like .5 has no close neighbors? 
