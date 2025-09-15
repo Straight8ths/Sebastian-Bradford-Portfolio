@@ -93,3 +93,15 @@ Let's see what this looks like for values up to 10.
 ```python
 print(plot_div_table(10))
 ```
+
+> <img width="500" height="474" alt="Screenshot 2025-09-14 at 5 11 23 PM" src="https://github.com/user-attachments/assets/fdc90499-77d4-4edd-b610-bbf44c5bb4ac" />
+
+Hm... alright. What about values up to 100?
+
+```python
+print(plot_div_table(100))
+```
+
+<img width="1100" height="568" alt="Screenshot 2025-09-14 at 5 12 19 PM" src="https://github.com/user-attachments/assets/6cf8be9b-b7c8-49cc-ad22-b320d81a2404" />
+
+Now we're talking. What I find the most interesting are the *sinkholes* that form around certain high-frequency values like 0.5. Given that our dataframe for n=100 contains **10,000 separate division results**, why is it that a decimal like 0.5 has no close neighbors? 
