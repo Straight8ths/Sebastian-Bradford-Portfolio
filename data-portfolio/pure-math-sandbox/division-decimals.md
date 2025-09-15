@@ -107,3 +107,63 @@ print(plot_div_table(100))
 Now we're talking. Even though the x axis labels are a jumbled mess, it's still easy to intuit one's way around the graph, given that the axis only spans from 0 to 1. The decimal value of **.5** is the undisputed winner of this distribution *(Technically, decimal value of **.0** is the most common, but that's not relevant here. The only reason for that is due to the fact that our distribution contains a column of 1's, which produce a decimal value of .0 when used as divisors.)*
 
 What I find the most interesting are the *sinkholes* that form around certain high-frequency values like .5. Given that our dataframe for n=100 contains **10,000 separate division results**, why is it that a decimal like .5 has no close neighbors? 
+
+Let's visualize this concept through another lens...
+
+## Decimal Heatmap
+
+Let's see what it would look like if we took our original dataframe, and projected our decimal values onto a heatmap without the added step of tabulating the most common decimals. For this case, we will be simply stripping the integer components out of our original dataframe entries, and plotting it 1-for-1 in Seaborn with some color-coding.
+
+Our function will create a division dataframe, and then use a lambda method to remove the integer component before returning the table. 
+
+```python
+def stripped_table(value):
+    table = div_table(value)
+    stripped = table.applymap(lambda x: x-int(x))
+    return stripped
+```
+This is a necessary step, because otherwise, the integer components that arise in larger divisions will skew the heatmap's coloring. Thus, every entry needs to be displayed as *zero-point-something.*
+
+When we run it, we see our same dataframe style from earlier, but with no integers.
+
+```python
+print(stripped_table(10))
+```
+
+```python
+     1    2       3     4    5       6       7      8       9    10
+1   0.0  0.5  0.3333  0.25  0.2  0.1667  0.1429  0.125  0.1111  0.1
+2   0.0  0.0  0.6667  0.50  0.4  0.3333  0.2857  0.250  0.2222  0.2
+3   0.0  0.5  0.0000  0.75  0.6  0.5000  0.4286  0.375  0.3333  0.3
+4   0.0  0.0  0.3333  0.00  0.8  0.6667  0.5714  0.500  0.4444  0.4
+5   0.0  0.5  0.6667  0.25  0.0  0.8333  0.7143  0.625  0.5556  0.5
+6   0.0  0.0  0.0000  0.50  0.2  0.0000  0.8571  0.750  0.6667  0.6
+7   0.0  0.5  0.3333  0.75  0.4  0.1667  0.0000  0.875  0.7778  0.7
+8   0.0  0.0  0.6667  0.00  0.6  0.3333  0.1429  0.000  0.8889  0.8
+9   0.0  0.5  0.0000  0.25  0.8  0.5000  0.2857  0.125  0.0000  0.9
+10  0.0  0.0  0.3333  0.50  0.0  0.6667  0.4286  0.250  0.1111  0.0
+```
+
+To plot this, our plotting function only needs to make the additional change of reverse-sorting the y-axis for easier visual navigation.
+
+```python
+def plot_stripped_table(value):
+    table = stripped_table(value).sort_index(ascending=False)
+```
+
+After the customary layout steps, we're ready to go.
+
+```python
+    plt.figure(figsize=(10, 8))
+    sns.heatmap(table, cmap='viridis', cbar_kws={'label': 'Decimal Component Value'})
+    plt.title(f'Heatmap of Decimal Components in Division Table up to {value}', fontsize=16, color='black', fontweight='bold', pad=20)
+    plt.xlabel('Divisor', labelpad=10)
+    plt.ylabel('Dividend', labelpad=10)
+    plt.xticks(rotation=90, fontsize=8, color='grey')
+    plt.yticks(fontsize=8, color='grey')
+    plt.fontfamily = 'monospace'
+    plt.show()
+```
+
+Let's see this for divisions for all integers up to 30.
+
