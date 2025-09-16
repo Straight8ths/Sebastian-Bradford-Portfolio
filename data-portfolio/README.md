@@ -13,8 +13,8 @@ Exploring data manipulation, interpretation, and storytelling. Work done in Pyth
 - **Krzywinski Similarity Numbers**
     - Exploring a concept from one of my data scientist idols, and porting it to Python with extended flexibility.
 
-- **Prime Number Sandbox**
-    - A growing collection of studies with Python and Pandas, examining primes and their behavior.
+- **Pure Math Sandbox**
+    - A growing collection of studies with Python and Pandas, exploring various concepts in pure mathematics.
 
 - **Euclid in Excel feat. Don Knuth**
     - My port of Euclid's GCD algorithm into a spreadsheet, with a view into each step of the algorithm.
