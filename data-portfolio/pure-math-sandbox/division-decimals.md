@@ -22,7 +22,7 @@ def div_table(value):
     table = pd.DataFrame(columns=[i for i in range(1, value + 1)])
 ```
 
-Next, we build the table row by row usinc the .loc() method. Each row will contain a series of division results over our range, and the row itself will be named according to which integer is involved. *(e.g The row named "5" will involve all divisions where 5 is the numerator).* Our final step is to return the table.
+Next, we build the table row by row using the .loc() method. Each row will contain a series of division results over our range, and the row itself will be named according to which integer is involved. *(e.g The row named "5" will involve all divisions where 5 is the numerator).* Our final step is to return the table.
 
 ```python
     for i in range(1, value + 1):
