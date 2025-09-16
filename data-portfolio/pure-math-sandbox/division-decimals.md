@@ -15,7 +15,7 @@ import pandas as pd
 import seaborn as sns
 ```
 
-We start with a function that will create a dataframe showing division results for a range of integers up to a *value* that we provide. The columns are given names for each integer in the range.
+We start with a function that will create a dataframe showing division results for a range of integers up to a *value* that we provide. The columns are labeled with each integer in the range, and will represent the divisors of our operations later on.
 
 ```python
 def div_table(value):
