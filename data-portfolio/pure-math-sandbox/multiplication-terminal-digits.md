@@ -86,7 +86,7 @@ Interesting! It almost looks like a flower. Because we are working with base-10 
 plot_stripped_mult_table(50)
 ```
 
-> <img width="838" height="762" alt="Screenshot 2025-09-16 at 9 17 10 PM" src="https://github.com/user-attachments/assets/c80bef91-88a9-4ce0-9c6b-ccce4432eb8d" />
+> <img width="600" height="546" alt="Screenshot 2025-09-16 at 9 17 10 PM" src="https://github.com/user-attachments/assets/c80bef91-88a9-4ce0-9c6b-ccce4432eb8d" />
 
 As a funny byproduct of this expansion, we get a neat optical illusion that looks as if our cells are being diagonally sheared.
 
@@ -146,4 +146,7 @@ Let's see how our heatmap holds up. To recreate our very first heatmap, we call 
 ```python
 print(plot_stripped_mult_table_any(1,10,1))
 ```
+
+> <img width="600" height="528" alt="Screenshot 2025-09-16 at 9 50 41 PM" src="https://github.com/user-attachments/assets/740ade3a-ede8-4f7d-b5bf-d26c4f6e0e1d" />
+
 
