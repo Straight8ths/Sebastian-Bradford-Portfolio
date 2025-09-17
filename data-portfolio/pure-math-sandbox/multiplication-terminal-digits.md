@@ -155,18 +155,23 @@ Awesome! To make our second heatmap showing the tesselated pattern, we call the 
 print(plot_stripped_mult_table_any(1,50,1))
 ```
 
-Sweet! Now, let's get fancy. Let's take a range of 10 to 100, and keep the final two digits.
+> <img width="600" height="529" alt="Screenshot 2025-09-16 at 11 02 41 PM" src="https://github.com/user-attachments/assets/040e75ac-6d0e-4000-b0ea-388dd1ec7085" />
 
+
+Sweet! Now, let's get fancy. Let's take a range of 10 to 100, and keep the final two digits.
 
 ```python
 print(plot_stripped_mult_table_any(10,100,2))
 ```
+
+> <img width="600" height="511" alt="Screenshot 2025-09-16 at 11 03 36 PM" src="https://github.com/user-attachments/assets/774ac56d-2b75-4579-ba5f-086b5710e79c" />
 
 Woah! How does this new behavior change if we expand our range. Let's try it again, but with 300 as our upper bound.
 
 ```python
 print(plot_stripped_mult_table_any(10,300,2))
 ```
+> <img width="600" height="512" alt="Screenshot 2025-09-16 at 11 04 24 PM" src="https://github.com/user-attachments/assets/e1ccb2d0-b1d0-4cc9-80e8-27dbde08e359" />
 
 Just as we thought: We've arrived at a new tesselated pattern.
 
@@ -176,6 +181,8 @@ How about stepping it up to *three* final digits? Let's use our same range from 
 print(plot_stripped_mult_table_any(10,300,3))
 ```
 
+> <img width="600" height="512" alt="Screenshot 2025-09-16 at 11 05 30 PM" src="https://github.com/user-attachments/assets/008cd2b5-1cb6-4772-9d20-6cee03810d30" />
+
 Oooooh, I get it. We're seeing the edge of an even larger fractal pattern, with even more inner turbulence. How neat!
 
 Finally, let's push to 4 terminal digits, and take a look at a larger range of 100 to 500.
@@ -183,5 +190,14 @@ Finally, let's push to 4 terminal digits, and take a look at a larger range of 1
 ```python
 print(plot_stripped_mult_table_any(100,500,4))
 ```
+> <img width="600" height="530" alt="Screenshot 2025-09-16 at 11 07 03 PM" src="https://github.com/user-attachments/assets/fddb8d5f-1e88-4817-aed7-484e41b0e2ff" />
 
 Fascinating. I'll close out this exhibit with some particularly beautiful maps (and sections of maps) produced by various input parameters.
+
+> <img width="400" height="397" alt="Screenshot 2025-09-16 at 11 09 33 PM" src="https://github.com/user-attachments/assets/a2d20e5a-8119-4953-b11b-c525598f30fd" />
+> <img width="400" height="398" alt="Screenshot 2025-09-16 at 11 11 48 PM" src="https://github.com/user-attachments/assets/71921f55-bf7e-46ff-b66f-a03ca28ec792" />
+> <img width="400" height="398" alt="Screenshot 2025-09-16 at 11 13 42 PM" src="https://github.com/user-attachments/assets/642332b0-1761-475b-9ee9-cb1783a34885" />
+> <img width="400" height="397" alt="Screenshot 2025-09-16 at 11 14 57 PM" src="https://github.com/user-attachments/assets/659099c1-608e-412e-bf55-c63a03d0244d" />
+> <img width="400" height="397" alt="Screenshot 2025-09-16 at 11 17 38 PM" src="https://github.com/user-attachments/assets/932b4429-cf4c-4daa-afa4-a06175e909e0" />
+> <img width="400" height="397" alt="Screenshot 2025-09-16 at 11 21 42 PM" src="https://github.com/user-attachments/assets/5f9ad630-ccbf-498d-824c-dcae50a8085b" />
+
