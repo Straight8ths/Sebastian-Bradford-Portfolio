@@ -78,3 +78,14 @@ Let's see the visualization for integers up to 10, from earlier.
 plot_stripped_mult_table(10)
 ```
 
+> <img width="600" height="547" alt="Screenshot 2025-09-16 at 9 13 26 PM" src="https://github.com/user-attachments/assets/4ba170c1-456b-4a6f-b014-2dc972369419" />
+
+Interesting! It's almost like a flower. Because we are working with base-10 multiplication, this heatmap can be thought of as a "cell" which will be tesselated over and over if we choose to expand the range of our map. Let's call the plotting function with range of 50, for instance.
+
+```python
+plot_stripped_mult_table(50)
+```
+
+> <img width="838" height="762" alt="Screenshot 2025-09-16 at 9 17 10 PM" src="https://github.com/user-attachments/assets/c80bef91-88a9-4ce0-9c6b-ccce4432eb8d" />
+
+As a funny byproduct of this expansion, we get a neat optical illusion that looks as if our cells are being diagonally sheared.
