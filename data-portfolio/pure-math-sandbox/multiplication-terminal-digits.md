@@ -80,7 +80,7 @@ plot_stripped_mult_table(10)
 
 > <img width="600" height="547" alt="Screenshot 2025-09-16 at 9 13 26 PM" src="https://github.com/user-attachments/assets/4ba170c1-456b-4a6f-b014-2dc972369419" />
 
-Interesting! It's almost like a flower. Because we are working with base-10 multiplication, this heatmap can be thought of as a "cell" which will be tesselated over and over if we choose to expand the range of our map. Let's call the plotting function with range of 50, for instance.
+Interesting! It almost looks like a flower. Because we are working with base-10 multiplication, this heatmap can be thought of as a "cell" which will be tesselated over and over if we choose to expand the range of our map. Let's call the plotting function with range of 50, for instance.
 
 ```python
 plot_stripped_mult_table(50)
@@ -89,3 +89,61 @@ plot_stripped_mult_table(50)
 > <img width="838" height="762" alt="Screenshot 2025-09-16 at 9 17 10 PM" src="https://github.com/user-attachments/assets/c80bef91-88a9-4ce0-9c6b-ccce4432eb8d" />
 
 As a funny byproduct of this expansion, we get a neat optical illusion that looks as if our cells are being diagonally sheared.
+
+Let's press on and expand our search. That is, let's examine the heatmaps for larger amounts of terminal digits, rather than just 1.
+
+## Taking Multiple Terminal Digits
+
+To prevent any headaches later on, we need to re-tool our earlier functions to accomplish this. Firstly, we need to allow for explicit starting and ending values for our multiplication table. Secondly, we have to have a parameter for how many final digits we want to keep.
+
+Let's review the improved versions of our three functions.
+
+### Producing the Multiplication Table
+
+```python
+def mult_table_any(min_term, max_term):
+    table = pd.DataFrame(columns=[i for i in range(min_term, max_term + 1)])
+    for i in range(min_term, max_term + 1):
+        table.loc[i] = [(i * j) for j in range(min_term, max_term + 1)]
+    return table
+```
+
+The main adjustment here is the inclusion of *min_term* and *max_term*, which sets the bounds of our table accordingly.
+
+### Stripping the Final Digits
+
+```python
+def stripped_mult_table_any(min_term, max_term, n):
+    table = mult_table_any(min_term, max_term)
+    stripped = table.applymap(lambda x: int(str(x)[-n:]) if len(str(x))>=n else 0)
+    return stripped
+```
+
+Our key change here is the lambda function, which includes a **very** important colon which sets our slice and allows us to grab the final *n* digits from our entries.
+
+### Plotting a Heatmap
+
+```python
+def plot_stripped_mult_table_any(min_term, max_term, n):
+    table = stripped_mult_table_any(min_term, max_term, n).sort_index(ascending=False)
+    plt.figure(figsize=(10, 8))
+    sns.heatmap(table, cmap='inferno', cbar_kws={'label':'Terminal Digit'})
+    plt.title(f'Heatmap of Terminal {n} Digits in Multiplication Table from {min_term} to {max_term}', fontsize=16, color='black', fontweight='bold', pad=20)
+    plt.xlabel('Multiplicand', labelpad=10)
+    plt.ylabel('Multiplier', labelpad=10)
+    plt.xticks(rotation=90, fontsize=8, color='grey')
+    plt.yticks(fontsize=8, color='grey')
+    plt.fontfamily = 'monospace'
+    plt.show()
+```
+
+There are no substantial changes here, only a modification of our f-string in the map's title which will stay flexible as we play with different series of arguments.
+
+## Testing Our New Functions
+
+Let's see how our heatmap holds up. To recreate our very first heatmap, we call our plotting function with parameters of 1, 10, and 1. This will evaluate products over a range of 1 to 10, and keep the single final digit.
+
+```python
+print(plot_stripped_mult_table_any(1,10,1))
+```
+
