@@ -80,7 +80,7 @@ plot_stripped_mult_table(10)
 
 > <img width="600" height="547" alt="Screenshot 2025-09-16 at 9 13 26 PM" src="https://github.com/user-attachments/assets/4ba170c1-456b-4a6f-b014-2dc972369419" />
 
-Interesting! It almost looks like a flower. Because we are working with base-10 multiplication, this heatmap can be thought of as a "cell" which will be tesselated over and over if we choose to expand the range of our map. Let's call the plotting function with range of 50, for instance.
+Interesting! It almost looks like a flower. Because we are working with base-10 multiplication, this heatmap can be thought of as a "cell" which will be tesselated over and over if we choose to expand the range of our map. Let's call the plotting function with a range of 50, for instance.
 
 ```python
 plot_stripped_mult_table(50)
@@ -90,7 +90,7 @@ plot_stripped_mult_table(50)
 
 As a funny byproduct of this expansion, we get a neat optical illusion that looks as if our cells are being diagonally sheared.
 
-Let's press on and expand our search. That is, let's examine the heatmaps for larger amounts of terminal digits, rather than just 1.
+Let's press on and expand our search. That is, let's examine the heatmaps for larger amounts of terminal digits, rather than just *one*.
 
 ## Taking Multiple Terminal Digits
 
@@ -119,7 +119,7 @@ def stripped_mult_table_any(min_term, max_term, n):
     return stripped
 ```
 
-Our key change here is the lambda function, which includes a **very** important colon which sets our slice and allows us to grab the final *n* digits from our entries.
+Our key change here is the lambda function, which includes a **very** important colon that sets our slice window and allows us to grab the final *n* digits from our entries.
 
 ### Plotting a Heatmap
 
@@ -141,7 +141,7 @@ There are no substantial changes here, only a modification of our f-string in th
 
 ## Testing Our New Functions
 
-Let's see how our heatmap holds up. To recreate our very first heatmap, we call our plotting function with parameters of 1, 10, and 1. This will evaluate products over a range of 1 to 10, and keep the single final digit.
+Let's see how our improvements hold up. To recreate our very first heatmap, we call our plotting function with parameters of 1, 10, and 1. This will evaluate products over a range of 1 to 10, and keep the single final digit.
 
 ```python
 print(plot_stripped_mult_table_any(1,10,1))
@@ -158,7 +158,7 @@ print(plot_stripped_mult_table_any(1,50,1))
 > <img width="600" height="529" alt="Screenshot 2025-09-16 at 11 02 41 PM" src="https://github.com/user-attachments/assets/040e75ac-6d0e-4000-b0ea-388dd1ec7085" />
 
 
-Sweet! Now, let's get fancy. Let's take a range of 10 to 100, and keep the final two digits.
+Sweet! Now, let's get fancy. Let's take a range of 10 to 100, and keep the final **two digits.**
 
 ```python
 print(plot_stripped_mult_table_any(10,100,2))
@@ -166,7 +166,7 @@ print(plot_stripped_mult_table_any(10,100,2))
 
 > <img width="600" height="511" alt="Screenshot 2025-09-16 at 11 03 36 PM" src="https://github.com/user-attachments/assets/774ac56d-2b75-4579-ba5f-086b5710e79c" />
 
-Woah! How does this new behavior change if we expand our range. Let's try it again, but with 300 as our upper bound.
+Woah! How does this new behavior change if we expand our range? Let's try it again, but with 300 as our upper bound.
 
 ```python
 print(plot_stripped_mult_table_any(10,300,2))
@@ -195,9 +195,13 @@ print(plot_stripped_mult_table_any(100,500,4))
 Fascinating. I'll close out this exhibit with some particularly beautiful maps (and sections of maps) produced by various input parameters.
 
 > <img width="400" height="397" alt="Screenshot 2025-09-16 at 11 09 33 PM" src="https://github.com/user-attachments/assets/a2d20e5a-8119-4953-b11b-c525598f30fd" />
-> <img width="400" height="398" alt="Screenshot 2025-09-16 at 11 11 48 PM" src="https://github.com/user-attachments/assets/71921f55-bf7e-46ff-b66f-a03ca28ec792" />
-> <img width="400" height="398" alt="Screenshot 2025-09-16 at 11 13 42 PM" src="https://github.com/user-attachments/assets/642332b0-1761-475b-9ee9-cb1783a34885" />
-> <img width="400" height="397" alt="Screenshot 2025-09-16 at 11 14 57 PM" src="https://github.com/user-attachments/assets/659099c1-608e-412e-bf55-c63a03d0244d" />
-> <img width="400" height="397" alt="Screenshot 2025-09-16 at 11 17 38 PM" src="https://github.com/user-attachments/assets/932b4429-cf4c-4daa-afa4-a06175e909e0" />
-> <img width="400" height="397" alt="Screenshot 2025-09-16 at 11 21 42 PM" src="https://github.com/user-attachments/assets/5f9ad630-ccbf-498d-824c-dcae50a8085b" />
 
+> <img width="400" height="398" alt="Screenshot 2025-09-16 at 11 11 48 PM" src="https://github.com/user-attachments/assets/71921f55-bf7e-46ff-b66f-a03ca28ec792" />
+
+> <img width="400" height="398" alt="Screenshot 2025-09-16 at 11 13 42 PM" src="https://github.com/user-attachments/assets/642332b0-1761-475b-9ee9-cb1783a34885" />
+
+> <img width="400" height="397" alt="Screenshot 2025-09-16 at 11 14 57 PM" src="https://github.com/user-attachments/assets/659099c1-608e-412e-bf55-c63a03d0244d" />
+
+> <img width="400" height="397" alt="Screenshot 2025-09-16 at 11 17 38 PM" src="https://github.com/user-attachments/assets/932b4429-cf4c-4daa-afa4-a06175e909e0" />
+
+> <img width="400" height="397" alt="Screenshot 2025-09-16 at 11 21 42 PM" src="https://github.com/user-attachments/assets/5f9ad630-ccbf-498d-824c-dcae50a8085b" />
