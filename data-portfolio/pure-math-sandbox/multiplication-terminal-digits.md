@@ -149,4 +149,39 @@ print(plot_stripped_mult_table_any(1,10,1))
 
 > <img width="600" height="528" alt="Screenshot 2025-09-16 at 9 50 41 PM" src="https://github.com/user-attachments/assets/740ade3a-ede8-4f7d-b5bf-d26c4f6e0e1d" />
 
+Awesome! To make our second heatmap showing the tesselated pattern, we call the function with parameters of 1, 50, and 1.
 
+```python
+print(plot_stripped_mult_table_any(1,50,1))
+```
+
+Sweet! Now, let's get fancy. Let's take a range of 10 to 100, and keep the final two digits.
+
+
+```python
+print(plot_stripped_mult_table_any(10,100,2))
+```
+
+Woah! How does this new behavior change if we expand our range. Let's try it again, but with 300 as our upper bound.
+
+```python
+print(plot_stripped_mult_table_any(10,300,2))
+```
+
+Just as we thought: We've arrived at a new tesselated pattern.
+
+How about stepping it up to *three* final digits? Let's use our same range from earlier so we can maintain our visual context.
+
+```python
+print(plot_stripped_mult_table_any(10,300,3))
+```
+
+Oooooh, I get it. We're seeing the edge of an even larger fractal pattern, with even more inner turbulence. How neat!
+
+Finally, let's push to 4 terminal digits, and take a look at a larger range of 100 to 500.
+
+```python
+print(plot_stripped_mult_table_any(100,500,4))
+```
+
+Fascinating. I'll close out this exhibit with some particularly beautiful maps (and sections of maps) produced by various input parameters.
