@@ -88,25 +88,26 @@ Let's call this with the same Shakespeare line from earlier:
 print(position_grid(source_text))
 ```
 
-
+<img width="400" height="410" alt="Screenshot 2025-09-17 at 11 21 21 PM" src="https://github.com/user-attachments/assets/9ab93d22-7d56-4165-8c59-124c11da4212" />
 
 Brilliant! Let's try the whole sonnet.
 
-> *Shall I compare thee to a summer’s day?*
-> *Thou art more lovely and more temperate:*
-> *Rough winds do shake the darling buds of May,*
-> *And summer’s lease hath all too short a date:*
-> *Sometime too hot the eye of heaven shines,*
-> *And often is his gold complexion dimmed,*
-> *And every fair from fair sometime declines,*
-> *By chance, or nature’s changing course untrimmed:*
-> *But thy eternal summer shall not fade,*
-> *Nor lose possession of that fair thou ow’st,*
-> *Nor shall death brag thou wand'rest in his shade,*
-> *When in eternal lines to time thou grow’st,*
-> *So long as men can breathe or eyes can see,*
-> *So long lives this, and this gives life to thee.*
+> *Shall I compare thee to a summer’s day?*  
+> *Thou art more lovely and more temperate:*  
+> *Rough winds do shake the darling buds of May,*  
+> *And summer’s lease hath all too short a date:*  
+> *Sometime too hot the eye of heaven shines,*  
+> *And often is his gold complexion dimmed,*  
+> *And every fair from fair sometime declines,*  
+> *By chance, or nature’s changing course untrimmed:*  
+> *But thy eternal summer shall not fade,*  
+> *Nor lose possession of that fair thou ow’st,*  
+> *Nor shall death brag thou wand'rest in his shade,*  
+> *When in eternal lines to time thou grow’st,*  
+> *So long as men can breathe or eyes can see,*  
+> *So long lives this, and this gives life to thee.*  
 
+<img width="400" height="492" alt="Screenshot 2025-09-17 at 11 23 54 PM" src="https://github.com/user-attachments/assets/3abe49a6-3563-4fda-b678-651a1cc4819a" />
 
 
 Alrighty. Let's look at some other pieces of text and compare their "genomes."
@@ -115,14 +116,16 @@ Alrighty. Let's look at some other pieces of text and compare their "genomes."
 
 > *Among other public buildings in a certain town, which for many reasons it will be prudent to refrain from mentioning, and to which I will assign no fictitious name, there is one anciently common to most towns, great or small: to wit, a workhouse; and in this workhouse was born; on a day and date which I need not trouble myself to repeat, inasmuch as it can be of no possible consequence to the reader, in this stage of the business at all events; the item of mortality whose name is prefixed to the head of this chapter.*
 
-
+<img width="400" height="561" alt="Screenshot 2025-09-17 at 11 25 44 PM" src="https://github.com/user-attachments/assets/1cb8968e-68fd-49f9-92a8-7cc4ebb952e6" />
 
 ### Moby Dick by Herman Melville - First Paragraph
 
 > *Call me Ishmael. Some years ago—never mind how long precisely—having little or no money in my purse, and nothing particular to interest me on shore, I thought I would sail about a little and see the watery part of the world. It is a way I have of driving off the spleen and regulating the circulation. Whenever I find myself growing grim about the mouth; whenever it is a damp, drizzly November in my soul; whenever I find myself involuntarily pausing before coffin warehouses, and bringing up the rear of every funeral I meet; and especially whenever my hypos get such an upper hand of me, that it requires a strong moral principle to prevent me from deliberately stepping into the street, and methodically knocking people’s hats off—then, I account it high time to get to sea as soon as I can. This is my substitute for pistol and ball. With a philosophical flourish Cato throws himself upon his sword; I quietly take to the ship. There is nothing surprising in this. If they but knew it, almost all men in their degree, some time or other, cherish very nearly the same feelings towards the ocean with me.*
 
-
+<img width="400" height="547" alt="Screenshot 2025-09-17 at 11 27 53 PM" src="https://github.com/user-attachments/assets/3bbfdef5-2f86-4cff-bddf-6d701767a3b1" />
 
 ### Frankenstein by Mary Shelley - First Paragraph
 
 > *I am by birth a Genevese, and my family is one of the most distinguished of that republic. My ancestors had been for many years counsellors and syndics, and my father had filled several public situations with honour and reputation. He was respected by all who knew him for his integrity and indefatigable attention to public business. He passed his younger days perpetually occupied by the affairs of his country; a variety of circumstances had prevented his marrying early, nor was it until the decline of life that he became a husband and the father of a family.*
+
+<img width="400" height="588" alt="Screenshot 2025-09-17 at 11 44 03 PM" src="https://github.com/user-attachments/assets/44dd5a29-04db-4810-8e2c-67514f551c71" />
