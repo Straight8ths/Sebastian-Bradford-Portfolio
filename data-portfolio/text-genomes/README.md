@@ -53,7 +53,7 @@ Let's test our work up to this stage with a source file containing some Shakespe
 8  d  a  y     
 ```
 
-Sweet! Now, we create a new dataframe that turns these letters into integers representing their positions in the alphabet. To do this, we turn all of our input to lowercase, and then call on a trick I learned from *The C Programming Language* by Kernighan and Ritchie. We will use the *ord()* function to return the Unicode representation of each letter, subtract the ord() value of the letter 'a' from it, and add 1. This will turn 'a' into 1, 'b' into 2, and so on. Moreover, every non-letter (like our null strings from earlier) will be turned into a NaN value so that we can ignore them in our visualizations later on.
+Sweet! Now, we create a new dataframe that turns these letters into integers representing their positions in the alphabet. To do this, we turn all of our input to lowercase, and then call on a trick I learned from *The C Programming Language* by Kernighan and Ritchie. We will use the *ord()* function to return the Unicode representation of each letter, subtract the *ord()* value of the letter 'a' from it, and add 1. This will turn 'a' into 1, 'b' into 2, and so on. Moreover, every non-letter (like our null strings from earlier) will be turned into a NaN value so that we can ignore them in our visualizations later on.
 
 ```python
 def letter_position(letter):
@@ -62,16 +62,16 @@ def letter_position(letter):
     return position
 ```
 
-Now comes the fun part. Our plotting function begins by creating our initial grid of letters, and applies a map over the dataframe to arrive at the alphabet positions. We also define a mask to use in our heatmap, which is an array of booleans that is the same size as our source data, with values of True occuring wherever our source data is NaN. When we pass this mask into Seaborn's heatmap() function, it will ignore these masked cells so that their values do not throw off the color-coding of our graph.
+Now comes the fun part. Our plotting function begins by creating our initial grid of letters, and applies a map over the dataframe to arrive at the alphabet positions. We also define a mask to use in our heatmap, which is an array of booleans that is the same size as our source data, with values of True occuring wherever our source data is null. When we pass this mask into Seaborn's heatmap() function, it will ignore these masked cells so that their values do not throw off the color-coding of our graph.
 
 ```python
 def position_grid(word_list):
     starting_grid = letter_grid(word_list)
-    position_grid = starting_grid.applymap(letter_position)
-    mask = starting_grid.isna()
+    letter_positions = starting_grid.applymap(letter_position)
+    mask = letter_positions.isna()
     plt.figure(figsize=(4, 8))
-    sns.heatmap(position_grid, cmap='viridis', cbar_kws={'label': 'Letter Position'}, mask = mask)
-    plt.title('Heatmap of Letter Positions in Words', fontsize=16, color='black', fontweight='bold', pad=20)
+    sns.heatmap(letter_positions, cmap='viridis', cbar_kws={'label': 'Letter Position'}, mask = mask)
+    plt.title('Heatmap of Letter Positions in Frankenstein', fontsize=10, color='black', fontweight='bold', pad=20)
     plt.xlabel('Letter Position in Word', labelpad=10)
     plt.ylabel('Word Index', labelpad=10)
     plt.xticks(rotation=90, fontsize=8, color='grey')
