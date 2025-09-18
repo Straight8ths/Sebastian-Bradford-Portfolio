@@ -4,6 +4,8 @@ I was curious about what it would look like to reduce different pieces of text i
 
 ## Method
 
+### Source Text Cleaning
+
 We begin by reading in a piece of text stored in a local TXT or RTF file. We'll be using scaffolding from the *clean_text_file()* function in my *Krzywinski Similarity Numbers* exhibit. In this case, however, we will add some chained calls to the *replace()* function to remove punctuation marks from our source text, given that we are only concerned with letters.
 
 ```python
@@ -23,6 +25,8 @@ We'll store our newly loaded and cleaned text in a variable called *source_text*
 ```python
 source_text = clean_text_file('/Users/me/mypath/source_text.txt')
 ```
+
+### Making a Grid of Letters
 
 Next, we need to create a dataframe to house one word in each row, with each letter in its own cell. The width of our dataframe will be determined by the length of the longest word in our sample.
 
@@ -53,7 +57,11 @@ Let's test our work up to this stage with a source file containing some Shakespe
 8  d  a  y     
 ```
 
-Sweet! Now, we create a new dataframe that turns these letters into integers representing their positions in the alphabet. To do this, we turn all of our input to lowercase, and then call on a trick I learned from *The C Programming Language* by Kernighan and Ritchie. We will use the *ord()* function to return the Unicode representation of each letter, subtract the *ord()* value of the letter 'a' from it, and add 1. This will turn 'a' into 1, 'b' into 2, and so on. Moreover, every non-letter (like our null strings from earlier) will be turned into a NaN value so that we can ignore them in our visualizations later on.
+Sweet!
+
+### Mapping Letters to Alphabet Positions
+
+Now, we create a new dataframe that turns these letters into integers representing their positions in the alphabet. To do this, we turn all of our input to lowercase, and then call on a trick I learned from *The C Programming Language* by Kernighan and Ritchie. We will use the *ord()* function to return the Unicode representation of each letter, subtract the *ord()* value of the letter 'a' from it, and add 1. This will turn 'a' into 1, 'b' into 2, and so on. Moreover, every non-letter (like our null strings from earlier) will be turned into a NaN value so that we can ignore them in our visualizations later on.
 
 ```python
 def letter_position(letter):
@@ -62,7 +70,11 @@ def letter_position(letter):
     return position
 ```
 
-Now comes the fun part. Our plotting function begins by creating our initial grid of letters, and applies a map over the dataframe to arrive at the alphabet positions. We also define a mask to use in our heatmap, which is an array of booleans that is the same size as our source data, with values of True occuring wherever our source data is null. When we pass this mask into Seaborn's heatmap() function, it will ignore these masked cells so that their values do not throw off the color-coding of our graph.
+Now comes the fun part.
+
+### Creating the Heatmap
+
+Our plotting function begins by creating our initial grid of letters, and applies a map over the dataframe to arrive at the alphabet positions. We also define a mask to use in our heatmap, which is an array of booleans that is the same size as our source data, with values of True occuring wherever our source data is null. When we pass this mask into Seaborn's heatmap() function, it will ignore these masked cells so that their values do not throw off the color-coding of our graph.
 
 ```python
 def position_grid(word_list):
