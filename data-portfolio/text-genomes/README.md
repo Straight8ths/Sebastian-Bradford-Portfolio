@@ -94,7 +94,7 @@ def position_grid(word_list):
 
 Let's call this with the same Shakespeare line from earlier:
 
-> *"Shall I compare thee to a summer's day?"*
+> *Shall I compare thee to a summer's day?*
 
 ```python
 print(position_grid(source_text))
