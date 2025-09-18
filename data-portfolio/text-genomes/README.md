@@ -31,7 +31,7 @@ def letter_grid(word_list):
     table = pd.DataFrame(columns=range(1, max(len(i) for i in word_list) + 1))
 ```
 
-Next, we use the loc() method to add in our rows on the fly as the computer reads down our list of words. We also use the list() function to split each words into its constituent letters, fill them into the row, and fill the remaining spaces with null strings ('').
+Next, we use the *loc()* method to add in our rows on the fly as the computer reads down our list of words. We also use the *list()* function to split each word into its constituent letters, fill them into the row, and fill the remaining spaces with null strings ('').
 
 ```python
     for i in range(1, len(word_list) + 1):
