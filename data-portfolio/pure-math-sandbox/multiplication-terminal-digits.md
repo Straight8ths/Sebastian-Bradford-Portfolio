@@ -141,24 +141,9 @@ There are no substantial changes here, only a modification of our f-string in th
 
 ## Testing Our New Functions
 
-Let's see how our improvements hold up. To recreate our very first heatmap, we call our plotting function with parameters of 1, 10, and 1. This will evaluate products over a range of 1 to 10, and keep the single final digit.
+Time to see how our improvements hold up.
 
-```python
-print(plot_stripped_mult_table_any(1,10,1))
-```
-
-> <img width="600" height="528" alt="Screenshot 2025-09-16 at 9 50 41 PM" src="https://github.com/user-attachments/assets/740ade3a-ede8-4f7d-b5bf-d26c4f6e0e1d" />
-
-Awesome! To make our second heatmap showing the tesselated pattern, we call the function with parameters of 1, 50, and 1.
-
-```python
-print(plot_stripped_mult_table_any(1,50,1))
-```
-
-> <img width="600" height="529" alt="Screenshot 2025-09-16 at 11 02 41 PM" src="https://github.com/user-attachments/assets/040e75ac-6d0e-4000-b0ea-388dd1ec7085" />
-
-
-Sweet! Now, let's get fancy. Let's take a range of 10 to 100, and keep the final **two digits.**
+Let's multiply over a range of 10 to 100, and keep the final **two digits.**
 
 ```python
 print(plot_stripped_mult_table_any(10,100,2))
