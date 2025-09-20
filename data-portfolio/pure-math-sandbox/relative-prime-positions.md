@@ -4,7 +4,7 @@ Exploring gaps between primes in standardizable terms.
 
 ## Overview
 
-I wanted to study prime gaps in a way that I hadn't yet seen. Rather than looking at the sizes of the gaps between a given prime and the next, I wanted to examine each prime position relative to its upper and lower neighbors. To standardize these distances for study, I chose to express them as percentages.
+I wanted to study prime gaps in a way that I hadn't yet seen. Rather than looking at the sizes of the gaps between a given prime and the next, I wanted to examine each prime's position relative to its upper and lower neighbors. To standardize these distances for study, I chose to express them as percentages.
 
 ## Process
 
