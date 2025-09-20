@@ -17,7 +17,7 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 ```
 
-We only need one workhorse function here. It takes a number as its input, which sets the upper bound for our prime search. We start with creating a dataframe to store the relative positions for each prime we evaluate. We also create our standing list of primes up to our ceiling to evaluate
+We only need one workhorse function here. It takes a number as its input, which sets the upper bound for our prime search. We start with creating a dataframe to store the relative positions for each prime we evaluate. We also create our standing list of primes up to our ceiling.
 
 ```python
 def relative_positions(n):
@@ -25,7 +25,7 @@ def relative_positions(n):
     prime_list = primes.upto(n)
 ```
 
-Next, we run a for loop to examine the primes in our list. This analysis is concerned with distances between upper and lower prime neighbors, so we need to skip the first and last primes in our list. Each prime's relative position is calculated as a ratio of *(the distance to the lower neighbor)* to *(the distance from the lower to the upper neighbor)*. We store each calculated result in our dataframe.
+Next, we run a for loop to examine the primes in our list. This analysis is concerned with distances between upper and lower prime neighbors, so we need to skip the first and last primes in our list. Each prime's relative position is calculated as a ratio of *(the distance to the lower neighbor)* divided by *(the distance from the lower to the upper neighbor)*. We store each calculated result in our dataframe.
 
 ```python
     for i in range(1,len(prime_list)-1):
