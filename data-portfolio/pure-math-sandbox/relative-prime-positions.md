@@ -49,7 +49,7 @@ print(relative_positions(10))
 2      0.50
 ```
 
-We see the function working as intended. Of the primes up to 10, we are ignoring 2 and 7. Therefore, the prime number 3 is indeed a third of the way between 2 and 5, and the prime number 5 is halfway between 3 and 7, hence the two position values in the dataframe.
+We see the function working as intended. Of the primes up to 10, we are only examining 3 and 5. 3 is indeed a third of the way between 2 and 5, and 5 is halfway between 3 and 7, hence the two position values we see in the dataframe.
 
 ## Visualization
 
@@ -80,6 +80,7 @@ Let's see how this looks for all primes up to 100.
 plot_relative_positions(100)
 ```
 
+> <img width="500" height="540" alt="Screenshot 2025-09-19 at 9 27 46 PM" src="https://github.com/user-attachments/assets/94412e97-7fb0-44fc-afb9-499d609bc4ab" />
 
 Interesting. Let's expand the range considerably (to 100,000) and see if this behavior holds.
 
@@ -87,5 +88,6 @@ Interesting. Let's expand the range considerably (to 100,000) and see if this be
 plot_relative_positions(100000)
 ``` 
 
+> <img width="500" height="520" alt="Screenshot 2025-09-19 at 9 29 04 PM" src="https://github.com/user-attachments/assets/ced96f57-be05-43aa-909c-a01e673727e2" />
 
-Sure enough, it does. Because we elected to ignore the integer values of prime gaps in favor of standardizing them, we see an interesting emergent phenomena, with a high degree of symmetry to boot.
+Sure enough, it does. Because we elected to ignore the sheer integer values of prime gaps in favor of standardizing them, we see an interesting emergent phenomena, with a high degree of symmetry to boot.
