@@ -90,4 +90,4 @@ plot_relative_positions(100000)
 
 > <img width="500" height="520" alt="Screenshot 2025-09-19 at 9 29 04 PM" src="https://github.com/user-attachments/assets/ced96f57-be05-43aa-909c-a01e673727e2" />
 
-Sure enough, it does. Because we elected to ignore the sheer integer values of prime gaps in favor of standardizing them, we see an interesting emergent phenomena, with a high degree of symmetry to boot.
+Sure enough, it does. Because we elected to ignore the sheer integer values of prime gaps in favor of standardizing them, we see an interesting emergent property with a high degree of symmetry to boot.
