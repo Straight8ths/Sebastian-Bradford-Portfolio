@@ -35,6 +35,7 @@ Next, we run a for loop to examine the primes in our list. This analysis is conc
         positions_table.loc[i] = round(position,2)
     return positions_table
 ```
+*A note on rounding*: We are electing to round our division results so that we can have meaningful grouping of data as our analysis scales in size. By rounding to two decimal places, we are choosing to examine phenomena at a distance resolution of 1%. Without this rounding, our data would be sparse due to the many unique position ratios that might arise.
 
 Let's see a proof of concept, evaluating the positions for all primes up to 10.
 
@@ -65,8 +66,8 @@ Finally, we tweak our visuals until we are satisfied.
 ```python
     plt.figure(figsize=(9,9))
     sns.barplot(data=freq_table, x='position', y='count', color='darkorange')
-    plt.title(f'Prime Clusters up to {n}', fontsize=18, pad=20, fontweight='bold')
-    plt.xlabel('Relative Position between Neighboring Primes', color='grey', fontsize=12)
+    plt.title(f'Prime Neighbor Positions up to {n}', fontsize=18, pad=20, fontweight='bold')
+    plt.xlabel('Percentage Position between Neighboring Primes', color='grey', fontsize=12)
     plt.ylabel('Frequency', color='grey', fontsize=12)
     plt.xticks(rotation=90, color='grey')
     plt.yticks(color='grey')
