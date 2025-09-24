@@ -4,7 +4,7 @@ Content is made 100% by yours truly, in Affinity Designer.
 
 Images and source files both included.
 
-## **Index**
+## **Contents**
 
 - **App icons**
     - Designed to explore the temperaments and personalities of various app genres (e.g. Fitness, productivity, etc.)
