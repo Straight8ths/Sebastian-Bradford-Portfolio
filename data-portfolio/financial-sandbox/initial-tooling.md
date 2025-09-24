@@ -19,6 +19,7 @@ import yfinance as yf
 import matplotlib.pyplot as plt
 import seaborn as sns
 import pandas as pd
+from pandas.tseries.offsets import DateOffset
 import numpy as np
 import calendar
 ```
@@ -27,108 +28,60 @@ We first build our root-level function to download historical data. We start wit
 
 ```python
 def download_data(ticker, start, end):
-    df = yf.download(ticker, start=start, end=end)
+    # Download data from Yahoo Finance
+    df = yf.download(ticker, pd.Timestamp(start)-DateOffset(days=10), pd.Timestamp(end)+DateOffset(days=1))
 ```
 
-At this point, we have a philosophical decision to make: The API returns a multi-indexed DataFrame to account for cases where we might query multiple tickers at once.
+The reason for the date adjustments is to ensure that our `start` and `end` dates are **inclusive** in the function call. That is to say, if you call the function and pass in the start and end dates of a given month, then intuitively, the full month's range is what you should get.
 
-```python
-print(download_data('AAPL', '2023-01-01', '2023-01-15'))
-```
+A second reason for the change has to do with return calculations. Later on, we will add a column to the DataFrame that shows daily returns, and I am choosing to use a close-to-close measurement for calculation. That is, the return of a given trading day is taken between the close of the previous day and the close of the current day. I do this because the yfinance API gives the adjusted closing prices by default, and a close-to-close calculation makes sure we are always keeping that adjustment in mind. Additionally, I noticed anomalies between the open prices listed by the API compared to those on the YahooFinance website. However, I saw that the adjusted close prices were always in agreement.
 
-```python
-Price            Close        High         Low        Open     Volume
-Ticker            AAPL        AAPL        AAPL        AAPL       AAPL
-Date                                                                 
-2023-01-03  123.330650  129.079567  122.443165  128.468194  112117500
-2023-01-04  124.602707  126.870724  123.340509  125.125335   89113600
-2023-01-05  123.281319  125.993074  123.024940  125.361975   80962700
-2023-01-06  127.817390  128.478071  123.153174  124.257601   87754700
-2023-01-09  128.339996  131.554669  128.083618  128.655553   70790800
-2023-01-10  128.911911  129.434539  126.338208  128.448446   63896200
-2023-01-11  131.633545  131.653256  128.645685  129.424691   69458900
-2023-01-12  131.554657  132.392827  129.612053  132.018122   71379600
-2023-01-13  132.885895  133.043673  129.829015  130.193865   57809700
-```
+In our table, we offset our start date backward by 10 days to ensure that we can access the prior trading day (and account for any long weekends or holidays), and grab the close price of that day. Later on in the function, we will trim out these irrelevant dates.
 
-Although I appreciate the density of this, I would rather build this first function with *maximum simplicity in mind*, so I elected to strip out the multi-indexing and process only one ticker's data at a time. When this function is implemented in later projects, I personally see it as a fair tradeoff to have to call a simple function multiple times, as opposed to delicately chopping up a more complex DataFrame. Let's call `droplevel()` on the DataFrame and make the change.
+Next, we come to a philosophical choice to make: Even though the `download()` function is capable of handling multiple tickers worth of data, I am choosing to make this root-level function as simple and flat as possible, and restrict it to **one ticker at a time.** When it comes time to do analysis later on, I see it as a fair trade-off to have to call this simpler function multiple times, rather than wrestling with a more dense DataFrame.
+
+To make these flattening adjustments, we use `droplevel()` to remove the index of ticker names, and reset the index.
 
 ```python
     df.columns = df.columns.droplevel(1)
     df.reset_index(inplace=True)
 ```
 
-This change leaves us with a cleaner, flatter DataFrame:
-
-```python
-print(download_data('AAPL', '2023-01-01', '2023-01-15'))
-```
-
-```python
-Price       Date       Close        High         Low        Open     Volume
-0     2023-01-03  123.330635  129.079551  122.443150  128.468178  112117500
-1     2023-01-04  124.602707  126.870724  123.340509  125.125335   89113600
-2     2023-01-05  123.281342  125.993097  123.024963  125.361998   80962700
-3     2023-01-06  127.817360  128.478040  123.153145  124.257571   87754700
-4     2023-01-09  128.339996  131.554669  128.083618  128.655553   70790800
-5     2023-01-10  128.911942  129.434570  126.338238  128.448477   63896200
-6     2023-01-11  131.633575  131.653286  128.645715  129.424721   69458900
-7     2023-01-12  131.554672  132.392842  129.612068  132.018137   71379600
-8     2023-01-13  132.885864  133.043643  129.828986  130.193835   57809700
-```
-
-Now, we add other columns of our choosing onto this output. I saw it fit to add a set of columns to numerically display the components of each date (for easier filtering later on), as well as a column showing the previous day's closing price.
+Now, we add more columns that will be useful to us later on. We add a series of columns for the components of each date, as well as a column for each day's prior close, and the resulting daily return of that day.
 
 ```python
     df['Year'] = df['Date'].dt.year
     df['Month'] = df['Date'].dt.month
     df['Day'] = df['Date'].dt.day
     df['Prev_Close'] = df['Close'].shift(1)
+    df['Daily_Return'] = (df['Close'] / df['Prev_Close']) - 1
 ```
 
-Let's see what that looks like:
+Now, to return our final DataFrame, we filter our dates so that they match the range we passed in, and rearrange our columns into a more linear order.
 
 ```python
-print(download_data('AAPL', '2023-01-01', '2023-01-15'))
-```
-
-```python
-Price       Date       Close        High         Low        Open     Volume  Year  Month  Day  Prev_Close
-0     2023-01-03  123.330643  129.079559  122.443158  128.468186  112117500  2023      1    3         NaN
-1     2023-01-04  124.602715  126.870731  123.340517  125.125343   89113600  2023      1    4  123.330643
-2     2023-01-05  123.281342  125.993097  123.024963  125.361998   80962700  2023      1    5  124.602715
-3     2023-01-06  127.817368  128.478048  123.153152  124.257579   87754700  2023      1    6  123.281342
-4     2023-01-09  128.339966  131.554638  128.083587  128.655523   70790800  2023      1    9  127.817368
-5     2023-01-10  128.911942  129.434570  126.338238  128.448477   63896200  2023      1   10  128.339966
-6     2023-01-11  131.633575  131.653286  128.645715  129.424721   69458900  2023      1   11  128.911942
-7     2023-01-12  131.554672  132.392842  129.612068  132.018137   71379600  2023      1   12  131.633575
-8     2023-01-13  132.885895  133.043673  129.829015  130.193865   57809700  2023      1   13  131.554672
-```
-
-Our final step is to reorder the columns so that the date-related colums are grouped together, and the previous day's close is directly next to the current day's open. We close out by returning the organized DataFrame.
-
-```python
-    df = df[['Date', 'Year', 'Month', 'Day', 'Prev_Close', 'Open', 'High', 'Low', 'Close', 'Volume']]
+    df = df[df['Date'] >= start][['Date', 'Year', 'Month', 'Day', 'Prev_Close', 'Open', 'High', 'Low', 'Close', 'Daily_Return', 'Volume']]
+    df.reset_index(drop=True, inplace=True)
     return df
 ```
 
-Let's see the final result:
+Let's see the final result;
 
 ```python
-print(download_data('AAPL', '2023-01-01', '2023-01-15'))
-```
-
-```python
-Price       Date  Year  Month  Day  Prev_Close        Open        High         Low       Close     Volume
-0     2023-01-03  2023      1    3         NaN  128.468194  129.079567  122.443165  123.330650  112117500
-1     2023-01-04  2023      1    4  123.330650  125.125335  126.870724  123.340509  124.602707   89113600
-2     2023-01-05  2023      1    5  124.602707  125.361991  125.993089  123.024955  123.281334   80962700
-3     2023-01-06  2023      1    6  123.281334  124.257557  128.478025  123.153130  127.817345   87754700
-4     2023-01-09  2023      1    9  127.817345  128.655553  131.554669  128.083618  128.339996   70790800
-5     2023-01-10  2023      1   10  128.339996  128.448461  129.434554  126.338223  128.911926   63896200
-6     2023-01-11  2023      1   11  128.911926  129.424706  131.653271  128.645700  131.633560   69458900
-7     2023-01-12  2023      1   12  131.633560  132.018122  132.392827  129.612053  131.554657   71379600
-8     2023-01-13  2023      1   13  131.554657  130.193850  133.043658  129.829000  132.885880   57809700
+Price       Date  Year  Month  Day  Prev_Close        Open        High         Low       Close  Daily_Return     Volume
+0     2023-01-03  2023      1    3  128.123062  128.468194  129.079567  122.443165  123.330650     -0.037405  112117500
+1     2023-01-04  2023      1    4  123.330650  125.125343  126.870731  123.340517  124.602715      0.010314   89113600
+2     2023-01-05  2023      1    5  124.602715  125.361998  125.993097  123.024963  123.281342     -0.010605   80962700
+3     2023-01-06  2023      1    6  123.281342  124.257594  128.478063  123.153167  127.817383      0.036794   87754700
+4     2023-01-09  2023      1    9  127.817383  128.655569  131.554685  128.083633  128.340012      0.004089   70790800
+5     2023-01-10  2023      1   10  128.340012  128.448446  129.434539  126.338208  128.911911      0.004456   63896200
+6     2023-01-11  2023      1   11  128.911911  129.424721  131.653286  128.645715  131.633575      0.021113   69458900
+7     2023-01-12  2023      1   12  131.633575  132.018152  132.392858  129.612083  131.554688     -0.000599   71379600
+8     2023-01-13  2023      1   13  131.554688  130.193850  133.043658  129.829000  132.885880      0.010119   57809700
+9     2023-01-17  2023      1   17  132.885880  132.954905  135.380685  132.264643  134.049469      0.008756   63646600
+10    2023-01-18  2023      1   18  134.049469  134.917261  136.682361  133.152146  133.329651     -0.005370   69672800
+11    2023-01-19  2023      1   19  133.329651  132.215356  134.355176  131.909670  133.388809      0.000444   58280400
+12    2023-01-20  2023      1   20  133.388809  133.398630  136.100529  132.353374  135.952606      0.019220   80223600
 ```
 
 This layout is very reminiscent of how I would set up a spreadsheet for analyzing data by hand, with an eye toward linearity and flatness over nesting. Besides providing for easier operations in `pandas` later on, any CSV exports of this function will be easy to interpret.
@@ -141,12 +94,9 @@ I chose to build this function with a one-year scope, with optional improvements
 
 ```python
 def monthly_return_single(year, ticker):
-    df = download_data(ticker, f'{year-1}-12-01', f'{year}-12-31')
+    # Get data from January of the current year to December of the current year.
+    df = download_data(ticker, f'{year}-01-01', f'{year}-12-31')
 ```
-
-**A note:** I am electing to calculate returns on a close-to-close basis, so in effect, the final closing price of a given month will be treated as the open price for next month's return calculation. In order to accomplish this for a year spanning January to December, we need to include data from December of the previous year to make sure we get our first value for January.
-
-My main reason for this adjustment was the fact that the yfinance API uses the *adjusted close price* for each security by default, so by comparing two adjusted close prices, we can keep the scale of our analysis accurate. I was also having difficulty getting the API's open prices to agree with YahooFinance's web data, but with the close-to-close method I got perfect agreement each time. This means that this function now has a built-in sanity check in case our values down the line are ever out of alignment with web data.
 
 Next, we create a DataFrame that will hold the monthly return values, with columns for year, month, and return, as we would expect.
 
