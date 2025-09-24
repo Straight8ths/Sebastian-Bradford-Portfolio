@@ -51,7 +51,7 @@ Date
 2023-01-13  132.885895  133.043673  129.829015  130.193865   57809700
 ```
 
-Although I appreciate the density of this, I would rather build this first function with *maximum simplicity in mind*, so I elected to strip out the multi-indexing and process only one ticker's data at a time. When this function is implemented in later projects, I personally see it as a fair trade to have to call a simple function multiple times, as opposed to delicately chopping up a more complex DataFrame. Let's call `droplevel()` on the DataFrame and make the change.
+Although I appreciate the density of this, I would rather build this first function with *maximum simplicity in mind*, so I elected to strip out the multi-indexing and process only one ticker's data at a time. When this function is implemented in later projects, I personally see it as a fair tradeoff to have to call a simple function multiple times, as opposed to delicately chopping up a more complex DataFrame. Let's call `droplevel()` on the DataFrame and make the change.
 
 ```python
     df.columns = df.columns.droplevel(1)
@@ -105,7 +105,7 @@ Price       Date       Close        High         Low        Open     Volume  Yea
 8     2023-01-13  132.885895  133.043673  129.829015  130.193865   57809700  2023      1   13  131.554672
 ```
 
-Our final step is to reorder the columns so that the date-related colums are grouped together, and the previous day's close is directly next to the current day's open. We close out by returning the DataFrame.
+Our final step is to reorder the columns so that the date-related colums are grouped together, and the previous day's close is directly next to the current day's open. We close out by returning the organized DataFrame.
 
 ```python
     df = df[['Date', 'Year', 'Month', 'Day', 'Prev_Close', 'Open', 'High', 'Low', 'Close', 'Volume']]
@@ -137,16 +137,16 @@ Let's move on to our next tool: Monthly returns.
 
 ## Monthly Returns - Single Ticker
 
-I chose to build this function with a one-year scope, with optional improvements later on. Our first line creates a DataFrame using the `download_data()` function we just built, except with a timescale encompassing the year passed into the function.
+I chose to build this function with a one-year scope, with optional improvements later on. Our first line creates a DataFrame using the `download_data()` function we just built, except with a timescale that encompasses the full range of the year passed into the function.
 
 ```python
 def monthly_return_single(year, ticker):
     df = download_data(ticker, f'{year-1}-12-01', f'{year}-12-31')
 ```
 
-**A note:** I am electing to use calculate returns on a close-to-close basis, so in effect, the final closing price of a given month will be treated as the open price for next month's return calculation. In order to accomplish this for a year spanning January to December, we need to include data from December of the previous year to make sure we get our first value for January.
+**A note:** I am electing to calculate returns on a close-to-close basis, so in effect, the final closing price of a given month will be treated as the open price for next month's return calculation. In order to accomplish this for a year spanning January to December, we need to include data from December of the previous year to make sure we get our first value for January.
 
-My main reason for this adjustment was the fact that the yfinance API uses the *adjusted close price* for each security by default, so by comparing two adjusted close prices, we can keep the scale of our analysis accurate.
+My main reason for this adjustment was the fact that the yfinance API uses the *adjusted close price* for each security by default, so by comparing two adjusted close prices, we can keep the scale of our analysis accurate. I was also having difficulty getting the API's open prices to agree with YahooFinance's web data, but with the close-to-close method I got perfect agreement each time. This means that this function now has a built-in sanity check in case our values down the line are ever out of alignment with web data.
 
 Next, we create a DataFrame that will hold the monthly return values, with columns for year, month, and return, as we would expect.
 
@@ -188,7 +188,7 @@ print(monthly_return_single(2023, 'AAPL'))
 12  2023   December  0.013538
 ```
 
-When building this function, I ran multiple sanity checks by consulting YahooFinance data by hand, and in all cases I saw consensus with the function.
+When building this function, I ran multiple checks using YahooFinance web data, and calculated the return values by hand. In all cases, I saw consensus with the function.
 
 ## Monthly Returns - Multiple Tickers
 
@@ -229,7 +229,7 @@ print(monthly_return_multi(2023, 'AAPL', 'MSFT', 'GOOGL'))
 11  2023   December  0.013538 -0.007566  0.054019
 ```
 
-Perfect. At this point, I chose to add some optional functionality of comparing the returns present in the table. For research projects that involve analyzing multiple securities, it may be helpful to see at a glance which securities were the top performers of each month.
+Perfect. At this point, I chose to add some optional functionality for comparing the returns in the table. For research projects that involve analyzing multiple securities, it may be helpful to see at a glance which securities were the top performers of each month.
 
 To do this, we create two new columns in our DataFrame to hold the name of the top-performing ticker, as well as its return value.
 
@@ -247,7 +247,7 @@ Now, we loop through each of our 12 months, filter this DataFrame to isolate eac
         best_ticker = month_data.iloc[:, 2:-2].idxmax(axis=1).values
 ```
 
-Now, we insert each pair of values we find into the new columns we created earlier.
+Now, we insert each pair of values we find into the new columns that we created earlier.
 
 ```python
         all_returns.loc[all_returns['Month'] == calendar.month_name[month], 'Max_Return'] = max_return
@@ -277,13 +277,13 @@ print(monthly_return_multi(2023, 'AAPL', 'MSFT', 'GOOGL'))
 11  2023   December  0.013538 -0.007566  0.054019       GOOGL    0.054019
 ```
 
-From this, we've set our DataFrame into an optimally flexible state for later analysis. For example, we can quickly analyze ticker frequencies, calculate cumulative products of each ticker's performance, and more.
+At this point, we've set our DataFrame up in an optimally flexible state for later analysis. For example, we can quickly analyze ticker frequencies, calculate cumulative products of each ticker's performance, and so on.
 
 ## Calculating Beta
 
-Let's make a function to get the beta of one ticker against another over a one-year period, using daily returns data. It should be noted that using daily return values can create more statistical noise in the end-product, but I wanted to challenge myself to make a more microscopic version of this calculation.
+Let's make a function to get the beta of one ticker against another over a one-year period, using daily returns data. It should be noted that using daily return values can create more statistical noise in the end-product, but I wanted to challenge myself to make a more microscopic version of this calculation. As my dad used to say, *"Measure twice, cut once."*
 
-The function accepts a year, a ticker, and a benchmark ticker. We begin by downloading the daily price data for each ticker, and adding column on each of the two DataFrames which will use the `pct_change()` method to calculate daily returns.
+Our function accepts a year, a ticker, and a benchmark ticker. We begin by downloading the daily price data for each ticker, and adding a column onto each of the two DataFrames which will use the `pct_change()` method to calculate daily returns.
 
 ```python
 def beta_comparison(year, ticker_1, ticker_2):
