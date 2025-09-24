@@ -5,10 +5,10 @@ How I approach the yfinance library to construct base-level tools for later proj
 ## Overview
 
 Functionalities to build:
-    - Downloading stock data
-    - Calculating monthly returns
-    - Introducing return comparisons
-    - Calculating and comparing betas
+- Downloading stock data
+- Calculating monthly returns
+- Introducing return comparisons
+- Calculating and comparing betas
 
 ## Downloading Stock Data
 
