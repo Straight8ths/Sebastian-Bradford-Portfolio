@@ -68,6 +68,10 @@ Now, to return our final DataFrame, we filter our dates so that they match the r
 Let's see the final result;
 
 ```python
+print(download_data('AAPL', '2023-01-01', '2023-01-20'))
+```
+
+```python
 Price       Date  Year  Month  Day  Prev_Close        Open        High         Low       Close  Daily_Return     Volume
 0     2023-01-03  2023      1    3  128.123062  128.468194  129.079567  122.443165  123.330650     -0.037405  112117500
 1     2023-01-04  2023      1    4  123.330650  125.125343  126.870731  123.340517  124.602715      0.010314   89113600
