@@ -38,7 +38,7 @@ A second reason for the change has to do with return calculations. Later on, we 
 
 In our table, we offset our start date backward by 10 days to ensure that we can access the prior trading day (and account for any long weekends or holidays), and grab the close price of that day. Later on in the function, we will trim out these irrelevant dates.
 
-Next, we come to a philosophical choice to make: Even though the `download()` function is capable of handling multiple tickers worth of data, I am choosing to make this root-level function as simple and flat as possible, and restrict it to **one ticker at a time.** When it comes time to do analysis later on, I see it as a fair trade-off to have to call this simpler function multiple times, rather than wrestling with a more dense DataFrame.
+Next, we come to a philosophical choice to make: Even though the `download()` function is capable of handling multiple tickers' worth of data, I am choosing to make this root-level function as simple and flat as possible, and restrict it to **one ticker at a time.** When it comes time to do analysis later on, I see it as a fair trade-off to have to call this simpler function multiple times, rather than wrestling with a more dense DataFrame.
 
 To make these flattening adjustments, we use `droplevel()` to remove the index of ticker names, and reset the index.
 
