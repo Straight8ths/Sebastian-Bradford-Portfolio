@@ -241,8 +241,8 @@ Now, we loop through each of our 12 months, filter this DataFrame to isolate eac
 ```python
     for month in range(1, 13):
         month_data = all_returns[all_returns['Month'] == calendar.month_name[month]]
-        max_return = month_data.iloc[:, 2:-2].max(axis=1).values[0]
-        best_ticker = month_data.iloc[:, 2:-2].idxmax(axis=1).values[0]
+        max_return = month_data.iloc[:, 2:-2].max(axis=1).values
+        best_ticker = month_data.iloc[:, 2:-2].idxmax(axis=1).values
 ```
 
 Now, we insert each pair of values we find into the new columns we created earlier.
