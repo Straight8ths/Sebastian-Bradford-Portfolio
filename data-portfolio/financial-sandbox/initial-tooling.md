@@ -318,5 +318,6 @@ print("Beta value:", beta_comparison(2023, 'QQQ', 'SPY'))
 Beta value: 1.2570235860336603
 ```
 
-To verify this result, I did a manual calculation of this value in Excel using YahooFinance's web data, and got the same result within 0.005.
+To verify this result, I did a manual calculation of this value in Excel using YahooFinance's web data, and got the same result to within 0.005.
 
+> <img width="700" height="228" alt="Screenshot 2025-09-23 at 9 18 31 PM" src="https://github.com/user-attachments/assets/1a11793e-5a09-413f-b167-8ce8090fd721" />
