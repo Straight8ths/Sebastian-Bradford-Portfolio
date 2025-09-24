@@ -144,7 +144,9 @@ def monthly_return_single(year, ticker):
     df = download_data(ticker, f'{year-1}-12-01', f'{year}-12-31')
 ```
 
-**A note:** I am electing to use calculate returns on a close-to-close basis, so in effect, the final closing price of a given month will be treated as the open price for next month's return calculation. In order to accomplish this for a year spanning January to December, we need to include data from December of the previous year to make sure we get the close value from the final trading day of that year.
+**A note:** I am electing to use calculate returns on a close-to-close basis, so in effect, the final closing price of a given month will be treated as the open price for next month's return calculation. In order to accomplish this for a year spanning January to December, we need to include data from December of the previous year to make sure we get our first value for January.
+
+My main reason for this adjustment was the fact that the yfinance API uses the *adjusted close price* for each security by default, so by comparing two adjusted close prices, we can keep the scale of our analysis accurate.
 
 Next, we create a DataFrame that will hold the monthly return values, with columns for year, month, and return, as we would expect.
 
@@ -276,4 +278,45 @@ print(monthly_return_multi(2023, 'AAPL', 'MSFT', 'GOOGL'))
 ```
 
 From this, we've set our DataFrame into an optimally flexible state for later analysis. For example, we can quickly analyze ticker frequencies, calculate cumulative products of each ticker's performance, and more.
+
+## Calculating Beta
+
+Let's make a function to get the beta of one ticker against another over a one-year period, using daily returns data. It should be noted that using daily return values can create more statistical noise in the end-product, but I wanted to challenge myself to make a more microscopic version of this calculation.
+
+The function accepts a year, a ticker, and a benchmark ticker. We begin by downloading the daily price data for each ticker, and adding column on each of the two DataFrames which will use the `pct_change()` method to calculate daily returns.
+
+```python
+def beta_comparison(year, ticker_1, ticker_2):
+    df1 = download_data(ticker_1, f'{year}-01-01', f'{year}-12-31')
+    df2 = download_data(ticker_2, f'{year}-01-01', f'{year}-12-31')
+    df1['Return'] = df1['Close'].pct_change()
+    df2['Return'] = df2['Close'].pct_change()
+```
+
+Next, we merge these two DataFrames together by their dates, and use `dropna()` to remove the very first row of our data, which has a NaN value for its daily return.
+
+```python
+    merged = pd.merge(df1[['Date', 'Return']], df2[['Date', 'Return']], on='Date', suffixes=(f'_{ticker_1}', f'_{ticker_2}')).dropna()
+```
+
+Finally, we calculate the covariance between our return columns, as well as the variance of our benchmark's returns. We then divide these values and return the result.
+
+```python
+    covariance = np.cov(merged[f'Return_{ticker_1}'], merged[f'Return_{ticker_2}'])[0][1]
+    variance = np.var(merged[f'Return_{ticker_2}'])
+    beta = covariance / variance
+    return beta
+```
+
+Let's give this a test:
+
+```python
+print("Beta value:", beta_comparison(2023, 'QQQ', 'SPY'))
+```
+
+```python
+Beta value: 1.2570235860336603
+```
+
+To verify this result, I did a manual calculation of this value in Excel using YahooFinance's web data, and got the same result within 0.005.
 
