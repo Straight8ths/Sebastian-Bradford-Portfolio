@@ -1,6 +1,6 @@
 # Intraday Movement vs. Return
 
-Using yfinance to make short work of a visualization I used to do in Excel.
+Using `yfinance` and `pandas` to make short work of a visualization I used to do in Excel.
 
 ## Overview
 
