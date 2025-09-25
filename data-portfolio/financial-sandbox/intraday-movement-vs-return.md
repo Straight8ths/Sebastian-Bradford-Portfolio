@@ -4,7 +4,7 @@ Using yfinance to make short work of a visualization I used to do in Excel.
 
 ## Overview
 
-I was curious about the relationship between a security's intraday price movement (high-low) and its return for that day.
+I was curious about the relationship between a security's intraday price movement **(high-low as a percentage of open price)** and its return for that day.
 
 Imports:
 ```python
@@ -61,22 +61,24 @@ Price       Date  Year  Month  Day  Prev_Close       Open       High        Low 
 
 ## Visualization
 
-Now, let's expand our time range to the whole year of 2023, and visualize this data as a scatterplot between intraday movement and daily return. After creating our dataframe, we use matplotlib to house a scatterplot from Seaborn. Additional tweaks include adding a horizontal line at y=0 for reference, and adjusting the x-axis to show ticks at every 0.01 interval.
+Now, let's expand our time range to the whole year of 2023, and visualize this data as a scatterplot between intraday movement and daily return. After creating our dataframe, we summon a scatterplot from MatPlotLib and make some aesthetic adjustments. These include adding a horizontal line at y=0 for reference, and adjusting the x-axis to show ticks at every 0.01 interval.
 
 ```python
 data = download_data('NVDA', '2023-01-01', '2023-12-31')
 data['Intraday_Movement'] = (data['High'] - data['Low']) / data['Prev_Close']
 
-fig, ax = plt.subplots(figsize=(8, 9))
-ax = sns.scatterplot(data=data, x='Intraday_Movement', y='Daily_Return', ax=ax)
+fig, ax1 = plt.subplots(figsize=(8, 9))
+ax1.scatter(data['Intraday_Movement'], data['Daily_Return'], color='purple', alpha=0.6, edgecolors='w', s=100)
+
 plt.title('Intraday Movement vs. Daily Return for NVDA in 2023', fontsize=16, fontweight='bold', pad=20)
 plt.xlabel('Intraday Movement', fontsize=14)
 plt.ylabel('Daily Return', fontsize=14)
 plt.xticks(rotation=90, fontsize=10, color='grey')
-ax.xaxis.set_major_locator(MultipleLocator(0.01))
+ax1.xaxis.set_major_locator(MultipleLocator(0.01))
 plt.yticks(fontsize=10, color='grey')
 plt.axhline(0, color='black', linestyle='--')
 plt.fontfamily = 'monospace'
 plt.show()
 ```
 
+> <img width="600" height="646" alt="Screenshot 2025-09-25 at 8 05 32 AM" src="https://github.com/user-attachments/assets/c797a5a4-6fa6-45cc-be99-7fbd6ff00571" />
