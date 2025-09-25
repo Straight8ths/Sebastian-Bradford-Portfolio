@@ -1,4 +1,4 @@
-# Intraday Movement vs. Return
+## Intraday Movement vs. Return
 
 Using `yfinance` and `pandas` to make short work of a visualization I used to do in Excel.
 
@@ -96,5 +96,5 @@ Let's see the result:
 > <img width="600" height="604" alt="Screenshot 2025-09-25 at 8 27 41 AM" src="https://github.com/user-attachments/assets/ff506d61-6631-42e3-981a-e551da8a3757" />
 
 
-Fascinating! Let's explore another angle of visualization. Rather than plotting stocks against each other, let's construct a way to example one stock over multiple years. To do this, we will need to add a third axis to our scatterplot, select a range of years to measure, and use each year's scatterplot as a layer in our z-axis.
+Fascinating! Let's explore another angle of visualization. Rather than plotting stocks against each other, let's construct a way to examine one stock over multiple years. To do this, we will need to add a Z axis to our scatterplot, select a range of years to measure, and use each year's scatterplot as a different Z-layer.
 
