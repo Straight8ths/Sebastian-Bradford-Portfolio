@@ -43,8 +43,8 @@ Sure enough, a strict open-to-close return measurement actually shows a small lo
 To add our intraday price movement, we can use the base data from `download_data()` and add a column for the calculation. Let's stick with NVDA as our example stock.
 
 ```python
-data = download_data('NVDA', '2023-05-20', '2023-05-30')
-data['Intraday_Movement'] = (data['High'] - data['Low']) / data['Prev_Close']
+NVDA_data = download_data('NVDA', '2023-05-20', '2023-05-30')
+NVDA_data['Intraday_Movement'] = (NVDA_data['High'] - NVDA_data['Low']) / NVDA_data['Prev_Close']
 ```
 
 Let's see some example data from before and after the blowout data we mentioned earlier.
@@ -64,29 +64,30 @@ Price       Date  Year  Month  Day  Prev_Close       Open       High        Low 
 Now, let's expand our time range to the whole year of 2023, and visualize this data as a scatterplot between intraday movement and daily return. After creating our dataframe, we summon a scatterplot from MatPlotLib and make some aesthetic adjustments. These include adding a horizontal line at y=0 for reference, and adjusting the x-axis to show ticks at every 0.01 interval. Our points will be green, in keeping with NVDA's branding.
 
 ```python
-data = download_data('NVDA', '2023-01-01', '2023-12-31')
-data['Intraday_Movement'] = (data['High'] - data['Low']) / data['Prev_Close']
+NVDA_data = download_data('NVDA', '2023-01-01', '2023-12-31')
+NVDA_data['Intraday_Movement'] = (NVDA_data['High'] - NVDA_data['Low']) / NVDA_data['Prev_Close']
 
 fig, ax1 = plt.subplots(figsize=(8, 9))
-ax1.scatter(data['Intraday_Movement'], data['Daily_Return'], color='green', alpha=0.6, edgecolors='w', s=100)
+ax1.scatter(NVDA_data['Intraday_Movement'], NVDA_data['Daily_Return'], color='green', alpha=0.6, edgecolors='w', s=100)
 
-plt.title('Intraday Movement vs. Daily Return for NVDA in 2023', fontsize=16, fontweight='bold', pad=20)
+plt.title('Intraday Movement vs. Daily Return in 2023', fontsize=16, fontweight='bold', pad=20)
 plt.xlabel('Intraday Movement', fontsize=14)
 plt.ylabel('Daily Return', fontsize=14)
 plt.xticks(rotation=90, fontsize=10, color='grey')
 ax1.xaxis.set_major_locator(MultipleLocator(0.01))
 plt.yticks(fontsize=10, color='grey')
 plt.axhline(0, color='black', linestyle='--')
+plt.legend(['NVDA'], fontsize=12)
 plt.fontfamily = 'monospace'
 plt.show()
 ```
 
 >
 
-Interesting. Let's plot this data for a stock from another GICS sector, such as UnitedHealth Group (UNH). For convenience's sake, our code will be changed so that each stock's DataFrame is referred to by its ticker name. One we download our data for UNH, we add it to our scatterplot merely by calling `ax1.scatter()` again, and making our points blue to match UNH's logo.
+Interesting. Let's plot this data for a stock from another GICS sector, such as UnitedHealth Group (UNH). Once we download our data for UNH, we add it to our scatterplot merely by calling `ax1.scatter()` again, and making our points blue to match UNH's logo.
 
 ```python
-ax1.scatter(UNH['Intraday_Movement'], UNH['Daily_Return'], color='blue', alpha=0.6, edgecolors='w', s=100)
+ax1.scatter(UNH_data['Intraday_Movement'], UNH_data['Daily_Return'], color='blue', alpha=0.6, edgecolors='w', s=100)
 ```
 
 Let's see the result:
