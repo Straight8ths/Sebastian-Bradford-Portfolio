@@ -98,3 +98,38 @@ Let's see the result:
 
 Fascinating! Let's explore another angle of visualization. Rather than plotting stocks against each other, let's construct a way to example one stock over multiple years. To do this, we will need to add a third axis to our scatterplot, select a range of years to measure, and use each year's scatterplot as a layer in our z-axis.
 
+## The Third Dimension
+
+Fortunately, we only need to tweak a few parameters of our scatterplot to begin working with a 3D projection. Once we create our figure and subplot, we pass the parameter `projection='3d'` to the `add_subplot()` method. Next, we plot our data from each year of our choice. After creating and naming one DataFrame for each year of data, we write the scatterplots over each other, using the `year` value from each DataFrame as our range of z-values.
+
+```python
+fig = plt.figure(figsize=(8, 9))
+ax2 = fig.add_subplot(111, projection='3d')
+ax2.scatter(NVDA_data_2021['Intraday_Movement'], NVDA_data_2021['Daily_Return'], NVDA_data_2021['Year'], color='green', alpha=0.6, edgecolors='w')
+ax2.scatter(NVDA_data_2022['Intraday_Movement'], NVDA_data_2022['Daily_Return'], NVDA_data_2022['Year'], color='blue', alpha=0.6, edgecolors='w')
+ax2.scatter(NVDA_data_2023['Intraday_Movement'], NVDA_data_2023['Daily_Return'], NVDA_data_2023['Year'], color='red', alpha=0.6, edgecolors='w')
+```
+
+Next, we engineer our desired layout, which includes specifying our axis tick sizes, and adding a legend for clarity.
+
+```python
+ax2.set_title('Intraday Movement vs. Daily Return (2021-2023)', fontsize=16, fontweight='bold', pad=20)
+ax2.set_xlabel('Intraday Movement', fontsize=14)
+ax2.set_ylabel('Daily Return', fontsize=14)
+ax2.set_zlabel('Year', fontsize=14)
+ax2.xaxis.set_major_locator(MultipleLocator(0.01))
+ax2.yaxis.set_major_locator(MultipleLocator(0.01))
+ax2.zaxis.set_major_locator(MultipleLocator(1))
+plt.xticks(rotation=90, fontsize=10, color='grey')
+plt.yticks(fontsize=10, color='grey')
+plt.legend(['2021', '2022', '2023'], fontsize=12)
+plt.fontfamily = 'monospace'
+plt.show()
+```
+
+Let's plot the result and see what we have:
+
+> 
+
+Interesting! Because we chose such a volatile stock, we can see striking changes in the behavior of this dispersion over the years. For 2022 in particular, we see a wider dispersal of both x and y values, and that can definitely help give statistical context for how hard 2022 was for NVDA.
+
