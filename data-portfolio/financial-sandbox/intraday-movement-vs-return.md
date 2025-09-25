@@ -61,14 +61,14 @@ Price       Date  Year  Month  Day  Prev_Close       Open       High        Low 
 
 ## Visualization
 
-Now, let's expand our time range to the whole year of 2023, and visualize this data as a scatterplot between intraday movement and daily return. After creating our dataframe, we summon a scatterplot from MatPlotLib and make some aesthetic adjustments. These include adding a horizontal line at y=0 for reference, and adjusting the x-axis to show ticks at every 0.01 interval.
+Now, let's expand our time range to the whole year of 2023, and visualize this data as a scatterplot between intraday movement and daily return. After creating our dataframe, we summon a scatterplot from MatPlotLib and make some aesthetic adjustments. These include adding a horizontal line at y=0 for reference, and adjusting the x-axis to show ticks at every 0.01 interval. Our points will be green, in keeping with NVDA's branding.
 
 ```python
 data = download_data('NVDA', '2023-01-01', '2023-12-31')
 data['Intraday_Movement'] = (data['High'] - data['Low']) / data['Prev_Close']
 
 fig, ax1 = plt.subplots(figsize=(8, 9))
-ax1.scatter(data['Intraday_Movement'], data['Daily_Return'], color='purple', alpha=0.6, edgecolors='w', s=100)
+ax1.scatter(data['Intraday_Movement'], data['Daily_Return'], color='green', alpha=0.6, edgecolors='w', s=100)
 
 plt.title('Intraday Movement vs. Daily Return for NVDA in 2023', fontsize=16, fontweight='bold', pad=20)
 plt.xlabel('Intraday Movement', fontsize=14)
@@ -81,4 +81,17 @@ plt.fontfamily = 'monospace'
 plt.show()
 ```
 
-> <img width="600" height="646" alt="Screenshot 2025-09-25 at 8 05 32 AM" src="https://github.com/user-attachments/assets/c797a5a4-6fa6-45cc-be99-7fbd6ff00571" />
+>
+
+Interesting. Let's plot this data for a stock from another GICS sector, such as UnitedHealth Group (UNH). For convenience's sake, our code will be changed so that each stock's DataFrame is referred to by its ticker name. One we download our data for UNH, we add it to our scatterplot merely by calling `ax1.scatter()` again, and making our points blue to match UNH's logo.
+
+```python
+ax1.scatter(UNH['Intraday_Movement'], UNH['Daily_Return'], color='blue', alpha=0.6, edgecolors='w', s=100)
+```
+
+Let's see the result:
+
+>
+
+Fascinating! Let's explore another angle of visualization. Rather than plotting stocks against each other, let's construct a way to example one stock over multiple years. To do this, we will need to add a third axis to our scatterplot, select a range of years to measure, and use each year's scatterplot as a layer in our z-axis.
+
