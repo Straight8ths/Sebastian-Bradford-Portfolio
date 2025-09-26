@@ -69,7 +69,7 @@ def single_year_multi_tickers(year, *tickers):
 Next, we set up a for loop to iterate through our tickers and write each of their scatterplots onto the `ax1` object. Our for loop begins with creating a placeholder variable to store each stock's downloaded data, and then plots the scatterplot before looping again.
 
 ```python
- for ticker in tickers:
+    for ticker in tickers:
         df = download_data(ticker, f'{year}-01-01', f'{year}-12-31')
         ax1.scatter(df['Intraday_Movement'], df['Daily_Return'], alpha=0.7, edgecolors='w', s=100)
 ```
