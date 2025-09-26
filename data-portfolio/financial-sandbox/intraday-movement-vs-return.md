@@ -118,6 +118,10 @@ As we may have expected, UNH demonstrates far more stability with a more tighly 
 
 For one more demonstration, here is a four-way plot of securities with progressively larger volatilities: AGG, SPY, NVDA, and a 3x-leveraged QQQ fund.
 
+```python
+print(single_year_multi_tickers(2023, 'TQQQ', 'NVDA', 'SPY', 'AGG'))
+```
+
 > 
 
 Let's continue with another angle of this idea. Rather than plotting stocks against each other, let's construct a way to examine one stock over multiple years. To do this, we will need to add a Z axis to our scatterplot, select a range of years to measure, and use each year's scatterplot as a different Z-layer.
