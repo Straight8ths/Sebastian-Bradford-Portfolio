@@ -95,7 +95,6 @@ Let's pick NVDA as our stock of choice, and plot its data for 2023.
 ```python
 print(single_year_multi_tickers(2023, 'NVDA'))
 ```
-> <img width="600" height="668" alt="Screenshot 2025-09-25 at 5 50 34 PM" src="https://github.com/user-attachments/assets/3f9e629f-a121-4fc1-ae00-43fee8e7f98a" />
 
 Alright, we're off to a good start. It's interesting to observe the fan-shaped distribution, and how, broadly speaking, we can see higher intraday movement bringing higher-magnitude returns, whether positive or negative.
 
@@ -107,7 +106,6 @@ Let's take advantage of our multi-ticker capabilities and plot these two against
 print(single_year_multi_tickers(2023, 'NVDA', 'UNH'))
 ```
 
-> <img width="600" height="673" alt="Screenshot 2025-09-25 at 5 54 08 PM" src="https://github.com/user-attachments/assets/191dccf0-f1ad-4df2-b887-a2d0d7cd8573" />
 
 As we may have expected, UNH demonstrates far more stability with a more tighly packed distribution.
 
