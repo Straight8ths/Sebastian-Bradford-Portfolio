@@ -67,7 +67,7 @@ def single_year_multi_tickers(year, *tickers):
     fig, ax1 = plt.subplots(figsize=(8, 9))
 ```
 
-Next, we set up a for loop iterate through our ticker and write each of their scatterplots onto the `ax1` object. Our for loop begins with creating a placeholder variable to store each stock's downloaded data, and then plots the scatterplot before looping again.
+Next, we set up a for loop to iterate through our tickers and write each of their scatterplots onto the `ax1` object. Our for loop begins with creating a placeholder variable to store each stock's downloaded data, and then plots the scatterplot before looping again.
 
 ```python
  for ticker in tickers:
@@ -121,7 +121,7 @@ Let's explore another angle of this idea. Rather than plotting stocks against ea
 
 ## The Third Dimension
 
-To make this process more scale-invariant, I went back to my initial `download_data()` function and added a calculation for intraday movement, so that the calculation would be bundled in whenever the function was called. With that in mind, let's begin our plotting function. We first summon a figure and an axis object with a projection parameter of `3d`.
+We first summon a figure and an axis object with a projection parameter of `3d`.
 
 ```python
 def multi_year_single_ticker(start_year, end_year, ticker):
@@ -154,7 +154,7 @@ Now that the majority of the work is done, we adjust our axes, titling, and lege
     plt.show()
 ```
 
-Let's call this function for multiple years of NVDA data and see what we've got.
+Let's call this function for multiple years of NVDA data and see what we've got. Heads up: The graph will horizontally flip our x axis, in order to display ascending z-values from front to back.
 
 ```python
 print(multi_year_single_ticker(2021, 2023, 'NVDA'))
@@ -170,7 +170,7 @@ print(multi_year_single_ticker(2021, 2023, 'NVDA'))
 
 Fascinating! Our plots have worked as intended, and now we can see broader trends about the price action and return of this stock. For example, knowing that 2022 was a particularly hard year for NVDA, we can easily spot this in the plotted data by comparing the breadth of the year's clustering to the year before and after.
 
-For reference, here are the **individual** plots for each year, with the same color-coding.
+For reference, here are the **individual** plots for each year, with the same color-coding as the 3D plot.
 
 > <img width="500" height="555" alt="Screenshot 2025-09-25 at 6 16 57 PM" src="https://github.com/user-attachments/assets/d428e20b-6d40-4acf-989b-a7817f24b823" />
 
