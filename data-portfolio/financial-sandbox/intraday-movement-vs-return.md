@@ -122,7 +122,9 @@ For one more demonstration, here is a four-way plot of securities with progressi
 print(single_year_multi_tickers(2023, 'TQQQ', 'NVDA', 'SPY', 'AGG'))
 ```
 
-> 
+> <img width="500" height="567" alt="Screenshot 2025-09-26 at 2 27 40 AM" src="https://github.com/user-attachments/assets/ca8995c4-498c-49ef-88a5-f3e97fe223f9" />
+
+Dang...
 
 Let's continue with another angle of this idea. Rather than plotting stocks against each other, let's construct a way to examine one stock over multiple years. To do this, we will need to add a Z axis to our scatterplot, select a range of years to measure, and use each year's scatterplot as a different Z-layer.
 
