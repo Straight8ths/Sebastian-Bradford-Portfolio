@@ -128,7 +128,7 @@ def multi_year_single_ticker(start_year, end_year, ticker):
     ax1 = fig.add_subplot(111, projection='3d')
 ```
 
-Next, we use a for loop to download and plot the data for each year that was passed in. The first line inside the loop creates a variable with a standard naming convention of `{ticker}_data_{year}`, and the second line plots the scatterplot using the `eval()` function to read each string as an expression. The `globals()` function is used to account for differences in the scope we've established.
+Next, we use a for loop to download and plot the data for each year that was passed in. The first line inside the loop creates a variable with a standard naming convention of `{ticker}_data_{year}`, and the second line plots the scatterplot. The `globals()` function is used to account for differences in the scope we've established.
 
 ```python
     for year in range(start_year, end_year + 1):
