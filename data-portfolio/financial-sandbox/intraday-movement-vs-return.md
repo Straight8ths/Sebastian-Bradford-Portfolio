@@ -39,20 +39,26 @@ Sure enough, a strict open-to-close return measurement actually shows a small lo
 
 ## Process
 
-To add the intraday price movement, I went back and modified my `download_data()` function to include a calculation for intraday movement, which I am defining as `(high - low) / prev_close`. For future reference, here is the updated `download_data()` function:
+To add the intraday price movement, I went back and modified my `download_data()` function to include a calculation for intraday movement, which I am defining as `(high - low) / prev_close`. This brings up another important issue...
+
+Because I am using each day's prior close as the open value for that day, we have to calibrate our `high` and `low` readings accordingly. For example, under this method, there will be some instances created where the stated `high` for the day is now lower than the price we are treating as our `open`, which means that the true `high` value should be updated to be the max of (`high` and `previous_close`) for that day. The same goes for the `low` value, where our method will sometimes create instances where the stated `low` is actually higher than our `open`, and must be adjusted accordingly. After all, we cannot have days where our daily return is higher than the volatility experienced that day.
+
+For future reference, here is the updated `download_data()` function:
 
 ```python
 def download_data(ticker, start, end):
     df = yf.download(ticker, pd.Timestamp(start)-DateOffset(days=10), pd.Timestamp(end)+DateOffset(days=1))
     df.columns = df.columns.droplevel(1)
     df.reset_index(inplace=True)
+    df['Prev_Close'] = df['Close'].shift(1)
+    df['High'] = df[['High', 'Prev_Close']].max(axis=1) # Update the high column
+    df['Low'] = df[['Low', 'Prev_Close']].min(axis=1) # Update the low column
     df['Year'] = df['Date'].dt.year
     df['Month'] = df['Date'].dt.month
     df['Day'] = df['Date'].dt.day
-    df['Prev_Close'] = df['Close'].shift(1)
     df['Daily_Return'] = (df['Close'] / df['Prev_Close']) - 1
-    df['Intraday_Movement'] = (df['High'] - df['Low']) / df['Prev_Close'] # New column for intraday movement
-    df = df[df['Date'] >= start][['Date', 'Year', 'Month', 'Day', 'Prev_Close', 'Open', 'High', 'Low', 'Close', 'Intraday_Movement', 'Daily_Return', 'Volume']] # Adding the new column in the selection
+    df['Intraday_Movement'] = (df['High'] - df['Low']) / df['Prev_Close']
+    df = df[df['Date'] >= start][['Date', 'Year', 'Month', 'Day', 'Prev_Close', 'Open', 'High', 'Low', 'Close', 'Intraday_Movement', 'Daily_Return', 'Volume']]
     df.reset_index(drop=True, inplace=True)
     return df
 ```
@@ -99,8 +105,7 @@ Let's pick NVDA as our stock of choice, and plot its data for 2023.
 print(single_year_multi_tickers(2023, 'NVDA'))
 ```
 
-> <img width="500" height="561" alt="Screenshot 2025-09-25 at 6 27 30 PM" src="https://github.com/user-attachments/assets/a31e4056-d388-48cf-9958-91d16a59c7b7" />
-
+> 
 
 Alright, we're off to a good start. It's interesting to observe the fan-shaped distribution, and how, broadly speaking, we can see higher intraday movement bringing higher-magnitude returns, whether positive or negative.
 
@@ -112,7 +117,7 @@ Let's take advantage of our multi-ticker capabilities and plot these two against
 print(single_year_multi_tickers(2023, 'NVDA', 'UNH'))
 ```
 
-> <img width="500" height="555" alt="Screenshot 2025-09-25 at 6 26 20 PM" src="https://github.com/user-attachments/assets/0ce8ce04-6a72-4a1c-9e50-f7697b29ed58" />
+
 
 As we may have expected, UNH demonstrates far more stability with a more tighly packed distribution.
 
@@ -122,7 +127,7 @@ For one more demonstration, here is a four-way plot of securities with progressi
 print(single_year_multi_tickers(2023, 'TQQQ', 'NVDA', 'SPY', 'AGG'))
 ```
 
-> <img width="500" height="567" alt="Screenshot 2025-09-26 at 2 27 40 AM" src="https://github.com/user-attachments/assets/ca8995c4-498c-49ef-88a5-f3e97fe223f9" />
+
 
 Dang...
 
@@ -169,20 +174,9 @@ Let's call this function for multiple years of NVDA data and see what we've got.
 print(multi_year_single_ticker(2021, 2023, 'NVDA'))
 ```
 
-> <img width="500" height="528" alt="Screenshot 2025-09-25 at 5 14 32 PM" src="https://github.com/user-attachments/assets/47af9ea1-3f36-4ddb-9fa8-8c8ebea7185f" />
 
-> <img width="500" height="503" alt="Screenshot 2025-09-25 at 5 15 35 PM" src="https://github.com/user-attachments/assets/1d6459df-fe3a-4959-9a7e-e0b46ecb8559" />
-
-> <img width="500" height="501" alt="Screenshot 2025-09-25 at 5 16 38 PM" src="https://github.com/user-attachments/assets/3de36f58-820a-4112-8093-7d3022a65c23" />
-
-> <img width="500" height="502" alt="Screenshot 2025-09-25 at 5 17 15 PM" src="https://github.com/user-attachments/assets/7d1d5fd1-7a99-4d88-856a-f4f891c9be88" />
 
 Fascinating! Our plots have worked as intended, and now we can see broader trends about the price action and return of this stock. For example, knowing that 2022 was a particularly hard year for NVDA, we can easily spot this in the plotted data by comparing the breadth of the year's clustering to the year before and after.
 
 For reference, here are the **individual** plots for each year, with the same color-coding as the 3D plot.
 
-> <img width="500" height="555" alt="Screenshot 2025-09-25 at 6 16 57 PM" src="https://github.com/user-attachments/assets/d428e20b-6d40-4acf-989b-a7817f24b823" />
-
-> <img width="500" height="558" alt="Screenshot 2025-09-25 at 6 17 28 PM" src="https://github.com/user-attachments/assets/839ddfc9-1f31-43f6-800b-464033e168fa" />
-
-> <img width="500" height="558" alt="Screenshot 2025-09-25 at 6 17 44 PM" src="https://github.com/user-attachments/assets/cd924ac1-8dfa-4b44-abd5-98568adf993e" />
