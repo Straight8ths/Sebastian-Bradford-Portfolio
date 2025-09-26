@@ -131,7 +131,7 @@ def multi_year_single_ticker(start_year, end_year, ticker):
 Next, we use a for loop to download and plot the data for each year that was passed in. The first line inside the loop creates a variable with a standard naming convention of `{ticker}_data_{year}`, and the second line plots the scatterplot using the `eval()` function to read each string as an expression. The `globals()` function is used to account for differences in the scope we've established.
 
 ```python
-for year in range(start_year, end_year + 1):
+    for year in range(start_year, end_year + 1):
         globals()[f"{ticker}_data_{year}"] = download_data(ticker, f'{year}-01-01', f'{year}-12-31')
         ax1.scatter(globals()[f"{ticker}_data_{year}"]['Intraday_Movement'], globals()[f"{ticker}_data_{year}"]['Daily_Return'], globals()[f"{ticker}_data_{year}"]['Year'], alpha=0.6, edgecolors='w')
 ```
