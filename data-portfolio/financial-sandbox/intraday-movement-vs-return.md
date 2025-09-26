@@ -105,7 +105,8 @@ Let's pick NVDA as our stock of choice, and plot its data for 2023.
 print(single_year_multi_tickers(2023, 'NVDA'))
 ```
 
-> 
+> <img width="500" height="567" alt="Screenshot 2025-09-26 at 3 28 17 PM" src="https://github.com/user-attachments/assets/69362b4b-446d-476a-bccd-275b385d64a4" />
+
 
 Alright, we're off to a good start. It's interesting to observe the fan-shaped distribution, and how, broadly speaking, we can see higher intraday movement bringing higher-magnitude returns, whether positive or negative.
 
@@ -117,6 +118,7 @@ Let's take advantage of our multi-ticker capabilities and plot these two against
 print(single_year_multi_tickers(2023, 'NVDA', 'UNH'))
 ```
 
+> <img width="500" height="568" alt="Screenshot 2025-09-26 at 3 28 49 PM" src="https://github.com/user-attachments/assets/6cbc192e-a0e1-47ad-bb00-d529ee1bd3c3" />
 
 
 As we may have expected, UNH demonstrates far more stability with a more tighly packed distribution.
@@ -127,6 +129,7 @@ For one more demonstration, here is a four-way plot of securities with progressi
 print(single_year_multi_tickers(2023, 'TQQQ', 'NVDA', 'SPY', 'AGG'))
 ```
 
+> <img width="500" height="570" alt="Screenshot 2025-09-26 at 3 29 17 PM" src="https://github.com/user-attachments/assets/224ac5a9-745b-4900-bfff-14e926b7dec6" />
 
 
 Dang...
@@ -174,9 +177,21 @@ Let's call this function for multiple years of NVDA data and see what we've got.
 print(multi_year_single_ticker(2021, 2023, 'NVDA'))
 ```
 
+> <img width="500" height="513" alt="Screenshot 2025-09-26 at 3 30 00 PM" src="https://github.com/user-attachments/assets/88f65466-0b4b-47b0-b15b-16064f5bbf80" />
 
+> <img width="500" height="487" alt="Screenshot 2025-09-26 at 3 30 12 PM" src="https://github.com/user-attachments/assets/ea76ed71-a7c7-4a70-8bb2-322ec2cc2caa" />
+
+> <img width="500" height="495" alt="Screenshot 2025-09-26 at 3 30 43 PM" src="https://github.com/user-attachments/assets/9cc32d00-da88-4ba4-b36c-cc4ff321a346" />
+
+> <img width="500" height="520" alt="Screenshot 2025-09-26 at 3 31 07 PM" src="https://github.com/user-attachments/assets/5e3ee5da-4cd0-42af-95f8-a0c2e8f8bc23" />
 
 Fascinating! Our plots have worked as intended, and now we can see broader trends about the price action and return of this stock. For example, knowing that 2022 was a particularly hard year for NVDA, we can easily spot this in the plotted data by comparing the breadth of the year's clustering to the year before and after.
 
 For reference, here are the **individual** plots for each year, with the same color-coding as the 3D plot.
+
+> <img width="500" height="562" alt="Screenshot 2025-09-26 at 3 33 40 PM" src="https://github.com/user-attachments/assets/7105a1bb-6aee-4267-b586-2378ab77423e" />
+
+> <img width="500" height="561" alt="Screenshot 2025-09-26 at 3 35 33 PM" src="https://github.com/user-attachments/assets/09c9ccac-618b-4cd2-8ae1-29a2b558694f" />
+
+> <img width="500" height="563" alt="Screenshot 2025-09-26 at 3 35 45 PM" src="https://github.com/user-attachments/assets/186313d7-61fa-467c-959d-cb29e6e4f9a6" />
 
