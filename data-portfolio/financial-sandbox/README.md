@@ -9,5 +9,5 @@ A collection of various studies and experiments using financial data. My workhor
 - **Initial Tooling**
     - How I use the yfinance library to build my tools for later projects.
 
-- **Intraday Movement vs. Daily Returns**
+- **Intraday Movement vs. Return**
     - A study of high-low behavior and returns over time, visualized in 2D and 3D.
