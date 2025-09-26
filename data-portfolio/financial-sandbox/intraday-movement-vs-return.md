@@ -40,96 +40,125 @@ Sure enough, a strict open-to-close return measurement actually shows a small lo
 
 ## Process
 
-To add our intraday price movement, we can use the base data from `download_data()` and add a column for the calculation. Let's stick with NVDA as our example stock.
+To add the intraday price movement, I went back and modified my `download_data()` function to include a calculation for intraday movement, which I am defining as `(high - low) / prev_close`. For future reference, here is the updated `download_data()` function:
 
 ```python
-NVDA_data = download_data('NVDA', '2023-05-20', '2023-05-30')
-NVDA_data['Intraday_Movement'] = (NVDA_data['High'] - NVDA_data['Low']) / NVDA_data['Prev_Close']
-```
-
-Let's see some example data from before and after the blowout data we mentioned earlier.
-
-```python
-Price       Date  Year  Month  Day  Prev_Close       Open       High        Low      Close  Daily_Return      Volume  Intraday_Movement
-0     2023-05-22  2023      5   22   31.239779  30.877057  31.495579  30.656230  31.151846     -0.002815   372000000           0.026868
-1     2023-05-23  2023      5   23   31.151846  30.975983  31.263760  30.607270  30.664225     -0.015653   356253000           0.021074
-2     2023-05-24  2023      5   24   30.664225  30.186594  30.583288  29.782908  30.514341     -0.004888   721419000           0.026101
-3     2023-05-25  2023      5   25   30.514341  38.493152  39.449411  36.606614  37.950573      0.243696  1543911000           0.093163
-4     2023-05-26  2023      5   26   37.950573  37.860647  39.139654  37.520910  38.915829      0.025435   714397000           0.042654
-5     2023-05-30  2023      5   30   38.915829  40.563544  41.905502  39.918045  40.079918      0.029913   923401000           0.051071
+def download_data(ticker, start, end):
+    df = yf.download(ticker, pd.Timestamp(start)-DateOffset(days=10), pd.Timestamp(end)+DateOffset(days=1))
+    df.columns = df.columns.droplevel(1)
+    df.reset_index(inplace=True)
+    df['Year'] = df['Date'].dt.year
+    df['Month'] = df['Date'].dt.month
+    df['Day'] = df['Date'].dt.day
+    df['Prev_Close'] = df['Close'].shift(1)
+    df['Daily_Return'] = (df['Close'] / df['Prev_Close']) - 1
+    df['Intraday_Movement'] = (df['High'] - df['Low']) / df['Prev_Close'] # New column for intraday movement
+    df = df[df['Date'] >= start][['Date', 'Year', 'Month', 'Day', 'Prev_Close', 'Open', 'High', 'Low', 'Close', 'Intraday_Movement', 'Daily_Return', 'Volume']] # Adding the new column in the selection
+    df.reset_index(drop=True, inplace=True)
+    return df
 ```
 
 ## Visualization
 
-Now, let's expand our time range to the whole year of 2023, and visualize this data as a scatterplot between intraday movement and daily return. After creating our dataframe, we summon a scatterplot from MatPlotLib and make some aesthetic adjustments. These include adding a horizontal line at y=0 for reference, and adjusting the x-axis to show ticks at every 0.01 interval. Our points will be green, in keeping with NVDA's branding.
+We begin with a visualization for one stock. To do our future selves a favor, we will build the function to accept multiple tickers and overlay a scatterplot for each one, but at first we will analyze one only. We start with summoning a figure and axis object to store our data.
 
 ```python
-NVDA_data = download_data('NVDA', '2023-01-01', '2023-12-31')
-NVDA_data['Intraday_Movement'] = (NVDA_data['High'] - NVDA_data['Low']) / NVDA_data['Prev_Close']
-
-fig, ax1 = plt.subplots(figsize=(8, 9))
-ax1.scatter(NVDA_data['Intraday_Movement'], NVDA_data['Daily_Return'], color='green', alpha=0.6, edgecolors='w', s=100)
-
-plt.title('Intraday Movement vs. Daily Return in 2023', fontsize=16, fontweight='bold', pad=20)
-plt.xlabel('Intraday Movement', fontsize=14)
-plt.ylabel('Daily Return', fontsize=14)
-plt.xticks(rotation=90, fontsize=10, color='grey')
-ax1.xaxis.set_major_locator(MultipleLocator(0.01))
-plt.yticks(fontsize=10, color='grey')
-plt.axhline(0, color='black', linestyle='--')
-plt.legend(['NVDA'], fontsize=12)
-plt.fontfamily = 'monospace'
-plt.show()
+def single_year_multi_tickers(year, *tickers):
+    fig, ax1 = plt.subplots(figsize=(8, 9))
 ```
 
-> <img width="600" height="609" alt="Screenshot 2025-09-25 at 8 26 58 AM" src="https://github.com/user-attachments/assets/0cc42c7b-0920-4391-b167-0e8c846e52d0" />
-
-
-Interesting. Let's plot this data for a stock from another GICS sector, such as UnitedHealth Group (UNH). Once we download our data for UNH, we add it to our scatterplot merely by calling `ax1.scatter()` again, and making our points blue to match UNH's logo.
+Next, we set up a for loop iterate through our ticker and write each of their scatterplots onto the `ax1` object. Our for loop begins with creating a placeholder variable to store each stock's downloaded data, and then plots the scatterplot before looping again.
 
 ```python
-ax1.scatter(UNH_data['Intraday_Movement'], UNH_data['Daily_Return'], color='blue', alpha=0.6, edgecolors='w', s=100)
+ for ticker in tickers:
+        df = download_data(ticker, f'{year}-01-01', f'{year}-12-31')
+        ax1.scatter(df['Intraday_Movement'], df['Daily_Return'], alpha=0.7, edgecolors='w', s=100)
 ```
 
-Let's see the result:
+Next, we adjust our aesthetics and layout. Additional conveniences include a horizontal like at y=0 to separate gains from losses, as well as a legend that runs off of a list comprehension to make sure any number of tickers can be represented.
 
-> <img width="600" height="604" alt="Screenshot 2025-09-25 at 8 27 41 AM" src="https://github.com/user-attachments/assets/ff506d61-6631-42e3-981a-e551da8a3757" />
+```python
+    plt.title(f'Intraday Movement vs. Daily Return for {year}', fontsize=16, fontweight='bold', pad=20)
+    plt.xlabel('Intraday Movement', fontsize=14)
+    plt.ylabel('Daily Return', fontsize=14)
+    plt.xticks(rotation=90, fontsize=10, color='grey')
+    ax1.xaxis.set_major_locator(MultipleLocator(0.01))
+    plt.yticks(fontsize=10, color='grey')
+    plt.axhline(0, color='black', linestyle='--')
+    plt.legend([ticker for ticker in tickers], fontsize=12)
+    plt.fontfamily = 'monospace'
+    plt.show()
+```
 
+Let's pick NVDA as our stock of choice, and plot its data for 2023.
 
-Fascinating! Let's explore another angle of visualization. Rather than plotting stocks against each other, let's construct a way to examine one stock over multiple years. To do this, we will need to add a Z axis to our scatterplot, select a range of years to measure, and use each year's scatterplot as a different Z-layer.
+```python
+print(single_year_multi_tickers(2023, 'NVDA'))
+```
+
+Alright, we're off to a good start. It's interesting to observe the fan-shaped distribution, and how, broadly speaking, we can see higher intraday movement bringing higher-magnitude returns, whether positive or negative.
+
+Let's compare this against another stock. To demonstrate the breadth of this measurement, I picked a comparatively tamer stock from a different GICS sector, **UnitedHealth Group**.
+
+Let's take advantage of our multi-ticker capabilities and plot these two against each other for the same year.
+
+```python
+print(single_year_multi_tickers(2023, 'NVDA', 'UNH'))
+```
+
+As we may have expected, UNH demonstrates far more stability with a more tighly packed distribution.
+
+Let's explore another angle of this idea. Rather than plotting stocks against each other, let's construct a way to examine one stock over multiple years. To do this, we will need to add a Z axis to our scatterplot, select a range of years to measure, and use each year's scatterplot as a different Z-layer.
 
 ## The Third Dimension
 
-Fortunately, we only need to tweak a few parameters of our scatterplot to begin working with a 3D projection. Once we create our figure and subplot, we pass the parameter `projection='3d'` to the `add_subplot()` method. Next, we plot our data from each year of our choice. After creating and naming one DataFrame for each year of data, we write the scatterplots over each other, using the `year` value from each DataFrame as our range of z-values.
+To make this process more scale-invariant, I went back to my initial `download_data()` function and added a calculation for intraday movement, so that the calculation would be bundled in whenever the function was called. With that in mind, let's begin our plotting function. We first summon a figure and an axis object with a projection parameter of `3d`.
 
 ```python
-fig = plt.figure(figsize=(8, 9))
-ax2 = fig.add_subplot(111, projection='3d')
-ax2.scatter(NVDA_data_2021['Intraday_Movement'], NVDA_data_2021['Daily_Return'], NVDA_data_2021['Year'], color='green', alpha=0.6, edgecolors='w')
-ax2.scatter(NVDA_data_2022['Intraday_Movement'], NVDA_data_2022['Daily_Return'], NVDA_data_2022['Year'], color='blue', alpha=0.6, edgecolors='w')
-ax2.scatter(NVDA_data_2023['Intraday_Movement'], NVDA_data_2023['Daily_Return'], NVDA_data_2023['Year'], color='red', alpha=0.6, edgecolors='w')
+def multi_year_single_ticker(start_year, end_year, ticker):
+    fig = plt.figure(figsize=(8, 9))
+    ax1 = fig.add_subplot(111, projection='3d')
 ```
 
-Next, we engineer our desired layout, which includes specifying our axis tick sizes, and adding a legend for clarity.
+Next, we use a for loop to download and plot the data for each year that was passed in. The first line inside the loop creates a variable with a standard naming convention of `{ticker}_data_{year}`, and the second line plots the scatterplot using the `eval()` function to read each string as an expression. The `globals()` function is used to account for differences in the scope we've established.
 
 ```python
-ax2.set_title('Intraday Movement vs. Daily Return (2021-2023)', fontsize=16, fontweight='bold', pad=20)
-ax2.set_xlabel('Intraday Movement', fontsize=14)
-ax2.set_ylabel('Daily Return', fontsize=14)
-ax2.set_zlabel('Year', fontsize=14)
-ax2.xaxis.set_major_locator(MultipleLocator(0.01))
-ax2.yaxis.set_major_locator(MultipleLocator(0.01))
-ax2.zaxis.set_major_locator(MultipleLocator(1))
-plt.xticks(rotation=90, fontsize=10, color='grey')
-plt.yticks(fontsize=10, color='grey')
-plt.legend(['2021', '2022', '2023'], fontsize=12)
-plt.fontfamily = 'monospace'
-plt.show()
+for year in range(start_year, end_year + 1):
+        globals()[f"{ticker}_data_{year}"] = download_data(ticker, f'{year}-01-01', f'{year}-12-31')
+        ax1.scatter(globals()[f"{ticker}_data_{year}"]['Intraday_Movement'], globals()[f"{ticker}_data_{year}"]['Daily_Return'], globals()[f"{ticker}_data_{year}"]['Year'], alpha=0.6, edgecolors='w')
 ```
 
-Let's plot the result and see what we have:
+Now that the majority of the work is done, we adjust our axes, titling, and legend.
 
-> 
+```python
+    ax1.set_title(f'Intraday Movement vs. Daily Return for {ticker} - {start_year} to {end_year}', fontsize=12, fontweight='bold', pad=20)
+    ax1.set_xlabel('Intraday Movement', fontsize=10, labelpad=10)
+    ax1.set_ylabel('Daily Return', fontsize=10, labelpad=10)
+    ax1.set_zlabel('Year', fontsize=10, labelpad=10)
+    ax1.xaxis.set_major_locator(MultipleLocator(0.01))
+    ax1.yaxis.set_major_locator(MultipleLocator(0.01))
+    ax1.zaxis.set_major_locator(MultipleLocator(1))
+    plt.xticks(rotation=90, fontsize=8, color='grey')
+    plt.yticks(fontsize=8, color='grey')
+    plt.legend([f"{year}" for year in range(start_year, end_year + 1)], fontsize=10)
+    plt.fontfamily = 'monospace'
+    plt.show()
+```
 
-Interesting! Because we chose such a volatile stock, we can see striking changes in the behavior of this dispersion over the years. For 2022 in particular, we see a wider dispersal of both x and y values, and that can definitely help give statistical context for how hard 2022 was for NVDA.
+Let's call this function for multiple years of NVDA data and see what we've got.
 
+```python
+print(multi_year_single_ticker(2021, 2023, 'NVDA'))
+```
+
+>
+
+Fascinating! Our plots have worked as intended, and now we can see broader trends about the price action and return of this stock. For example, knowing that 2022 was a particularly hard year for NVDA, we can easily spot this in the plotted data by comparing the breadth of the year's clustering to the year before and after.
+
+For reference, here are the **individual** plots for each year, with the same color-coding.
+
+>
+
+>
+
+>
