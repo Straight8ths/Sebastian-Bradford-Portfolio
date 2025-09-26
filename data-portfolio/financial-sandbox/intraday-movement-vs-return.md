@@ -11,7 +11,6 @@ Imports:
 import yfinance as yf
 import matplotlib.pyplot as plt
 from matplotlib.ticker import MultipleLocator
-import seaborn as sns
 import pandas as pd
 import numpy as np
 import calendar
