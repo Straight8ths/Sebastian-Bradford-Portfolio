@@ -70,9 +70,9 @@ def single_year_multi_tickers(year, *tickers):
 Next, we set up a for loop iterate through our ticker and write each of their scatterplots onto the `ax1` object. Our for loop begins with creating a placeholder variable to store each stock's downloaded data, and then plots the scatterplot before looping again.
 
 ```python
- for ticker in tickers:
+    for ticker in tickers:
         df = download_data(ticker, f'{year}-01-01', f'{year}-12-31')
-        ax1.scatter(df['Intraday_Movement'], df['Daily_Return'], alpha=0.7, edgecolors='w', s=100)
+        ax1.scatter(df['Intraday_Movement'], df['Daily_Return'], alpha=0.7, color='green', edgecolors='w', s=100)
 ```
 
 Next, we adjust our aesthetics and layout. Additional conveniences include a horizontal like at y=0 to separate gains from losses, as well as a legend that runs off of a list comprehension to make sure any number of tickers can be represented.
@@ -95,6 +95,7 @@ Let's pick NVDA as our stock of choice, and plot its data for 2023.
 ```python
 print(single_year_multi_tickers(2023, 'NVDA'))
 ```
+> <img width="600" height="668" alt="Screenshot 2025-09-25 at 5 50 34 PM" src="https://github.com/user-attachments/assets/3f9e629f-a121-4fc1-ae00-43fee8e7f98a" />
 
 Alright, we're off to a good start. It's interesting to observe the fan-shaped distribution, and how, broadly speaking, we can see higher intraday movement bringing higher-magnitude returns, whether positive or negative.
 
@@ -106,13 +107,15 @@ Let's take advantage of our multi-ticker capabilities and plot these two against
 print(single_year_multi_tickers(2023, 'NVDA', 'UNH'))
 ```
 
+> <img width="600" height="673" alt="Screenshot 2025-09-25 at 5 54 08 PM" src="https://github.com/user-attachments/assets/191dccf0-f1ad-4df2-b887-a2d0d7cd8573" />
+
 As we may have expected, UNH demonstrates far more stability with a more tighly packed distribution.
 
 Let's explore another angle of this idea. Rather than plotting stocks against each other, let's construct a way to examine one stock over multiple years. To do this, we will need to add a Z axis to our scatterplot, select a range of years to measure, and use each year's scatterplot as a different Z-layer.
 
 ## The Third Dimension
 
-To make this process more scale-invariant, I went back to my initial `download_data()` function and added a calculation for intraday movement, so that the calculation would be bundled in whenever the function was called. With that in mind, let's begin our plotting function. We first summon a figure and an axis object with a projection parameter of `3d`.
+We start our plotting function by summoning a figure and an axis object with a projection parameter of `3d`.
 
 ```python
 def multi_year_single_ticker(start_year, end_year, ticker):
@@ -151,14 +154,18 @@ Let's call this function for multiple years of NVDA data and see what we've got.
 print(multi_year_single_ticker(2021, 2023, 'NVDA'))
 ```
 
->
+> <img width="600" height="634" alt="Screenshot 2025-09-25 at 5 14 32 PM" src="https://github.com/user-attachments/assets/bc43ff13-013c-474e-97c6-b815dbfd64ad" />
+
+> <img width="677" height="681" alt="Screenshot 2025-09-25 at 5 15 35 PM" src="https://github.com/user-attachments/assets/0bdf5cad-9b07-44ae-8473-2f6ea3a992a0" />
+
+> <img width="651" height="652" alt="Screenshot 2025-09-25 at 5 16 38 PM" src="https://github.com/user-attachments/assets/d4c391f0-3f7f-4f58-b45d-5636cb48a79a" />
 
 Fascinating! Our plots have worked as intended, and now we can see broader trends about the price action and return of this stock. For example, knowing that 2022 was a particularly hard year for NVDA, we can easily spot this in the plotted data by comparing the breadth of the year's clustering to the year before and after.
 
 For reference, here are the **individual** plots for each year, with the same color-coding.
 
->
+> <img width="751" height="833" alt="Screenshot 2025-09-25 at 6 16 57 PM" src="https://github.com/user-attachments/assets/65a03047-9c40-4a6a-9cb4-27815a8a6253" />
 
->
+> <img width="754" height="842" alt="Screenshot 2025-09-25 at 6 17 28 PM" src="https://github.com/user-attachments/assets/96436266-d52f-47a6-ae6f-2752cf2e0083" />
 
->
+> <img width="753" height="840" alt="Screenshot 2025-09-25 at 6 17 44 PM" src="https://github.com/user-attachments/assets/eb1e6c58-2e88-41e8-a299-092ba7a34e9f" />
