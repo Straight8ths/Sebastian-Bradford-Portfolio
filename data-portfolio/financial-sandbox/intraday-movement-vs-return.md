@@ -128,12 +128,12 @@ def multi_year_single_ticker(start_year, end_year, ticker):
     ax1 = fig.add_subplot(111, projection='3d')
 ```
 
-Next, we use a for loop to download and plot the data for each year that was passed in. The first line inside the loop creates a variable with a standard naming convention of `{ticker}_data_{year}`, and the second line plots the scatterplot. The `globals()` function is used to account for differences in the scope we've established.
+Next, we use a for loop to download and plot the data for each year that was passed in. The first line inside the loop creates a temporary DataFrame to house each year's data, and the second line plots it.
 
 ```python
     for year in range(start_year, end_year + 1):
-        globals()[f"{ticker}_data_{year}"] = download_data(ticker, f'{year}-01-01', f'{year}-12-31')
-        ax1.scatter(globals()[f"{ticker}_data_{year}"]['Intraday_Movement'], globals()[f"{ticker}_data_{year}"]['Daily_Return'], globals()[f"{ticker}_data_{year}"]['Year'], alpha=0.6, edgecolors='w')
+        df = download_data(ticker, f'{year}-01-01', f'{year}-12-31')
+        ax1.scatter(df['Intraday_Movement'], df['Daily_Return'], df['Year'], alpha=0.6, edgecolors='w')
 ```
 
 Now that the majority of the work is done, we adjust our axes, titling, and legend.
