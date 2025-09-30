@@ -4,7 +4,7 @@ Visualizing stock return trends in a peculiar way.
 
 ## Overview
 
-I was curious about visualizing many years of stock data in various condensed forms. One way that came to mind was to plot returns on a three-dimensional chart, where the x-component of the data was the twelve months of the year, the y-component was an ascending range of years, and the z-component was the monthly return for the intersection of each particular month and year.
+I was curious about visualizing many years of stock data in various condensed forms. One way that came to mind was to plot returns on a three-dimensional chart, where the x-component of the data was the twelve months of the year, the y-component was an ascending range of years, and the z-component was the monthly return for the intersection of each particular month and year. When viewed with multiple years' worth of data, the figures begin to resemble a city.
 
 ## Method
 
