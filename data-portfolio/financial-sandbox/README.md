@@ -11,3 +11,6 @@ A collection of various studies and experiments using financial data. My workhor
 
 - **Intraday Movement vs. Return**
     - A study of high-low behavior and returns over time, visualized in 2D and 3D.
+
+- **Stock Skylines**
+    - Visualizing stock return trends in a *peculiar* way.
