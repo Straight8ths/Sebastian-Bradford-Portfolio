@@ -8,7 +8,7 @@ I was curious about visualizing many years of stock data in various condensed fo
 
 ## Method
 
-We begin with some earlier functions that I wrote to find out monthly return data, and build from there. Our first function, `monthly_return_single_year`, takes a given year and ticker, and creates a 12-row dataframe showing the point-to-point returns for that month.
+We begin with some earlier functions that I wrote to find out monthly return data, and build from there. Our first function, `monthly_returns_single_year`, takes a given year and ticker, and creates a 12-row dataframe showing the point-to-point returns for each month.
 
 ```python
 def monthly_returns_single_year(year, ticker):
@@ -66,7 +66,7 @@ def monthly_returns_multi_year(start_year, end_year, ticker):
     return all_returns
 ```
 
-Let's see this applied to NVDA over two consecutive years.
+Let's see this applied to NVDA over **two** consecutive years.
 
 ```python
     Year  Month_Name Month_Number      NVDA
@@ -96,7 +96,7 @@ Let's see this applied to NVDA over two consecutive years.
 23  2024          12     December -0.028580
 ```
 
-Alrighty. This function will serve as the foundation for our plotting stage. We first create a DataFrame containing the range of monthly returns for our chosen ticker and years.
+This function will serve as the foundation for our plotting stage. We first create a DataFrame containing the range of monthly returns for our chosen ticker and years.
 
 ```python
 def plot_monthly_returns(start_year, end_year, ticker):
@@ -104,7 +104,7 @@ def plot_monthly_returns(start_year, end_year, ticker):
     df = monthly_returns_multi_year(start_year, end_year, ticker)
 ```
 
-Next, we initialize our figure and subplot, and configure it to be a `bar3d` plot. When we configure the barplot itself, we specify the relative size of our bars in the x and y axis, which I've chosen as 0.75 and 0.3, respectively. The height of our bars is set to show the monthly return from the `returns` column of our source DataFrame.
+Next, we initialize our figure and subplot, and configure it to have the `bar3d` style. When we configure the barplot itself, we specify the relative size of our bars in the x and y axis, which I've chosen as 0.75 and 0.3, respectively. The height of our bars is set to show the monthly return from the `returns` column of our source DataFrame.
 
 ```python
     fig = plt.figure(figsize=(8, 3))
@@ -112,7 +112,7 @@ Next, we initialize our figure and subplot, and configure it to be a `bar3d` plo
     ax1.bar3d(df['Month_Number'], df['Year'], np.zeros(len(df)), 0.75, 0.3, df[ticker]*100, color='lightsteelblue', shade=True)
 ```
 
-Finally, we add labels and specify the labeling of our axes how we desire.
+Finally, we add labels and specify the labeling of our axes as we desire.
 
 ```python
     ax1.set_xlabel('Month')
@@ -148,6 +148,6 @@ print(plot_monthly_returns(2020, 2023, 'AGG'))
 
 > <img width="500" height="498" alt="Screenshot 2025-09-30 at 1 25 35 AM" src="https://github.com/user-attachments/assets/fd6098cd-1922-48bb-8b94-9fa668f10228" />
 
-What I find most interesting about this "skyline" is the consistent challenges of the months of August through October, even over the span of **four years.**
+What I find most interesting about this "skyline" is the consistent challenges of the months of August through October, even across the span of **four years.**
 
 > <img width="500" height="636" alt="Screenshot 2025-09-30 at 1 26 05 AM" src="https://github.com/user-attachments/assets/b1c8a2b7-4364-40b6-8b0b-133f1a77b5f1" />
