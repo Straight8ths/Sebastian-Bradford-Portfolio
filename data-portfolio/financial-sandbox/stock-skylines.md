@@ -130,12 +130,11 @@ Let's run this for NVDA over a few years and see what we have.
 ```python
 print(plot_monthly_returns(2020, 2023, 'NVDA'))
 ```
+> <img width="500" height="497" alt="Screenshot 2025-09-30 at 1 34 07 AM" src="https://github.com/user-attachments/assets/691b778d-a15f-4ac4-9600-002eb8ca3f69" />
 
->
+> <img width="500" height="598" alt="Screenshot 2025-09-30 at 1 18 57 AM" src="https://github.com/user-attachments/assets/680d7975-e75e-45d8-98ca-d3558432b450" />
 
->
-
->
+> <img width="500" height="511" alt="Screenshot 2025-09-30 at 1 19 42 AM" src="https://github.com/user-attachments/assets/3d635972-5856-4060-8142-dcf18f3db5ed" />
 
 Interesting! Now that we have a visualization in front of us that looks very much like a grid of skyscrapers in a city, we can take this metaphor farther and examine this stock's behavior through a new, if unconventional, lens. For example, we could choose to compare the "skyline" of two different stocks and extract trends about their volatility and momentum, given the heights and positions of each "building" with respect to its neighbors.
 
@@ -145,6 +144,10 @@ Let's see the skyline for AGG.
 print(plot_monthly_returns(2020, 2023, 'AGG'))
 ```
 
->
+> <img width="500" height="504" alt="Screenshot 2025-09-30 at 1 25 08 AM" src="https://github.com/user-attachments/assets/4646ee12-3715-4ae5-939f-2c01c9172cbd" />
+
+> <img width="500" height="498" alt="Screenshot 2025-09-30 at 1 25 35 AM" src="https://github.com/user-attachments/assets/fd6098cd-1922-48bb-8b94-9fa668f10228" />
 
 What I find most interesting about this "skyline" is the consistent challenges of the months of August through October, even over the span of **four years.**
+
+> <img width="500" height="636" alt="Screenshot 2025-09-30 at 1 26 05 AM" src="https://github.com/user-attachments/assets/b1c8a2b7-4364-40b6-8b0b-133f1a77b5f1" />
