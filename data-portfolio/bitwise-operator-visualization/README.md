@@ -14,7 +14,7 @@ import pandas as pd
 import seaborn as sns
 ```
 
-We begin with creating a `DataFrame` to house a range of integers of our choosing, mimicking a cartesian grid. Our function will take in two arguments for a minimum and maximum value, and a third for the operation to perform.
+We begin with creating a `DataFrame` whose rows and columns contain a range of integers of our choosing. Our function will take in two arguments for a minimum and maximum value, and a third for the operation to perform.
 
 ```python
 def bitwise_table(min_term, max_term, operation):
@@ -22,9 +22,9 @@ def bitwise_table(min_term, max_term, operation):
     operation = operation.lower()
 ```
 
-Note that the `operation` argument is immediately converted to lowercase. This will allow our table-builder to handle word arguments as well as symbol arguments all in a standardized way.
+Note that the `operation` argument is immediately converted to lowercase. This will allow our DataFrame to handle word arguments as well as symbol arguments all in a standardized way.
 
-The table is then populated with a `match`-`case` tree. For each x-y pair, the results of their bitwise operation is stored at their intersection in the `DataFrame`.
+The DataFrame is then populated with a `match`-`case` tree. For each x-y pair, the result of their bitwise operation is stored at their intersection in the `DataFrame`.
 
 ```python
     match operation:
@@ -42,7 +42,7 @@ The table is then populated with a `match`-`case` tree. For each x-y pair, the r
     return table
 ```
 
-The function yields the following, for example:
+The function yields something like the following:
 
 ```python
 print(bitwise_table(0, 5, '&'))
@@ -62,7 +62,7 @@ Now we can turn our visualization into a heatmap using `seaborn`.
 
 ## Making a Heatmap
 
-Our heatmap function begins by generating a table using our function from earlier. We set `sort_index` to descending order so that our heatmap has the same orientation as a cartesian grid.
+Our heatmap function begins by generating a table using our function from earlier. We set `sort_index` to descending order so that our heatmap has the same orientation as a Cartesian grid.
 
 ```python
 def plot_bitwise_table(min_term, max_term, operation):
@@ -72,16 +72,16 @@ def plot_bitwise_table(min_term, max_term, operation):
 After that, it's mostly gravy with some simple formatting and labeling.
 
 ```python
-    fig = plt.figure()
+    fig = plt.figure(figsize=(10, 8))
     ax = fig.add_subplot(111)
     sns.heatmap(table, cmap='inferno', cbar_kws={'label':f'Bitwise {operation.upper()} Result'}, ax=ax)
     ax.set_title(f'Heatmap of Bitwise {operation.upper()} Operations from {min_term} to {max_term}', fontsize=14, color='black', fontweight='bold', pad=20)
     ax.set_xlabel('Operand 1', labelpad=10)
     ax.set_ylabel('Operand 2', labelpad=10)
     ax.tick_params(axis='x', rotation=90, labelsize=8, colors='grey')
-    ax.tick_params(axis='y', labelsize=8, color='grey')
+    ax.tick_params(axis='y', labelsize=8, colors='grey')
     plt.fontfamily = 'monospace'
-    
+
     plt.show()
     return
 ```
@@ -92,7 +92,8 @@ Let's see what we have so far, and generate a heatmap covering the range 0 to 10
 print(plot_bitwise_table(0, 100, '&'))
 ```
 
-RESULT:
+> <img width="600" height="525" alt="Screenshot 2025-11-07 at 12 11 46 AM" src="https://github.com/user-attachments/assets/e5d3febb-faf8-4901-a305-c4c2787c6513" />
+
 
 Fascinating! Given that fractals are seemingly baked into binary's nature, it's not surprising that we see another self-similar pattern here. However, one has to admire the sheer beauty of it regardless.
 
@@ -102,7 +103,8 @@ Let's see how the other two operations look when visualized this way. Let's do O
 print(plot_bitwise_table(0, 100, '|'))
 ```
 
-RESULT:
+> <img width="600" height="535" alt="Screenshot 2025-11-07 at 12 13 15 AM" src="https://github.com/user-attachments/assets/26771550-1d69-4023-8c42-664e5a480f7f" />
+
 
 Interesting... Due to OR being a more "permissive" operation than AND, we see many more high spots on our graph which persist as we ascend through larger and larger integers.
 
@@ -112,14 +114,15 @@ Finally, let's see XOR.
 print(plot_bitwise_table(0, 100, '^'))
 ```
 
-RESULT:
+> <img width="600" height="523" alt="Screenshot 2025-11-07 at 12 14 05 AM" src="https://github.com/user-attachments/assets/8d803ec2-b076-4e95-a06c-593e268853ab" />
+
 
 This set is my personal favorite. We would expect XOR to be the most "particular" about how its resulting bits are set, but in this visualization we see a neat "saddle" effect with a diagonal ridge running from low-x/high-y to high-x/low-y. In many of these cases, we see a high value produced from these pairings because one of the two operands lives on an entirely different power of two than the other, which means that the highest-order bits in the result are nearly guaranteed to be set due to the lack of overlap.
 
 For example:
 ```
 111110100 (500)
-000001011 (11)
+000001011 ( 11)
 -----XOR------
 111111111 (511)
 ```
@@ -133,7 +136,7 @@ We'll first set up the skeleton of our 3D plot by creating a variable to hold ou
 ```python
 def three_d_plot(min_term, max_term, operation):
     data = bitwise_table(min_term, max_term, operation).sort_index(ascending=True).values
-    fig = plt.figure()
+    fig = plt.figure(figsize=(10, 8))
     ax = fig.add_subplot(111, projection='3d')
 ```
 
@@ -161,22 +164,48 @@ We also set our axis labels, and adjust them to only display integer values.
     return
 ```
 
-Let's see the finished product, and graph the `AND` operation over the range of 0 to 500.
+Let's see the finished product, and graph the `AND` operation over the range of 0 to 100.
 
-RESULT:
+## AND operation
+
+```python
+print(three_d_plot(0, 100, '&'))
+```
+
+> <img width="600" height="531" alt="Screenshot 2025-11-07 at 12 15 40 AM" src="https://github.com/user-attachments/assets/0de7a4af-a406-40cc-8d2f-45700c13ccaa" />
+
+> <img width="600" height="408" alt="Screenshot 2025-11-07 at 12 15 50 AM" src="https://github.com/user-attachments/assets/e732b1e6-4b43-4a93-82a8-8c3c5110693e" />
+
+> <img width="600" height="554" alt="Screenshot 2025-11-07 at 12 15 59 AM" src="https://github.com/user-attachments/assets/b501bea4-7a07-49ae-b54a-94b5b57f5c1b" />
+
+> <img width="600" height="481" alt="Screenshot 2025-11-07 at 12 16 18 AM" src="https://github.com/user-attachments/assets/3fc1a6f7-5b35-431b-beaf-db88bd36377e" />
 
 Dang! Who'd have thought we would get a Sierpinski-like structure out of this?
 
 How does `OR` look by comparison?
 
-RESULT:
+## OR operation
+
+> <img width="600" height="493" alt="Screenshot 2025-11-07 at 12 18 56 AM" src="https://github.com/user-attachments/assets/1b664886-943e-4ea6-a113-72c500bdc33c" />
+
+> <img width="600" height="563" alt="Screenshot 2025-11-07 at 12 19 05 AM" src="https://github.com/user-attachments/assets/2ef8b0e5-f411-44a9-b8e3-d58b6e291910" />
+
+> <img width="600" height="389" alt="Screenshot 2025-11-07 at 12 19 14 AM" src="https://github.com/user-attachments/assets/848ef529-09fb-4b69-b2b3-26bb7c80ec16" />
 
 Interesting. As we might have predicted, `OR` allows for a result set with generally higher values than `AND`, which means we will ascend to higher z-values more quickly, and stay there.
 
 How about the 3D graph for `XOR`?
 
-RESULT:
+## XOR operation
+
+> <img width="600" height="567" alt="Screenshot 2025-11-07 at 12 22 28 AM" src="https://github.com/user-attachments/assets/fcf52bd6-ca36-4896-a2e1-d9cc15fbf7b4" />
+
+> <img width="600" height="520" alt="Screenshot 2025-11-07 at 12 22 39 AM" src="https://github.com/user-attachments/assets/9f33f477-49aa-470d-97d1-9ec58f9ed845" />
+
+> <img width="600" height="576" alt="Screenshot 2025-11-07 at 12 23 38 AM" src="https://github.com/user-attachments/assets/049c50c8-9951-4187-9afd-f1d166afc5a7" />
+
+> <img width="600" height="399" alt="Screenshot 2025-11-07 at 12 23 20 AM" src="https://github.com/user-attachments/assets/8ff94eb3-3a75-457b-8b6b-0f3afacd3aab" />
 
 Sure enough, we see a 3D view of the saddle shape we saw earlier.
 
-Despite the relative simplicity of bitwise operations, it's fascinating how quickly we can encounter complex behavior.
+Despite the relative simplicity of bitwise operations, it's fascinating how quickly we can encounter complex behavior with everyday visualizations. Stay tuned for future exhibits where I graphically demonstrate the behavior and relationships of other mathematical ideas.
