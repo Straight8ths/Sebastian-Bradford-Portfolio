@@ -38,7 +38,7 @@ The DataFrame is then populated with a `match`-`case` tree. For each x-y pair, t
             for i in range(min_term, max_term + 1):
                 table.loc[i] = [(i ^ j) for j in range(min_term, max_term + 1)]
         case _:
-            print("Unsupported operation. Use one of the following: '&/and', '|/or', '^/xor'.")
+            print("Unsupported operation. Use one of the following: '&', 'and', '|', 'or', '^', 'xor'.")
     return table
 ```
 
