@@ -4,6 +4,9 @@ Exploring data manipulation, interpretation, and storytelling. Work done in Pyth
 
 ## **Contents**
 
+- **[Bitwise Operator Visualization](bitwise-operator-visualization)**
+    - Towards a visual method for understanding binary operations.
+
 - **[Conditional Formatting as an Art Engine](conditional-formatting-as-an-art-engine)**
     - Using Excel's surprisingly powerful conditional formatting engine to make algorithmic art.
 
